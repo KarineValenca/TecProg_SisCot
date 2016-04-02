@@ -1,0 +1,31 @@
+* *Archive Name: ConnectionDB.java
+----------------------------------------------------------------------
+
+* Atribute Name: connectionWithDataBase
+* Atribute Description: This attribute is used to try to stablish a connection database.
+
+* Atribute Name: dataBase
+* Atribute Description: This attribute is used to test if a connection database already exist. If doesn't the variable is used to creates a ConnectionDB instance 
+.
+* Atribute Name: url
+* Atribute Description: This attribute is the database URL (Uniform Resource Locator).
+
+* Atribute Name: dbName
+* Atribute Description: This attribute is is the database name.
+
+* Atribute Name: userName
+* Atribute Description: This attribute is the database user.
+
+* Atribute Name: password
+* Atribute Description: This attribute is the database password.
+----------------------------------------------------------------------
+
+* Method Name: ConnectionDB
+* Method Description: This constructor method creates a new connection with the database
+
+* Method Name: getConnection
+* Method Description: This method enables the creation of a single connection if it does not already exist.
+-----------------------------------------------------------------------
+
+* Class Name: ConnectionDB
+* Class Description: This class is responsible for create a single connection to the database
