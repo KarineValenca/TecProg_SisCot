@@ -1,0 +1,31 @@
+* *Archive Name: Manager.java
+----------------------------------------------------------------------
+
+* Atribute Name: managerUsername
+* Atribute Description: This attribute is used to criate the managerUserName object.
+
+* Atribute Name: managerPassword
+* Atribute Description: This attribute is used to criate the managerPassword object.
+----------------------------------------------------------------------
+
+* Method Name: Manager
+* Method Description: This method is an empty constructor method 
+
+* Method Name: Manager
+* Method Description: This method is the constructor method of the class.
+
+* Method Name: getManagerUsername
+* Method Description: This method is create to verify the manager user name.
+
+* Method Name: setManagerUsername
+* Method Description: This method is create to modify the manager user name.
+
+* Method Name: getManagerPassword
+* Method Description: This method is create to verify the manager password.
+
+* Method Name: setManagerPassword
+* Method Description: This method is create to modify the manager password.
+-----------------------------------------------------------------------
+
+* Class Name: Manager
+* Class Description: This class is responsible for defines the atttibutes of a manager.
