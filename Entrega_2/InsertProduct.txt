@@ -1,0 +1,50 @@
+* *Archive Name: InsertProduct.java
+----------------------------------------------------------------------
+
+* Atribute Name: serialVersionUID
+* Atribute Description: This attribute is a serialization version identifier the class.
+
+* Atribute Name: request
+* Atribute Description: This attribute represent the HTTP request that a browser sends to the application.
+
+* Atribute Name: response
+* Atribute Description: This attribute represent the HTTP response that the application sends to a browser.
+
+* Atribute Name: messageAddConfirmation
+* Atribute Description: This attribute is used to call the  messageHandling method. String type.
+
+* Atribute Name: nameProduct
+* Atribute Description: This attribute is used to call the request.getParameter method. String type. Get name of the IncludeProducView. Parameter of the method insertProduct.
+
+* Atribute Name: wasAdd
+* Atribute Description: This attribute is used to call the insertProduct method. Integer type. Get description of the IncludeProducView. Parameter of the method messageHandling.
+
+* Atribute Name: rd
+* Atribute Description: This attribute is used for including content in a request/response or forwarding a request/response to a resource.
+
+* Atribute Name: daoWasAdd
+* Atribute Description: This attribute is used to call the productdao.insertProduct method. Boolean type.
+
+* Atribute Name: product
+* Atribute Description: This attribute is a Product instance. Parameter of the productdao.insertProduct method.			
+
+* Atribute Name: productdao
+* Atribute Description: This attribute is a ProductDAO instance.
+----------------------------------------------------------------------
+
+* Method Name: InsertProduct
+* Method Description: This method is a constructor method of the class. Responsible to create a new product.
+
+* Method Name: service
+* Method Description: This method is responsible for, using the RequestDispatcher objetc, acess the ProductsResponse views pages, according to the requested action.  
+
+* Method Name: insertProduct
+* Method Description: This method is add the new product into the database and verify if the product was add successfully. 	
+
+* Method Name: messageHandling
+* Method Description: This method is responsible to show a message for the product addition.
+-----------------------------------------------------------------------
+
+* Class Name: InsertProduct
+* Class Description: This class is responsible to include a product.
+
