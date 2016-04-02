@@ -1,0 +1,40 @@
+* *Archive Name: ReportProvider.java
+----------------------------------------------------------------------
+
+* Atribute Name: providerName
+* Atribute Description: This attribute is used to criate the providerName object. Represents the provider name. String type.
+
+* Atribute Name: products
+* Atribute Description: This attribut is a parameter of ReportProvider method. ArrayList of product type.
+
+* Atribute Name: quotation
+* Atribute Description: This attribut is a parameter of ReportProvider method. Quotation type.
+
+ Atribute Name: totalPrice
+* Atribute Description: This attribut is a parameter of ReportProvider method. Double Type.
+
+* Atribute Name: reportdao
+* Atribute Description: This attribut is a ReportDAO instance. 
+
+* Atribute Name: listProducts
+* Atribute Description: This attribut is used to call the reportdao.listProductsProvider method.
+
+* Atribute Name: listProviders
+* Atribute Description: This attribut is used to call the reportdao.listProvidersProvider method.
+
+* Atribute Name: listPrice
+* Atribute Description: This attribut is used to call the reportdao.listPriceProvider method.
+
+* Atribute Name: productsForProvider
+* Atribute Description: This attribut is an ArrayList used to store the products, providers and prices lists.
+----------------------------------------------------------------------
+
+* Method Name: ReportProvider
+* Method Description: This method is a constructor method.
+
+* Method Name: showProducts
+* Method Description: This method stablish the lists that will show in a report provider: products, providers and prices lists.
+-----------------------------------------------------------------------
+
+* Class Name: ReportProvider
+* Class Description: This class is a extension of Report class. Responsible for stablish what will show in a report provider.
