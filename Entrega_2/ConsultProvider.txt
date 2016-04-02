@@ -1,0 +1,25 @@
+** *Archive Name: ConsultProvider.java
+-------------------
+* Attribute Name: serialVersionUID
+* Attribute Description: this attribute is a serialization version identifier the class
+
+* Attribute Name: request
+* Attribute Description: this attribute is used to represent the HTTP request that a browser sends to the application
+
+* Attribute Name: response
+* Attribute Description: this attribute is used to represent the HTTP response that the application sends to a browser.
+
+* Attribute Name: providerList
+* Attribute Description: this arraylist of Provider type is used to get all providers that the method listProviders returns.
+
+* Attribute Name: providerDao
+* Attribute Description: this attribute is a instance of ProvicerDao
+
+* Attribute Name: rd
+* Attribute Description: this attribute allows for including content in a request/response or forwarding a request/response to a resource
+-------------------------------
+* Method Name: service 
+* Method Description: by this method a consult at database is done and the providers list is obtained 
+-------------------------------
+* Class Name: ConsultProvider
+* Class Description: This class is used to do a consult at providers data, and get a list of this providers
