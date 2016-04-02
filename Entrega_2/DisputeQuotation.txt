@@ -1,0 +1,55 @@
+* *Archive Name: DisputeQuotation.java
+----------------------------------------------------------------------
+
+* Atribute Name: serialVersionUID
+* Atribute Description: This attribute is a serialization version identifier the class.
+
+* Atribute Name: request
+* Atribute Description: This attribute represent the HTTP request that a browser sends to the application.
+
+* Atribute Name: response
+* Atribute Description: This attribute represent the HTTP response that the application sends to a browser.
+
+* Atribute Name: teste
+* Atribute Description: This attribute is used to call the request.getParameterNames method. Enumeration string type.
+
+* Atribute Name: products
+* Atribute Description: This attribute is a string type ArrayList instance.
+
+* Atribute Name: priceOfProducts
+* Atribute Description: This attribute is a double type ArrayList instance.
+
+* Atribute Name: providerName
+* Atribute Description: This attribute is used to call the Login.getProviderNameFromSession method. Provider name of login.
+
+* Atribute Name: quotationId
+* Atribute Description: This attribute is used to call the request.getParameter method. Quotation unique identifier in string format.
+
+* Atribute Name: integerQuotationId
+* Atribute Description: This attribute is used to call the Integer.parseInt method.  Quotation unique identifier in integer format.
+
+* Atribute Name: priceOfProduct
+* Atribute Description: This attribute is used to call the request.getParameter method.
+
+* Atribute Name: currentProduct
+* Atribute Description: This attribute is used to call the teste.nextElement method.
+
+* Atribute Name: currentProductValue
+* Atribute Description: This attribute is used to call the Double.parseDouble methood.
+
+* Atribute Name: quotationdao
+* Atribute Description: This attribute is a QuotationDAO instance.
+
+* Atribute Name: rd
+* Atribute Description: This attribute is used for including content in a request/response or forwarding a request/response to a resource.
+----------------------------------------------------------------------
+
+* Method Name: DisputeQuotation
+* Method Description: This method is a constructor method of the class. 
+
+* Method Name: service
+* Method Description: This method is responsible for get the provider name, the quotation id and create products and price products list.
+-----------------------------------------------------------------------
+
+* Class Name: DisputeQuotation
+* Class Description: This class is responsible for and, using the RequestDispatcher objetc, acess the index views pages.
