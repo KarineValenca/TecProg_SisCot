@@ -1,0 +1,49 @@
+* *Archive Name: SecurityProvider.java
+----------------------------------------------------------------------
+
+* Atribute Name: request
+* Atribute Description: This attribute represent the HTTP request that a browser sends to the application.
+
+* Atribute Name: response
+* Atribute Description: This attribute represent the HTTP response that the application sends to a browser.
+
+* Atribute Name: chain
+* Atribute Description: This attribute is a parameter of the doFilter method.
+
+* Atribute Name: session
+* Atribute Description: This attribute is used to call the req.getSession method.
+
+* Atribute Name: url
+* Atribute Description: This attribute is used to call the req.getRequestURL method and turns it in a string format.
+
+* Atribute Name: isSession
+* Atribute Description: This attribute is used to call the session.getAttribute to verify the user.
+
+* Atribute Name: requestIsIndex
+* Atribute Description: This attribute is used to verify if the url is equals to http://localhost:8080/SisCot/.
+
+* Atribute Name: rd
+* Atribute Description: This attribute is used for including content in a request/response or forwarding a request/response to a resource.
+
+* Atribute Name: fConfig
+* Atribute Description: This attribute is a parameter of the init method.
+----------------------------------------------------------------------
+
+* Method Name: SecurityProvider
+* Method Description: This method is a constructor method of the class.
+
+* Method Name: destroy
+* Method Description: This method is a filter destroy. (Epmty method)
+
+* Method Name: doFilter
+* Method Description: This method is responsible to Verify if the current user have a session setted.
+
+* Method Name: setSession
+* Method Description: This method set a session. 
+
+* Method Name: init
+* Method Description: This method is a filter init. (Epmty method)
+-----------------------------------------------------------------------
+
+* Class Name: SecurityProvider
+* Class Description: This class is a implementation of Filter interface class.
