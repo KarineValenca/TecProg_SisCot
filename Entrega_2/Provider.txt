@@ -1,0 +1,118 @@
+* *Archive Name: Provider.java
+----------------------------------------------------------------------
+* Attribute Name: providerCnpj
+* Attribute Description: It is of type string. Corresponds to cnpj provider identifier.
+
+* Attribute Name: providerName
+* Attribute Description: It is of type string. Corresponds to the provider name.
+
+* Attribute Name: providerEmail
+* Attribute Description: It is of type string. Corresponds to the e mail provider.
+
+* Attribute Name: providerPassword
+* Attribute Description: It is of type string. Matches the password provider account.
+
+* Attribute Name: providerDdd
+* Attribute Description: It is of type int. Ddd corresponds to the provider's number.
+
+* Attribute Name: providerPhone
+* Attribute Description: It is of type int. Matches the provider phone.
+
+* Attribute Name: providerAdress
+* Attribute Description: It is of type string. Corresponds to the address of the provider.
+
+* Attribute Name: providerCity
+* Attribute Description: It is of type string. Corresponds to city provider.
+
+* Attribute Name: providerState
+* Attribute Description: It is of type string. Corresponds to the state of the supplier's city.
+
+* Attribute Name: providerZip
+* Attribute Description: It is of type int. Corresponds to the ZIP code of the address of the supplier.
+
+* Attribute Name: authorized
+* Attribute Description: It is of type boolean. Corresponding authorization for the provider to act in the system and is made by a manager.
+----------------------------------------------------------------------
+
+	private String providerCnpj;
+	private String providerName;
+	private String providerEmail;
+	private String providerPassword;
+	private int providerDdd;
+	private int providerPhone;
+	private String ProviderAdress;
+	private String ProviderCity;
+	private String ProviderState;
+	private int ProviderZip;
+	private boolean authorized;
+
+
+* Method Name: getProviderCnpj
+* Method Description: This method gets the attribute ProviderCnpj.
+
+* Method Name: setProviderCnpj
+* Method Description: This method set the attribute ProviderCnpj.
+
+* Method Name: getProviderName
+* Method Description: This method gets the attribute ProviderName.
+
+* Method Name: setProviderName
+* Method Description: This method set the attribute ProviderName.
+
+* Method Name: getProviderEmail
+* Method Description: This method gets the attribute ProviderEmail.
+
+* Method Name: setProviderEmail
+* Method Description: This method sets the attribute ProviderEmail.
+
+* Method Name: getProviderPassword
+* Method Description: This method gets the attribute ProviderPassword.
+
+* Method Name: setProviderPassword
+* Method Description: This method sets the attribute ProviderPassword.
+
+* Method Name: getProviderDdd
+* Method Description: This method gets the attribute ProviderDdd.
+
+* Method Name: setProviderDdd
+* Method Description: This method sets the attribute ProviderDdd.
+
+* Method Name: getProviderPhone
+* Method Description: This method gets the attribute ProviderPhone.
+
+* Method Name: setProviderPhone
+* Method Description: This method sets the attribute ProviderPhone.
+
+* Method Name: getProviderAdress
+* Method Description: This method gets the attribute ProviderAdress.
+
+* Method Name: setProviderAdress
+* Method Description: This method sets the attribute ProviderAdress.
+
+* Method Name: getProviderCity
+* Method Description: This method gets the attribute ProviderCity.
+
+* Method Name: setProviderCity
+* Method Description: This method sets the attribute ProviderCity.
+
+* Method Name: getProviderState
+* Method Description: This method gets the attribute ProviderState.
+
+* Method Name: setProviderState
+* Method Description: This method sets the attribute ProviderState.
+
+* Method Name: getProviderZip
+* Method Description: This method gets the attribute ProviderZip.
+
+* Method Name: setProviderZip
+* Method Description: This method sets the attribute ProviderZip.
+
+* Method Name: getAuthorized
+* Method Description: This method gets the attribute Authorized.
+
+* Method Name: setAuthorized
+* Method Description: This method sets the attribute Authorized.
+-----------------------------------------------------------------------
+
+* Class Name: Provider
+* Class Description: Responsible for modeling the providers.
