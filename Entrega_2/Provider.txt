@@ -34,19 +34,6 @@
 * Attribute Description: It is of type boolean. Corresponding authorization for the provider to act in the system and is made by a manager.
 ----------------------------------------------------------------------
 
-	private String providerCnpj;
-	private String providerName;
-	private String providerEmail;
-	private String providerPassword;
-	private int providerDdd;
-	private int providerPhone;
-	private String ProviderAdress;
-	private String ProviderCity;
-	private String ProviderState;
-	private int ProviderZip;
-	private boolean authorized;
-
-
 * Method Name: getProviderCnpj
 * Method Description: This method gets the attribute ProviderCnpj.
 

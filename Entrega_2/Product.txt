@@ -1,0 +1,36 @@
+* *Archive Name: Product.java
+----------------------------------------------------------------------
+
+* Attribute Name: productName
+* Attribute Description: It is of type string. Corresponds to the product name.
+
+* Attribute Name: productPrice
+* Attribute Description: It is of type double. Corresponds to the price of the product.
+
+* Attribute Name: productProvider
+* Attribute Description: It is of type provider. Corresponds to the product provider.
+----------------------------------------------------------------------
+
+* Method Name: getProductName
+* Method Description: This method gets the attribute ProductName.
+
+* Method Name: setProductName
+* Method Description: This method set the attribute ProductName.
+
+
+* Method Name: getProductPrice
+* Method Description: This method gets the attribute ProductPrice.
+
+* Method Name: setProductPrice
+* Method Description: This method set the attribute ProductPrice.
+
+
+* Method Name: getProductProvider
+* Method Description: This method gets the attribute ProductProvider.
+
+* Method Name: setProductProvider
+* Method Description: This method set the attribute ProductProvider.
+-----------------------------------------------------------------------
+
+* Class Name: Product
+* Class Description: Responsible for modeling the products.
