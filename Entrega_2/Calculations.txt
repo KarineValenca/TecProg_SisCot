@@ -1,0 +1,11 @@
+** *Archive Name: Calculations.java
+-------------------
+* Attribute Name: epsilon
+* Attribute Description: This attribute is receiving numerical values of small amounts tendency to zero.
+
+-------------------------------
+* Method Name: formatDecimal
+* Method Description: This method modify the format of a value to decimal.
+-------------------------------
+* Class Name: Calculations
+* Class Description: This is a class of computations which has as main task to modify the format of a value to decimal.
