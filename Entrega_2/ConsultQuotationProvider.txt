@@ -1,0 +1,28 @@
+** *Archive Name: ConsultQuotationProvider.java
+---------------------------------
+* Attribute Name: serialVersionUID
+* Attribute Description: this attribute is a serialization version identifier the class
+
+* Attribute Name: request
+* Attribute Description: this attribute is used to represent the HTTP request that a browser sends to the application
+
+* Attribute Name: response
+* Attribute Description: this attribute is used to represent the HTTP response that the application sends to a browser
+
+* Attribute Name: quotationList
+* Attribute Description: this attribute is an arrayList of Quotation type, and is used to used to get all quotations in database
+
+* Attribute Name: rd
+* Attribute Description: this attribute allows for including content in a request/response or forwarding a request/response to a resource
+
+* Attribute Name: quotationdao
+* Attribute Description: this attribute is an instance of QuotationDAO
+---------------------------------
+* Method Name: service
+* Method Description: this method is used to get the values of the view and call the method buildQuotationList
+
+* Method Name: buildQuotationList
+* Method Description: this method is used to consult the list of quotations in the database
+---------------------------------
+* Class Name: ConsultQuotationProvider
+* Class Description: this class is responsible by consult the list of quotations, and this class is used by a provider.
