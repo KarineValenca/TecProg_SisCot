@@ -1,0 +1,58 @@
+** *Archive Name: ReportDAO.java
+--------------------------------
+* Attribute Name: id
+* Attribute Description: this attribute is integer type and it is used to get the results of products manager based on this id
+
+* Attribute Name: sql
+* Attribute Description: this attribute is an sql string to pass the query to database
+
+* Attribute Name: productsManager
+* Attribute Description: this attribute is an arraylist of string type. It is used to list all products related to manager that are in database.
+
+* Attribute Name: statement
+* Attribute Description: this attribute if PreparedStatement type and it is used to used to precompiled and stored PreparedStatemente object. It is util when you want used efficiently execute a statement multiple lines.
+
+* Attribute Name: rs
+* Attribute Description: this attribute is a ResultSet type and it is used to getter methods for retrieving columns values from the current row.
+
+* Attribute Name: product
+* Attribute Description: this attribute is string type and it is used to get the product name from database and pass it to the productsManager list
+ 
+* Attribute Name: providersManager
+* Attribute Description: this attribute is an arraylist of string type. It is used to list all providers related to manager
+
+* Attribute Name: providerName
+* Attribute Description: this attribute is string type and it is used to set the provider name at the sql string.
+
+* Attribute Name: productsProvider
+* Attribute Description: this attribute is an arraylist of string type. It is used to get all products related to provider.
+
+* Attribute Name: providersToProvider
+* Attribute Description: this attribute is an arraylist of string type. It is used to get all providers name of list of product quotations.
+
+* Attribute Name: priceProducts
+* Attribute Description: this attribute is an arraylist of string type. It is used to get all prices from a product quotations.
+
+* Attribute Name: price
+* Attribute Description: this attribute is of double type. It is used to get the produte price from the database.
+--------------------------------
+* Method Name: listProductsManager
+* Method Description: this method is used to list all products name related to a quotation.
+
+* Method Name: listProvidersManager
+* Method Description: this method is used to list all providers name related to a quotation.
+
+* Method Name: listProductsProvider
+* Method Description: this method is used to list all products name related to a quotation and a provider.
+
+* Method Name: listProvidersProvider
+* Method Description: this method is used to list all providers related to a quotation and a provider.
+
+* Method Name: listPriceProducts
+* Method Description: this method is used to list all products price related to a quotation.
+
+* Method Name: listPriceProductsProvider
+* Method Description: this method is used to list all products price related to a quotation and a provider.
+-------------------------------
+* Class Name: ReportDAO
+* Class Description: this class has all methods related to reports in database. This reports are usefull to the user check information about prices, providers and products.
