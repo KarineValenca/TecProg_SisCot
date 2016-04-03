@@ -1,0 +1,34 @@
+* *Archive Name: Report.java
+----------------------------------------------------------------------
+
+* Atribute Name: products
+* Atribute Description: CThis is a ArrayList of product type.
+
+* Atribute Name: quotation
+* Atribute Description: Corresponds to the cluster of available products for quotation.
+
+ Atribute Name: totalPrice
+* Atribute Description: Corresponds to the total price compiled
+----------------------------------------------------------------------
+
+* Method Name: getProducts
+* Method Description: This method gets the attribute products.
+
+* Method Name: setProducts
+* Method Description: This method setss the attribute Products.
+
+* Method Name: getQuotation
+* Method Description: This method gets the attribute Quotation.
+
+* Method Name: setQuotation
+* Method Description: this method sets the attribute Quotation.
+
+* Method Name: getTotalPrice
+* Method Description: This method gets the attribute TotalPrice.
+
+* Method Name: setTotalPrice
+* Method Description: this method sets the attribute TotalPrice.
+-----------------------------------------------------------------------
+
+* Class Name: Report
+* Class Description: Responsible for modeling the reports.
