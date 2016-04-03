@@ -1,0 +1,94 @@
+* *Archive Name: ReportContoller.java
+----------------------------------------------------------------------
+
+* Atribute Name: serialVersionUID
+* Atribute Description: This attribute is a serialization version identifier the class.
+
+* Atribute Name: request
+* Atribute Description: This attribute represent the HTTP request that a browser sends to the application.
+
+* Atribute Name: response
+* Atribute Description: This attribute represent the HTTP response that the application sends to a browser.
+
+* Atribute Name: quotationID
+* Atribute Description: This attribute is used to call the getQuotationID method.
+
+* Atribute Name: quotationIsOn
+* Atribute Description: This attribute is used to call the verifyStateQuotation method.
+
+* Atribute Name: quotation
+* Atribute Description: This attribute is a Quotation instance. Used to call the getQuotation method for create a quotation whith ID.
+
+* Atribute Name: products
+* Atribute Description: This attribute is a ArrayList instance. This attribute is used to call the quotationdao.getListProductsInAQuotation method.
+
+* Atribute Name:quotationdao
+* Atribute Description: This attribute is a QuotationDAO instance.
+
+* Atribute Name: req
+* Atribute Description: This attribute is used to get the request. 
+
+* Atribute Name: session
+* Atribute Description: This attribute is used to call the req.getSession method.
+
+* Atribute Name: report 
+* Atribute Description: TThis attribute is a Report instance.
+
+* Atribute Name: user 
+* Atribute Description: This attribute is used to call the session.getAttribute method.
+
+* Atribute Name: providerName
+* Atribute Description: This attribute is used to call the session.getAttribute method.
+
+* Atribute Name: productsForProvider
+* Atribute Description: This attribute is a ArrayList instance. This attribute is used to call the report.showProducts method.
+
+* Atribute Name: priceAsString
+* Atribute Description: This attribute is a ArrayList instance. 
+
+* Atribute Name: i
+* Atribute Description: This attribute is used like a counter in the for looṕ.
+
+* Atribute Name: listPrice
+* Atribute Description: This attribute is a ArrayList instance. This attribute is used to call the productsForProvider.get method.
+
+* Atribute Name: priceProduct
+* Atribute Description: This attribute is used to call the listPrice.get method.
+
+* Atribute Name: priceDecimalFormatAsString
+* Atribute Description: This attribute is used to call the Calculations.formatDecimal method.
+
+* Atribute Name: urlToSend
+* Atribute Description: This attribute is used like a dispatcher the result from the view of confirmation.
+
+* Atribute Name: rd
+* Atribute Description: This attribute is used for including content in a request/response or forwarding a request/response to a resource.
+
+* Atribute Name: quotationIsOnBool
+* Atribute Description: This attribute is used to call the Boolean.parseBoolean method.
+
+* Atribute Name: integerQuotationID
+* Atribute Description: This attribute is a quotation id in a integer format.
+----------------------------------------------------------------------
+
+* Method Name: ReportContoller
+* Method Description: This method is a constructor method of the class.
+
+* Method Name: service
+* Method Description: This method call the sendQuotation method.
+
+* Method Name: sendQuotation
+* Method Description: This method creates a products list in quotation; creates a report according to the user type and status quotation; creates a prices list; request the view pages according to status quotation.
+
+* Method Name: verifyStateQuotation
+* Method Description: This method aims to verify the state quotation. Returns a boolean.
+
+* Method Name: getQuotationID
+* Method Description: This method gets the quotation id in a string format and turns it in a integer type.	
+
+* Method Name: getQuotation
+* Method Description: This method crates a new quotation into the database.
+-----------------------------------------------------------------------
+
+* Class Name: ReportContoller
+* Class Description: This class creates a report according to the user type and status quotation.
