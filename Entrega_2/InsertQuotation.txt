@@ -1,0 +1,65 @@
+* *Archive Name: InsertQuotation.java
+----------------------------------------------------------------------
+
+* Atribute Name: serialVersionUID
+* Atribute Description: This attribute is a serialization version identifier the class.
+
+* Atribute Name: session
+* Atribute Description: this attribute of type HttpSession gets the current session in system.
+
+* Atribute Name: managerName
+* Atribute Description: Is the name of who is in the section.
+
+* Atribute Name: utilDate
+* Atribute Description: Corresponds to util Date.
+
+* Atribute Name: sqlDate
+* Atribute Description: Corresponds to useful data sql.
+
+* Atribute Name: quotation
+* Atribute Description: Instantiating a new quote type Quotation.
+
+* Atribute Name: rd
+* Atribute Description: This attribute is used for including content in a request/response or forwarding a request/response to a resource.
+
+* Atribute Name: id
+* Atribute Description: Attribute that receives the id of quotation.
+
+* Atribute Name: productList
+* Atribute Description: Corresponds to the receipt of the quotation list of products method.			
+
+* Atribute Name: productdao
+* Atribute Description: Corresponds to the instance of persistence product.
+
+* Atribute Name: productName
+* Atribute Description: Corresponds to call the method of the product name.
+
+* Atribute Name: nameProduct
+* Atribute Description: Corresponds to name of product.
+
+* Atribute Name: quotationDAO
+* Atribute Description: Corresponds to the instance of persistence quotation.
+
+* Atribute Name: quotation
+* Atribute Description: Corresponds to the instance of quotation class.
+----------------------------------------------------------------------
+
+* Method Name: InsertQuotation
+* Method Description: This method is a contructor method.
+
+* Method Name: service
+* Method Description: This method is responsible for, using the RequestDispatcher objetc, acess the ProductsResponse views pages, according to the requested action.  
+
+* Method Name: SelectProducts
+* Method Description: This method select the products of quotation.
+
+* Method Name: insertQuotation
+* Method Description: this method to insert a new quotation.
+
+* Method Name: createNewQuotation
+* Method Description: this method remains a new quotation.
+-----------------------------------------------------------------------
+
+* Class Name: InsertQuaotation
+* Class Description: This class is responsible to include a quotation.
+
