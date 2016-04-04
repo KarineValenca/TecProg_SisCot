@@ -1,0 +1,42 @@
+* *Archive Name: CloseQuotation.java
+----------------------------------------------------------------------
+
+* Attribute Name: serialVersionUID
+* Attribute Description: This attribute is a serialization version identifier the class.
+
+* Attribute Name: quotationId
+* Attribute Description: It is of type string. Corresponds to retrieve the id quotation.
+
+* Attribute Name: integerQuotationID
+* Attribute Description: It is of type int. corresponds to retrieve the id quotation and still turn to interge.
+
+* Attribute Name: quotationdao
+* Attribute Description: This attribute is a instance of QuotationDAO.
+
+* Attribute Name: rd
+* Attribute Description: this attribute allows for including content in a request/response or forwarding a request/response to a resource.
+----------------------------------------------------------------------
+
+* Method Name: getProductName
+* Method Description: This method gets the attribute ProductName.
+
+* Method Name: setProductName
+* Method Description: This method set the attribute ProductName.
+
+
+* Method Name: getProductPrice
+* Method Description: This method gets the attribute ProductPrice.
+
+* Method Name: setProductPrice
+* Method Description: This method set the attribute ProductPrice.
+
+
+* Method Name: getProductProvider
+* Method Description: This method gets the attribute ProductProvider.
+
+* Method Name: setProductProvider
+* Method Description: This method set the attribute ProductProvider.
+-----------------------------------------------------------------------
+
+* Class Name: CloseQuotation
+* Class Description: Responsible for modeling the products.
