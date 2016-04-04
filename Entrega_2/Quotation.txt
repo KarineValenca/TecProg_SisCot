@@ -1,0 +1,49 @@
+** *Archive Name: Quotation.java
+----------------------------------
+* Atribute Name: quotationDate
+* Atribute Description: It is of type "date". This attribute is the date of the quotation
+
+* Atribute Name: managerName
+* Atribute Description: It is of type "String". This attribute is the name of manager
+
+
+* Atribute Name: quotationIsOn
+* Atribute Description: It is of type "boolen". This attibute idenfier the status of quotation
+
+* Atribute Name: id
+* Atribute Description:It is of type "int". This attibute is unique idenfier of quotation
+------------------------------
+* Method Name: getProducts
+* Method Description: This method gets the attribute Products.
+
+* Method Name: setProducts
+* Method Description: This method set the attribute Products.
+
+* Method Name: getQuotationDate
+* Method Description: This method get the attribute QuotationDate.
+
+* Method Name: setQuotationDate
+* Method Description: This method set the attribute QuotationDate.
+
+* Method Name: getManagerName
+* Method Description: This method get the attribute ManagerName.
+
+* Method Name: setManagerName
+* Method Description: This method set the attribute ManagerName.
+
+* Method Name: getId
+* Method Description: This method get the attribute Id.
+
+* Method Name: setId
+* Method Description: This method set the attribute Id.
+
+* Method Name: getQuotationIsOn
+* Method Description: This method get the attribute QuotationIsOn.
+
+* Method Name: setQuotationIsOn
+* Method Description: This method set the attribute QuotationIsOn.
+
+------------------------------
+* Class Name: Quotation
+* Class Description: This class is responsible for defines the atttibutes of a quotation.
+
