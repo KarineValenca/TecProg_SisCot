@@ -1,0 +1,17 @@
+** *Archive Name: ConsultQuotation.java
+-------------------
+
+* Attribute Name: serialVersionUID
+* Attribute Description: this attribute is a serialization version identifier the class
+
+-------------------------------
+
+* Method Name: service 
+* Method Description: by this method a consult at database is done and the products list is obtained 
+
+* Method Name: buildQuotationList 
+* Method Description: Method of construction quotations.
+-------------------------------
+
+* Class Name: ConsultQuotatioin 
+* Class Description: This class is used to do a consult at quotation data.
