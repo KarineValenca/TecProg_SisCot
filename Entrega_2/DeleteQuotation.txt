@@ -1,0 +1,31 @@
+** *Archive Name: DeleteQuotation.java
+-------------------
+
+* Attribute Name: serialVersionUID
+* Attribute Description: this attribute is a serialization version identifier the class
+
+* Attribute Name: quotationId
+* Attribute Description: corresponds to recovery id quotation
+
+* Attribute Name: messageDeletedConfirmation
+* Attribute Description: Message result of the action applied to the quotation
+
+* Attribute Name: wasDeleted
+* Attribute Description: Corresponds to a Boolean that receives the quotation was not excluded or
+
+* Attribute Name: rd
+* Attribute Description: this attribute allows for including content in a request/response or forwarding a request/response to a resource
+
+* Attribute Name: quotationDao
+* Attribute Description: attribute that receives a quotation that will be persisted
+-------------------------------
+
+* Method Name: service 
+* Method Description: method that validates and calls the exclusion of method quotes
+
+* Method Name: deleteQuotation
+* Method Description: Exclusion of any method of quotation.
+-------------------------------
+
+* Class Name: DeleteQuotation 
+* Class Description: This class is used to do a consult at quotation data.
