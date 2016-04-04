@@ -1,0 +1,66 @@
+** *Archive Name: Login.java
+----------------------------------
+* Atribute Name: serialVersionUID
+* Atribute Description: This attribute is a serialization version identifier the class.
+
+* Attribute Name: request
+* Attribute Description: this attribute is used to represent the HTTP request that a browser sends to the application
+
+* Attribute Name: response
+* Attribute Description: this attribute is used to represent the HTTP response that the application sends to a browser
+
+* Attribute Name: session
+* Attribute Description: This atribute is type "HttpSession". Get the session.
+
+* Attribute Name: username
+* Attribute Description: This atribute is type "String".This attribute is an user name is used to authenticate a user at system.
+
+* Attribute Name: password
+* Attribute Description: This atribute is type "String". This attribute is a password of a user and it is used to authenticate a user at system.
+
+* Attribute Name: url
+* Attribute Description: This atribute is type "String". Directs the user to a page.
+
+* Attribute Name: providerDAO
+* Attribute Description: This attribute is an intance of ProviderDAO.
+
+* Attribute Name: listProviders
+* Attribute Description: This attribute returns a provider of array list.
+
+* Attribute Name: isUser
+* Attribute Description: This atribute is type "boolean". This attribute identifies the name is correct.
+
+* Attribute Name: correctPassword
+* Attribute Description: This atribute is type "boolean". This attribute identifies the password is correct.
+
+* Attribute Name: managerDAO
+* Attribute Description: This attribute is an intance of ManagerDAO.
+
+* Attribute Name: listManagers
+* Attribute Description: This attribute returns a managers of array list.
+
+* Attribute Name: authorized
+* Attribute Description: This atribute is type "String". This attribute identifies the authorization to access the system.
+
+* Attribute Name: req
+* Attribute Description: This attribute is used to represent the HTTP request that a browser sends to the application
+
+------------------------------
+* Method Name: service
+* Method Description: This method get the session and finalize that.
+
+* Method Name: loginChecks
+* Method Description: This method checks if the user and password are correct to authenticate the system.
+
+* Method Name: updateSessionProvider
+* Method Description: This update method of the current session data.
+
+* Method Name: dispatcher
+* Method Description: This method is responsible to make the targeting of urls.
+
+* Method Name: getProviderNameFromSession
+* Method Description: This method is responsible to retrieve the user
+------------------------------
+* Class Name: Login
+* Class Description: This class has the methods used to authenticate a user at the system.
+
