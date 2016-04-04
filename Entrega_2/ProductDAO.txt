@@ -1,0 +1,46 @@
+* *Archive Name: ProductDAO.java
+-------------------------
+
+* Attribute Name: connection
+* Attribute Description: This attribute is an instantiates the connection class.
+
+* Attribute Name: sql
+* Attribute Description: This attribute is an sql string to pass the query to database.
+
+* Attribute Name: wasAdd
+* Attribute Description: This boolean attribute is used to verify if a product as added to the database.
+
+* Attribute Name: statement
+* Attribute Description: This attribute if PreparedStatement type and it is used to used to precompiled and stored PreparedStatemente object. It is util when you want used efficiently execute a statement multiple lines.
+
+* Attribute Name: products
+* Attribute Description: This attribute is an arraylist of Product type ant it is used to list all products.
+
+* Attribute Name: rs
+* Attribute Description: Tis attribute is a ResultSet type and it is used to getter methods for retrieving columns values from the current row.
+
+* Attribute Name: product
+* Attribute Description: This attribute is an instance of Product.
+
+* Attribute Name: wasDeleted
+* Attribute Description: This boolean attribute is used to verify if a product as deleted to the database.
+
+* Attribute Name: wasUpdated
+* Attribute Description: This boolean attribute is used to verify if a product as updated to the database.
+-----------------------------------------
+
+* Method Name: insertProduct
+* Method Description: This method is used to insert a product at the database, it returns a boolean that returns true if the product was added.
+
+* Method Name: listProduct
+* Method Description: This method is used to list all products at the database.
+
+* Method Name: deleteProduct
+* Method Description: This method is used to delete a product at the database, it returns a boolean that returns true if the product wad deleted
+
+* Method Name: updateProduct
+* Method Description: This method isused to update a product at the database, it returns a boolean that returns true if the product was updated.
+-----------------------------------------
+
+* Class Name: ProductDAO
+* Class Description: this class is used to do all actions in the database relate to products.

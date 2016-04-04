@@ -1,4 +1,4 @@
-* *Archive Name: ProviderDAO
+* *Archive Name: ProviderDAO.java
 -------------------------
 * Attribute Name: sql
 * Attribute Description: this attribute is an sql string to pass the query to database
@@ -44,6 +44,3 @@
 -----------------------------------------
 * Class Name: ProviderDAO
 * Class Description: this class is used to do all actions in the database relate to providers.
-
-* Method Name:
-* Method Description:
