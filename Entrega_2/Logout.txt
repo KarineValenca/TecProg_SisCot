@@ -1,0 +1,24 @@
+** *Archive Name: Logout.java
+----------------------------------
+ Atribute Name: serialVersionUID
+* Atribute Description: This attribute is a serialization version identifier the class.
+
+* Attribute Name: request
+* Attribute Description: This attribute is used to represent the HTTP request that a browser sends to the application.
+
+* Attribute Name: response
+* Attribute Description: This attribute is used to represent the HTTP response that the application sends to a browser.
+
+* Attribute Name: rd
+* Attribute Description: This attribute allows for including content in a request/response or forwarding a request/response to a resource
+
+* Attribute Name: session
+* Attribute Description: This atribute is type HttpSession. Get the session.
+------------------------------
+* Method Name: service
+* Method Description: This method get the session and finalize that.
+
+------------------------------
+* Class Name: Logout.java
+* Class Description: This class is responsible for defines the logout.
+
