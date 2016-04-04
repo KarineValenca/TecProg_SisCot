@@ -1,0 +1,22 @@
+** *Archive Name: ConsultProduct.java
+-------------------
+* Attribute Name: serialVersionUID
+* Attribute Description: this attribute is a serialization version identifier the class
+
+* Attribute Name: productList
+* Attribute Description: Corresponds to the product list attribute.
+
+* Attribute Name: productdao
+* Attribute Description: Corresponds to the persistence of the method ProductDAO.
+
+* Attribute Name: url
+* Attribute Description: This attribute is used to call the req.getRequestURL method and turns it in a string format.
+
+* Attribute Name: rd
+* Attribute Description: this attribute allows for including content in a request/response or forwarding a request/response to a resource
+-------------------------------
+* Method Name: service 
+* Method Description: by this method a consult at database is done and the products list is obtained 
+-------------------------------
+* Class Name: ConsultProduct
+* Class Description: This class is used to do a consult at product data, and get a list of this product.
