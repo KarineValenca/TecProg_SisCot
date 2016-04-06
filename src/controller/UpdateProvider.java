@@ -44,7 +44,7 @@ public class UpdateProvider extends HttpServlet {
 		boolean wasUpdated = false;
 		HttpSession session = request.getSession();
 		String actualProviderCnpj = request.getParameter("actualCnpj");
-		
+		assert(actualProviderCnpj != null) : "the actual provider cnpj is recieving null from view";
 		System.out.println("Cnpj atual: " + actualProviderCnpj);
 				
 		Provider provider = new Provider();
