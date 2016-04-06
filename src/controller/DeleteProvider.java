@@ -42,6 +42,7 @@ public class DeleteProvider extends HttpServlet {
 	}
 	
 	public boolean deleteProvider(String providerName) {
+		assert(providerName != null):"The provider name is recieving null";
 		boolean wasDeleted = false;
 		
 		ProviderDAO providerDao = new ProviderDAO();

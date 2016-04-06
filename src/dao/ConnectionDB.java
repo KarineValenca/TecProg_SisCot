@@ -20,9 +20,9 @@ public final class ConnectionDB {
 	 */
 	private ConnectionDB() {
 		String url = "jdbc:mysql://localhost:3306/";
-		String dbName = "SisCot";
-		String userName = "siscot";
-		String password = "12345";
+		String dbName = "biblioteca";
+		String userName = "root";
+		String password = "root";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
