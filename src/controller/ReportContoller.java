@@ -64,19 +64,19 @@ public class ReportContoller extends HttpServlet {
 
 		Report report = new Report();
 
-		if (session.getAttribute("user") != null) {
-			String user = (String) session.getAttribute("userType");
-
-			if (user.equals("manager")) {
-				report = new ReportManager(products, quotation, 0.0);
-			} else if (user.equals("provider") && !quotationIsOn) {
-				String providerName = (String) session.getAttribute("user");
-				report = new ReportProvider(products, quotation, 0.0, providerName);
-			}
-			else if(user.equals("provider") && quotationIsOn){
-				report = new ReportManager(products, quotation, 0.0);
-			}
+		assert(session.getAttribute("user") != null) : "the user is null";
+		String user = (String) session.getAttribute("userType");
+		
+		if (user.equals("manager")) {
+			report = new ReportManager(products, quotation, 0.0);
+		} else if (user.equals("provider") && !quotationIsOn) {
+		String providerName = (String) session.getAttribute("user");
+			report = new ReportProvider(products, quotation, 0.0, providerName);
 		}
+		else if(user.equals("provider") && quotationIsOn){
+			report = new ReportManager(products, quotation, 0.0);
+		}
+		
 
 		ArrayList<ArrayList> productsForProvider = new ArrayList<>();
 		productsForProvider = report.showProducts();
@@ -132,7 +132,7 @@ public class ReportContoller extends HttpServlet {
 	}
 
 	private Quotation getQuotation(int integerQuotationID) {
-
+		assert(integerQuotationID != null) : "the integerQuotationID variable is null";
 		QuotationDAO quotationdao = new QuotationDAO();
 		Quotation quotation = new Quotation();
 		quotation = quotationdao.selectQuotationByID(integerQuotationID);
