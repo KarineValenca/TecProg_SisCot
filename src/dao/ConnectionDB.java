@@ -38,9 +38,13 @@ public final class ConnectionDB {
 	 * @return a single connection
 	 */
 	protected static synchronized  ConnectionDB getConnection() {
-		assert(dataBase	== null) : "the database variable is null";
-		dataBase = new ConnectionDB();
-        		
+		if ( dataBase == null ) {
+			dataBase = new ConnectionDB();
+        }
+		else{
+			//Nothing to do
+		}
+
         return dataBase;
 	}
 }
