@@ -16,7 +16,7 @@ public class ProviderDAO {
 	}
 	
 	public boolean insertProvider(Provider provider) {
-		assert(provider != null) : "the provider object is null";
+		assert (provider != null) : "unexpected error: the provider object is null";
 		String sql = "insert into Providers (cnpj, nome, email, senha, ddd, "
 				+ "telefone, endereco, cidade, estado, cep, authorized) "
 				+ "values (?,?,?,?,?,?,?,?,?,?,?)";
@@ -85,7 +85,7 @@ public class ProviderDAO {
 	}
 	
 	public boolean deleteProvider(String providerCnpj) {
-		assert(providerCnpj != null) : "the provider cnpj is null";
+		assert(providerCnpj != null) : "unexpected error: the provider cnpj is null";
 		String sql = "delete from Providers where cnpj = ?";
 		boolean wasDeleted = false;
 
@@ -106,8 +106,9 @@ public class ProviderDAO {
 	}
 	
 	public boolean updateProvider(String cnpjToUpdate, Provider provider) {
-		assert(cnpjToUpdate != null) : "the cnpj is null";
-		assert(provider != null) : "the provider is null";
+		assert(cnpjToUpdate != null) : "unexpected error: the cnpj is null";
+		assert(provider != null) : "unexpected error: the provider is null";
+		
 		String sql = "update Providers set cnpj=?, nome=?, email=?, senha=?, ddd=?, "
 				+ "telefone=?, endereco=?, cidade=?, estado=?, cep=?, authorized=? where cnpj=?";
 		boolean wasUpdated = false;
