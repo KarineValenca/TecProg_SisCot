@@ -132,7 +132,7 @@ public class ReportContoller extends HttpServlet {
 	}
 
 	private Quotation getQuotation(int integerQuotationID) {
-
+		assert(integerQuotationID != 0) : "the quotationID variable receive 0";
 		QuotationDAO quotationdao = new QuotationDAO();
 		Quotation quotation = new Quotation();
 		quotation = quotationdao.selectQuotationByID(integerQuotationID);
