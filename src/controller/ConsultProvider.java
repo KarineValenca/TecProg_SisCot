@@ -1,3 +1,9 @@
+/*
+ * Class name: ConsultProvider.java
+ * Purpose of class: This class is used to do a consult at providers data, and list all providers.
+ * Copyright: 
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -16,6 +22,7 @@ import model.Provider;
 /**
  * Servlet implementation class ConsultProvider
  */
+
 @WebServlet("/ConsultProvider")
 public class ConsultProvider extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,16 +34,17 @@ public class ConsultProvider extends HttpServlet {
         super();
     }
     
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws
-		ServletException, IOException {
+    protected void service(HttpServletRequest request, 
+    		HttpServletResponse response) throws ServletException, 
+    		IOException {
     	ArrayList<Provider> providerList = new ArrayList<Provider>();
     	ProviderDAO providerDao = new ProviderDAO();
     	
     	providerList = providerDao.listProviders();
-    	
     	request.setAttribute("providers", providerList);
     	
     	RequestDispatcher rd;
+    	
 		rd = request.getRequestDispatcher("/ConsultProviderList.jsp");
         rd.forward(request,response);
     }
