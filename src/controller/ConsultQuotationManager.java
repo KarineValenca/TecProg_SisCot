@@ -1,3 +1,11 @@
+/*
+ * Class name: ConsultQuotationManager.java
+ * Purpose of class: This class is responsible by consult the list of quotations,
+ * it means, that by this class, a manager can see the price of a product at the
+ * market.
+ * Copyright: This software follows GPL license.
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -14,15 +22,15 @@ import dao.QuotationDAO;
 
 @WebServlet("/ConsultQuotationManager")
 public class ConsultQuotationManager extends ConsultQuotation {
-
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws 
-		ServletException, IOException {
+	protected void service(HttpServletRequest request, 
+							HttpServletResponse response) 
+							throws ServletException, IOException {
 		ArrayList<Quotation> quotationList = new ArrayList<Quotation>();
 		
 		quotationList = buildQuotationList();
@@ -32,9 +40,9 @@ public class ConsultQuotationManager extends ConsultQuotation {
 		System.out.println("Tamanho do array: " + quotationList.size());
 				
 		RequestDispatcher rd;
+		
 		rd = request.getRequestDispatcher("/ConsultQuotationList.jsp");
         rd.forward(request,response);
-		
 	}
 
 	@Override
@@ -46,5 +54,4 @@ public class ConsultQuotationManager extends ConsultQuotation {
 		
 		return quotationList;
 	}
-
 }

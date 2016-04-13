@@ -1,7 +1,7 @@
 /*
  * Class name: ConsultProvider.java
  * Purpose of class: This class is used to do a consult at providers data, and list all providers.
- * Copyright: 
+ * Copyright: This software follows GPL license.
  */
 
 package controller;
@@ -35,8 +35,8 @@ public class ConsultProvider extends HttpServlet {
     }
     
     protected void service(HttpServletRequest request, 
-    		HttpServletResponse response) throws ServletException, 
-    		IOException {
+    						HttpServletResponse response) 
+    						throws ServletException, IOException {
     	ArrayList<Provider> providerList = new ArrayList<Provider>();
     	ProviderDAO providerDao = new ProviderDAO();
     	
