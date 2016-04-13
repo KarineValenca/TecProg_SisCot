@@ -1,3 +1,9 @@
+/*
+ * Class name: DeleteProvider.java
+ * Purpose of class: This class is used to exclude a provider from database.
+ * Copyright: This software follows GPL license.
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -19,10 +25,13 @@ public class DeleteProvider extends HttpServlet {
 		super();
 	}
 	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws
-		ServletException, IOException {
+	protected void service(HttpServletRequest request, 
+							HttpServletResponse response) 
+							throws ServletException, IOException {
 		String providerName =  request.getParameter("providerName");
+		
 		assert(providerName != null) : "The providerName is recieving null from view";
+		
 		String messageDeletedConfirmation = "Iniciada";
 		
 		boolean wasDeleted = deleteProvider(providerName);
@@ -38,6 +47,7 @@ public class DeleteProvider extends HttpServlet {
 		
 		//Dispacher the result from the view of confirmation		
 		RequestDispatcher rd;
+		
 		rd = request.getRequestDispatcher("/ProviderResponse.jsp");
 	    rd.forward(request,response);
 	}
@@ -45,9 +55,10 @@ public class DeleteProvider extends HttpServlet {
 	public boolean deleteProvider(String providerName) {
 		assert(providerName != null) : "The provider name is recieving null";
 		boolean wasDeleted = false;
-		
 		ProviderDAO providerDao = new ProviderDAO();
+		
 		System.out.println("Nome do Fornecedor:" + providerName);
+		
 		wasDeleted = providerDao.deleteProvider(providerName);
 		
 		return wasDeleted;
