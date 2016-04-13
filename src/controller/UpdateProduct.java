@@ -44,7 +44,7 @@ public class UpdateProduct extends HttpServlet {
 	public boolean sendToProductDAO(HttpServletRequest request) {
 		boolean wasUpdated = false;
 		String actualProductName = (String) request.getParameter("actualName");
-				
+		assert(actualProductName != null) : "the actual product name is recieving null from view";	
 		Product product = new Product();
 		
 		product.setProductName(request.getParameter("name"));

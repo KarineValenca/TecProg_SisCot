@@ -25,6 +25,7 @@ public class QuotationDAO {
 	 */
 
 	public int includeQuotation(Quotation quotation) {
+		assert (quotation != null) : "unexpected error: the quotation object is null";
 		String sql = "insert into Quotation (managerName, quotationDate, quotationIsOn)" + " values (?,?,?)";
 		// Date date = new Date(quotation.getquotationDate().getTimeInMillis());
 		boolean wasAdd = false;
@@ -160,6 +161,7 @@ public class QuotationDAO {
 	}
 
 	public boolean deleteQuotation(int id) {
+		assert(id != null) : "unexpected error: the provider id is null";
 		String sql = "delete from Quotation where id = ?";
 		boolean wasDeleted = false;
 
@@ -183,6 +185,7 @@ public class QuotationDAO {
 	}
 
 	public boolean updateQuotation(int idToUpdate, Quotation quotation) {
+		assert(idToUpdate != null) : "unexpected error: the id quotation to Update is null";
 		String sql = "update Quotation set managerName=?, quotationDate=? where id=?";
 		boolean wasUpdated = false;
 
@@ -209,6 +212,7 @@ public class QuotationDAO {
 	
 	//Change the quotation for closed quotation
 	public boolean updateQuotation(int idToUpdate) {
+		assert(idToUpdate != null) : "unexpected error: the id quotation to update is null";
 		String sql = "update Quotation set quotationIsOn=? where id=?";
 		boolean wasUpdated = false;
 
@@ -305,7 +309,7 @@ public class QuotationDAO {
 	}
 
 	public Quotation selectQuotationByID(int quotationID) {
-
+		assert(quotationID != null) : "unexpected error: the id quotation is null";
 		String sql = "select * from Quotation where id = ?";
 		Quotation quotation = new Quotation();
 
@@ -343,6 +347,7 @@ public class QuotationDAO {
 
 	public void updateQuotationPrices(ArrayList<String> products, ArrayList<Double> priceOfProducts, 
 			int integerQuotationId, String provideName) {
+		assert(integerQuotationId != null) : "unexpected error: the id quotation is null";
 		
 		String sqlUpdate = "update Quotation_Product_Provider set providerName=?, priceProduct=? "
 				+ "where quotationID=? AND productName=?";
