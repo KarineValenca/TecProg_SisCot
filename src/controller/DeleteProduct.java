@@ -31,6 +31,7 @@ public class DeleteProduct extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws
 		ServletException, IOException {
 		String productName =  request.getParameter("productName");
+		assert(productName != null) : "The product name is recieving null from view";
 		String messageDeletedConfirmation = "Iniciada";
 		
 		boolean wasDeleted = deleteProduct(productName);
@@ -51,6 +52,7 @@ public class DeleteProduct extends HttpServlet {
 	}
 	
 	public boolean deleteProduct(String productName) {
+		assert(productName != null) : "The product name is recieving null";
 		boolean wasDeleted = false;
 		
 		ProductDAO productdao = new ProductDAO();
