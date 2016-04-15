@@ -15,53 +15,57 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Servlet Filter implementation class SecurityProvider
+ * 
  * @author tiago
  * @version 1.0
  */
-@WebFilter(urlPatterns = {  "*.jsp", "*.html",
-		"/ConsultProduct", "/ConsultProvider", 
-		"/DeleteProduct", "/DeleteProvider", 
-		"/IncludeProduct", "/IncludeProvider",
-		"/UpdateProduct", "/UpdateProvider"
-		})
+@WebFilter(urlPatterns = {"*.jsp", "*.html", "/ConsultProduct",
+		"/ConsultProvider", "/DeleteProduct", "/DeleteProvider",
+		"/IncludeProduct", "/IncludeProvider", "/UpdateProduct",
+		"/UpdateProvider"})
 public class SecurityProvider implements Filter {
 
-    /**
-     * Default constructor. 
-     */
-    public SecurityProvider() {
-       
-    }
+	/**
+	 * Default constructor.
+	 */
+	public SecurityProvider() {
+
+	}
 
 	/**
 	 * @see Filter#destroy()
 	 */
 	public void destroy() {
-		
+
 	}
 
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain chain) throws IOException, ServletException {
+		assert (request != null) : "The request from client is null";
+		assert (response != null) : "The response to client is null";
+		assert (chain != null) : "The chain to filter implementation is null";
 		
-		//Get the request
+		
+		// Get the request
 		HttpServletRequest req = (HttpServletRequest) request;
+		
 		HttpSession session = req.getSession();
 		String url = req.getRequestURL().toString();
-		
+
 		boolean isSession = (session.getAttribute("user") != null);
 		boolean requestIsIndex = (url.equals("http://localhost:8080/SisCot/"));
-		
-		//Verify if the current user have a session setted
-		if( isSession || requestIsIndex ) {
+
+		// Verify if the current user have a session setted
+		if (isSession || requestIsIndex) {
 			session = setSession(session);
 			chain.doFilter(request, response);
-		}
-		else{
+		} else {
 			RequestDispatcher rd;
 			rd = request.getRequestDispatcher("/login.jsp");
-	        rd.forward(request,response);
+			rd.forward(request, response);
 		}
 	}
 
