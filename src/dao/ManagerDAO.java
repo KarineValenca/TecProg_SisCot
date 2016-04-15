@@ -16,6 +16,7 @@ public class ManagerDAO {
 	}
 	
 	public boolean insertManager(Manager manager) {
+		assert (manager != null) : "unexpected error: the manager object is null";
 		String sql = "insert into Managers (username, password) values (?,?)";
 		boolean wasAdded = false;
 		
@@ -62,6 +63,7 @@ public class ManagerDAO {
 	}
 	
 	public boolean deleteManager(String managerUsername) {
+		assert(managerUsername != null) : "unexpected error: the manager user name is null";
 		String sql = "delete from Managers where username = ?";
 		boolean wasDeleted = false;
 
@@ -81,7 +83,9 @@ public class ManagerDAO {
 		return wasDeleted;
 	}
 	
-	public boolean updateManager(String usernameToUpdate, Manager manager) {		
+	public boolean updateManager(String usernameToUpdate, Manager manager) {
+		assert(usernameToUpdate != null) : "unexpected error: the user name to update is null";
+		assert(manager != null) : "unexpected error: the object manager is null";
 		String sql = "update Managers set username=?, password=? where username=?";
 		boolean wasUpdated = false;
 			

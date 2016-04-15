@@ -38,7 +38,9 @@ public class Login extends HttpServlet {
 
 		// Get the data of user and verify if is a stored user
 		String username = request.getParameter("login");
+		assert (username != null) : "unexpected error: the user name is recieving null from view";
 		String password = request.getParameter("password");
+		assert (password != null) : "unexpected error: the password is recieving null from view";
 		username = username.trim();
 
 		session = loginChecks(username, password, session);
