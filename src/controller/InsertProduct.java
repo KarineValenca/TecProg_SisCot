@@ -31,6 +31,9 @@ public class InsertProduct extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws
 		ServletException, IOException {
+		assert (request != null) : "The request from client is null";
+		assert (response != null) : "The response to client is null";
+		
 		String messageAddConfirmation = "Iniciada";
 		//Get name and description of the IncludeProducView
 		String nameProduct = request.getParameter("name");
@@ -42,12 +45,13 @@ public class InsertProduct extends HttpServlet {
 		request.setAttribute("mensage", messageAddConfirmation);
 		
 		//Dispacher the result from the view of confirmation		
-		RequestDispatcher rd;
-		rd = request.getRequestDispatcher("/ProductResponse.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/ProductResponse.jsp");
         rd.forward(request,response);
 	}
 	
 	public int insertProduct(String nameProduct){
+		assert (nameProduct != null) : "The request from client is null";
+				
 		boolean daoWasAdd = false;
 		
 		/* 
