@@ -72,17 +72,21 @@ public class ReportContoller extends HttpServlet {
 		String attributeUser = (String) session.getAttribute("user");
 		
 		if (attributeUser != null) {
-			String user = (String) session.getAttribute("userType");
+			String userType = (String) session.getAttribute("userType");
 
-			if (user.equals("manager")) {
+			if (userType.equals("manager")) {
 				report = new ReportManager(products, quotation, 0.0);
-			} else if (user.equals("provider") && !quotationIsOn) {
+			} 
+			else if (userType.equals("provider") && !quotationIsOn) {
 				String providerName = (String) session.getAttribute("user");
 				report = new ReportProvider(products, quotation, 0.0, providerName);
 			}
-			else if(user.equals("provider") && quotationIsOn){
+			else if (userType.equals("provider") && quotationIsOn){
 				report = new ReportManager(products, quotation, 0.0);
 			}
+		}
+		else {
+			//nothing to do
 		}
 
 		ArrayList<ArrayList> productsForProvider = new ArrayList<>();
@@ -115,10 +119,12 @@ public class ReportContoller extends HttpServlet {
 		String urlToSend = null;
 		
 		
-		if(quotationIsOn)
+		if (quotationIsOn) {
 			urlToSend = "/DisputeQuotation.jsp";
-		else
+		}
+		else {
 			urlToSend = "/ShowReport.jsp";
+		}
 		
 		System.out.println("PAssou pagian: " + urlToSend);
 		
