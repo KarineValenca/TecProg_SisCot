@@ -14,14 +14,13 @@ public class ReportManager extends Report{
 	public ArrayList<ArrayList> showProducts() {
 		ReportDAO reportdao = new ReportDAO();
 		
-		ArrayList<String> listProducts; 
-		listProducts = reportdao.listProductsManager(getQuotation().getId());
+		int quotationIdForReport = getQuotation().getId();
 		
-		ArrayList<String> listProviders;
-		listProviders = reportdao.listProvidersManager(getQuotation().getId());
+		ArrayList<String> listProducts = reportdao.listProductsManager(quotationIdForReport);
 		
-		ArrayList<Double> listPrice; 
-		listPrice = reportdao.listPriceProducts(getQuotation().getId());
+		ArrayList<String> listProviders = reportdao.listProvidersManager(quotationIdForReport);
+		
+		ArrayList<Double> listPrice = reportdao.listPriceProducts(quotationIdForReport);
 		
 		ArrayList<ArrayList> productsForProvider = new ArrayList<>();
 		
