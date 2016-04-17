@@ -34,6 +34,8 @@ public class DisputeQuotation extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
+		assert (request != null) : "The request from client is null";
+		assert (response != null) : "The response to client is null";
 		
 		Enumeration<String> teste = request.getParameterNames();
 		ArrayList<String> products = new ArrayList<String>();
@@ -74,8 +76,7 @@ public class DisputeQuotation extends HttpServlet {
 		QuotationDAO quotationdao = new QuotationDAO();
 		quotationdao.updateQuotationPrices(products, priceOfProducts, integerQuotationId, providerName);
 		
-		RequestDispatcher rd;
-		rd = request.getRequestDispatcher("/index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 		rd.forward(request, response);
 	}
 
