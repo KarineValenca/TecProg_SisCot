@@ -16,7 +16,7 @@ import dao.ProviderDAO;
  * @author tiago
  * Servlet implementation class IncludeProvider
  */
-@WebServlet("/IncludeProvider")
+@WebServlet("/InsertProvider")
 public class InsertProvider extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,9 +46,9 @@ public class InsertProvider extends HttpServlet {
     	String providerPassword = request.getParameter("password");
     	assert(providerPassword != null) : "The provider provider Password is recieving null from view";
     	int providerDdd =  Integer.parseInt(request.getParameter("ddd"));
-    	assert(providerDdd != null) : "The provider provider ddd is recieving null from view";
+    	assert(providerDdd > 0) : "The provider provider ddd is recieving null from view";
     	int providerPhone = Integer.parseInt(request.getParameter("phone"));
-    	assert(providerPhone != null) : "The provider provider phone is recieving null from view";
+    	assert(providerPhone > 0) : "The provider provider phone is recieving null from view";
     	String providerAdress = request.getParameter("adress");
     	assert(providerAdress != null) : "The provider provider adress is recieving null from view";
     	String providerCity = request.getParameter("city");
@@ -56,7 +56,7 @@ public class InsertProvider extends HttpServlet {
     	String providerState = request.getParameter("state");
     	assert(providerState != null) : "The provider provider State is recieving null from view";
     	int providerZip = Integer.parseInt(request.getParameter("zip"));
-    	assert(providerZip != null) : "The provider provider Zip is recieving null from view";
+    	assert(providerZip > 0) : "The provider provider Zip is recieving null from view";
     	boolean authorized = false;
     	
 		Provider provider = new Provider();
