@@ -60,17 +60,15 @@ public class DisputeQuotation extends HttpServlet {
 			currentProduct = teste.nextElement();
 			
 			if(!currentProduct.equals("insert")){
-				
 				priceOfProduct = request.getParameter(currentProduct);
 				currentProductValue = Double.parseDouble(priceOfProduct);
 				
 				products.add(currentProduct);
 				priceOfProducts.add(currentProductValue);
 			}
-				
-			
-			
-			
+			else {
+				//nothing to do
+			}
 		}
 		
 		QuotationDAO quotationdao = new QuotationDAO();
