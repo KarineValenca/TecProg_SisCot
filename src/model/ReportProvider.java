@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import dao.ReportDAO;
 
+import model.Report;
+
 public class ReportProvider extends Report {
 
 	private String providerName;
@@ -18,15 +20,15 @@ public class ReportProvider extends Report {
 	@Override
 	public ArrayList<ArrayList> showProducts() {
 		ReportDAO reportdao = new ReportDAO();
-
-		ArrayList<String> listProducts;
-		listProducts =	reportdao.listProductsProvider(getQuotation().getId(), providerName);
+				
+		int quotationIdForReport = getQuotation().getId();
+		String providerNameForReport = getProviderName();
 		
-		ArrayList<String> listProviders; 
-		listProviders = reportdao.listProvidersProvider(getQuotation().getId(), providerName);
+		ArrayList<String> listProducts = reportdao.listProductsProvider(quotationIdForReport, providerNameForReport);
 		
-		ArrayList<Double> listPrice;
-		listPrice = reportdao.listPriceProductsProvider(getQuotation().getId(), providerName);
+		ArrayList<String> listProviders = reportdao.listProvidersProvider(quotationIdForReport, providerNameForReport);
+		
+		ArrayList<Double> listPrice = reportdao.listPriceProductsProvider(quotationIdForReport, providerNameForReport);
 
 		ArrayList<ArrayList> productsForProvider = new ArrayList<>();
 		
@@ -36,6 +38,10 @@ public class ReportProvider extends Report {
 
 		return productsForProvider;
 
+	}
+	
+	private String getProviderName() {
+		return providerName;
 	}
 
 }
