@@ -40,12 +40,15 @@ public class ReportContoller extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		assert (request != null) : "The request from client is null";
+		assert (response != null) : "The response to client is null";
 		
 		sendQuotation(request, response);
 	}
 	
 	void sendQuotation(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
+		
 		int quotationID = getQuotationID(request);
 		
 		boolean quotationIsOn = verifyStateQuotation(request);
@@ -124,6 +127,7 @@ public class ReportContoller extends HttpServlet {
 	}
 
 	private boolean verifyStateQuotation(HttpServletRequest request) {
+		assert(request != null) : "The request from client is null";
 		
 		String quotationIsOn = request.getParameter("isOn");
 		
@@ -133,7 +137,8 @@ public class ReportContoller extends HttpServlet {
 	}
 
 	private int getQuotationID(HttpServletRequest request) {
-
+		assert(request != null) : "The request from client is null";
+		
 		String quotationId = request.getParameter("quotationId");
 		
 		int integerQuotationID = Integer.parseInt(quotationId);
