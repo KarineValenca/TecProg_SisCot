@@ -55,7 +55,9 @@ public class SecurityProvider implements Filter {
 		HttpSession session = req.getSession();
 		String url = req.getRequestURL().toString();
 
-		boolean isSession = (session.getAttribute("user") != null);
+		String attributeUser = (String) session.getAttribute("user"); 
+		boolean isSession = (attributeUser != null);
+		
 		boolean requestIsIndex = (url.equals("http://localhost:8080/SisCot/"));
 
 		// Verify if the current user have a session setted
@@ -63,8 +65,7 @@ public class SecurityProvider implements Filter {
 			session = setSession(session);
 			chain.doFilter(request, response);
 		} else {
-			RequestDispatcher rd;
-			rd = request.getRequestDispatcher("/login.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 			rd.forward(request, response);
 		}
 	}
