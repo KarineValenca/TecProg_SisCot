@@ -46,11 +46,9 @@ public class ReportContoller extends HttpServlet {
 	
 	void sendQuotation(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
-		int quotationID;
-		quotationID = getQuotationID(request);
+		int quotationID = getQuotationID(request);
 		
-		boolean quotationIsOn;
-		quotationIsOn = verifyStateQuotation(request);
+		boolean quotationIsOn = verifyStateQuotation(request);
 
 		// Create a quotation with ID
 		Quotation quotation = new Quotation();
@@ -62,23 +60,21 @@ public class ReportContoller extends HttpServlet {
 		products = quotationdao.getListProductsInAQuotation(quotationID);
 
 		// Get the request
-		HttpServletRequest req;
-		req = (HttpServletRequest) request;
+		HttpServletRequest req = (HttpServletRequest) request;
 		
-		HttpSession session;
-		session = req.getSession();
+		HttpSession session = req.getSession();
 
 		Report report = new Report();
-
-		if (session.getAttribute("user") != null) {
-			String user;
-			user = (String) session.getAttribute("userType");
+		
+		String attributeUser = (String) session.getAttribute("user");
+		
+		if (attributeUser != null) {
+			String user = (String) session.getAttribute("userType");
 
 			if (user.equals("manager")) {
 				report = new ReportManager(products, quotation, 0.0);
 			} else if (user.equals("provider") && !quotationIsOn) {
-				String providerName;
-				providerName = (String) session.getAttribute("user");
+				String providerName = (String) session.getAttribute("user");
 				report = new ReportProvider(products, quotation, 0.0, providerName);
 			}
 			else if(user.equals("provider") && quotationIsOn){
@@ -90,16 +86,16 @@ public class ReportContoller extends HttpServlet {
 		productsForProvider = report.showProducts();
 		
 		ArrayList<String> priceAsString = new ArrayList<>();
-		for(int i = 0; i < productsForProvider.get(2).size(); ++i){
+		
+		int sizeOfProductsForProvider = productsForProvider.get(2).size();
+		
+		for(int i = 0; i < sizeOfProductsForProvider; ++i){
 			
-			ArrayList<Double> listPrice;
-			listPrice = productsForProvider.get(2);
+			ArrayList<Double> listPrice = productsForProvider.get(2);
 			
-			Double priceProduct;
-			priceProduct = (Double)listPrice.get(i);
+			Double priceProduct = (Double)listPrice.get(i);
 			
-			String priceDecimalFormatAsString;
-			priceDecimalFormatAsString = Calculations.formatDecimal(priceProduct);
+			String priceDecimalFormatAsString = Calculations.formatDecimal(priceProduct);
 			
 			priceAsString.add(priceDecimalFormatAsString);
 			
@@ -123,29 +119,24 @@ public class ReportContoller extends HttpServlet {
 		
 		System.out.println("PAssou pagian: " + urlToSend);
 		
-		RequestDispatcher rd;
-		rd = request.getRequestDispatcher(urlToSend);
+		RequestDispatcher rd = request.getRequestDispatcher(urlToSend);
 		rd.forward(request, response);
 	}
 
 	private boolean verifyStateQuotation(HttpServletRequest request) {
 		
-		String quotationIsOn;
-		quotationIsOn = request.getParameter("isOn");
+		String quotationIsOn = request.getParameter("isOn");
 		
-		boolean quotationIsOnBool;
-		quotationIsOnBool = Boolean.parseBoolean(quotationIsOn);
+		boolean quotationIsOnBool = Boolean.parseBoolean(quotationIsOn);
 		
 		return quotationIsOnBool;
 	}
 
 	private int getQuotationID(HttpServletRequest request) {
 
-		String quotationId;
-		quotationId = request.getParameter("quotationId");
+		String quotationId = request.getParameter("quotationId");
 		
-		int integerQuotationID;
-		integerQuotationID = Integer.parseInt(quotationId);
+		int integerQuotationID = Integer.parseInt(quotationId);
 
 		return integerQuotationID;
 	}
