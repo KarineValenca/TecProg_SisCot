@@ -81,6 +81,9 @@ public class InsertProduct extends HttpServlet {
 			if(daoWasAdd) {
 				wasAdd = 1;
 			}
+			else {
+				//nothing to do
+			}
 		}
 		else {
 			wasAdd = 2;
