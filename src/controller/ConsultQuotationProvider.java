@@ -36,8 +36,6 @@ public class ConsultQuotationProvider extends ConsultQuotation {
 		quotationList = buildQuotationList();
 		
 		request.setAttribute("quotationList", quotationList);
-		
-		System.out.println("Tamanho do array: " + quotationList.size());
 				
 		RequestDispatcher rd;
 		

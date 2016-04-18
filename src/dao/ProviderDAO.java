@@ -1,3 +1,10 @@
+/*
+ * Class name: ProviderDAO.java
+ * Purpose of class: This class is used to insert, delete, update or list a 
+ * provider. 
+ * Copyright: This software follows GPL license.
+ */
+
 package dao;
 
 import java.sql.Connection;
@@ -16,7 +23,8 @@ public class ProviderDAO {
 	}
 	
 	public boolean insertProvider(Provider provider) {
-		assert (provider != null) : "unexpected error: the provider object is null";
+		assert (provider != null) : "unexpected error: the provider object is "
+									+ "null";
 		
 		String sql = "insert into Providers (cnpj, nome, email, senha, ddd, "
 				+ "telefone, endereco, cidade, estado, cep, authorized) "
@@ -86,7 +94,8 @@ public class ProviderDAO {
 	}
 	
 	public boolean deleteProvider(String providerCnpj) {
-		assert(providerCnpj != null) : "unexpected error: the provider cnpj is null";
+		assert(providerCnpj != null) : "unexpected error: the provider cnpj is "
+										+ "null";
 		String sql = "delete from Providers where cnpj = ?";
 		boolean wasDeleted = false;
 
@@ -110,8 +119,10 @@ public class ProviderDAO {
 		assert(cnpjToUpdate != null) : "unexpected error: the cnpj is null";
 		assert(provider != null) : "unexpected error: the provider is null";
 		
-		String sql = "update Providers set cnpj=?, nome=?, email=?, senha=?, ddd=?, "
-				+ "telefone=?, endereco=?, cidade=?, estado=?, cep=?, authorized=? where cnpj=?";
+		String sql = "update Providers set cnpj=?, nome=?, email=?, senha=?, "
+				+ "ddd=?, telefone=?, endereco=?, cidade=?, estado=?, cep=?, "
+				+ "authorized=? where cnpj=?";
+		
 		boolean wasUpdated = false;
 			
 		try {
@@ -140,4 +151,5 @@ public class ProviderDAO {
 			
 		return wasUpdated;
 	}
+	
 }

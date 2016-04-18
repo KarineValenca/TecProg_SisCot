@@ -1,6 +1,6 @@
 /*
- * Class name: DeleteProvider.java
- * Purpose of class: This class is used to exclude a provider from database.
+ * Class name: UpdateProvider.java
+ * Purpose of class: This class is used to update a provider at database.
  * Copyright: This software follows GPL license.
  */
 
@@ -51,8 +51,8 @@ public class UpdateProvider extends HttpServlet {
 	public boolean sendToProviderDAO(HttpServletRequest request) {
 		boolean wasUpdated = false;
 		HttpSession session = request.getSession();
-		String actualProviderCnpj = request.getParameter("actualCnpj");
 		
+		String actualProviderCnpj = request.getParameter("actualCnpj");
 		assert(actualProviderCnpj != null) : "the actual provider cnpj is recieving null from view";
 				
 		Provider provider = new Provider();
