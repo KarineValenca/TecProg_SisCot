@@ -17,6 +17,7 @@ public class ProviderDAO {
 	
 	public boolean insertProvider(Provider provider) {
 		assert (provider != null) : "unexpected error: the provider object is null";
+		
 		String sql = "insert into Providers (cnpj, nome, email, senha, ddd, "
 				+ "telefone, endereco, cidade, estado, cep, authorized) "
 				+ "values (?,?,?,?,?,?,?,?,?,?,?)";

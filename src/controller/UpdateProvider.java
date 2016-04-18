@@ -1,3 +1,9 @@
+/*
+ * Class name: DeleteProvider.java
+ * Purpose of class: This class is used to exclude a provider from database.
+ * Copyright: This software follows GPL license.
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -22,7 +28,9 @@ public class UpdateProvider extends HttpServlet {
 		super();
 	}
 	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, 
+							HttpServletResponse response) 
+							throws ServletException, IOException {
 		String messageUpdateConfirmation = "Iniciada";
 		boolean wasUpdated = sendToProviderDAO(request);
 		
@@ -44,8 +52,8 @@ public class UpdateProvider extends HttpServlet {
 		boolean wasUpdated = false;
 		HttpSession session = request.getSession();
 		String actualProviderCnpj = request.getParameter("actualCnpj");
+		
 		assert(actualProviderCnpj != null) : "the actual provider cnpj is recieving null from view";
-		System.out.println("Cnpj atual: " + actualProviderCnpj);
 				
 		Provider provider = new Provider();
 		
@@ -61,17 +69,8 @@ public class UpdateProvider extends HttpServlet {
 		provider.setProviderZip(Integer.parseInt(request.getParameter("zip")));
 		provider.setAuthorized(request.getParameter("authorized") != null);
 		
-		System.out.println("Dados: " + provider.getProviderAdress() + "\n");
-		System.out.println("Dados: " + provider.getProviderCity() + "\n");
-		System.out.println("Dados: " + provider.getProviderCnpj() + "\n");
-		System.out.println("Dados: " + provider.getProviderDdd() + "\n");
-		System.out.println("Dados: " + provider.getProviderZip() + "\n");
-		System.out.println("Dados: " + provider.getProviderName() + "\n");
-		System.out.println("Dados Aurotizado:" + provider.isAuthorized() + "\n");
-		
 		Login login = new Login();
 		session = login.updateSessionProvider(session, provider);
-		
 		ProviderDAO providerDAO = new ProviderDAO();
 		
 		wasUpdated = providerDAO.updateProvider(actualProviderCnpj, provider);
