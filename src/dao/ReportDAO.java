@@ -1,3 +1,10 @@
+/*
+ * Class name: ReportDAO.java
+ * Purpose of class: This class is used to generate reports. These reports are 
+ * useful to the user check information about prices, providers and products. 
+ * Copyright: This software follows GPL license.
+ */
+
 package dao;
 
 import java.sql.Connection;
@@ -5,9 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import model.Product;
-import model.Quotation;
 
 public class ReportDAO {
 
@@ -21,7 +25,8 @@ public class ReportDAO {
 		//if the id is equal or less than zero, it means that the id is invalid. 
 		assert(id >=0) : "unexpected error: the informed id is invalid";
 		
-		String sql = "select productName from Quotation_Product_Provider " + "where quotationID = ?";
+		String sql = "select productName from Quotation_Product_Provider where "
+						+ "quotationID = ?";
 		ArrayList<String> productsManager = new ArrayList<String>();
 
 		try {
@@ -62,7 +67,8 @@ public class ReportDAO {
 		//if the id is equal or less than zero, it means that the id is invalid. 
 		assert(id >=0) : "unexpected error: the informed id is invalid";
 				
-		String sql = "select providerName from Quotation_Product_Provider " + "where quotationID = ?";
+		String sql = "select providerName from Quotation_Product_Provider where "
+						+ "quotationID = ?";
 		ArrayList<String> providersManager = new ArrayList<String>();
 
 		try {
@@ -105,10 +111,11 @@ public class ReportDAO {
 	public ArrayList<String> listProductsProvider(int id, String providerName) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
 		assert(id >=0) : "unexpected error: the informed id is invalid";
-		assert(providerName != null) : "unexpected error: the providerName is null";
+		assert(providerName != null) : "unexpected error: the providerName is "
+										+ "null";
 		
-		String sql = "select productName from Quotation_Product_Provider "
-				+ " where quotationID = ? AND  providerName = ? ";
+		String sql = "select productName from Quotation_Product_Provider where "
+						+ "quotationID = ? AND  providerName = ? ";
 		ArrayList<String> productsProvider = new ArrayList<String>();
 
 		try {
@@ -149,10 +156,11 @@ public class ReportDAO {
 	public ArrayList<String> listProvidersProvider(int id, String providerName) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
 		assert(id >=0) : "unexpected error: the informed id is invalid";
-		assert(providerName != null) : "unexpected error: the providerName is null";
+		assert(providerName != null) : "unexpected error: the providerName is "
+										+ "null";
 		
-		String sql = "select providerName from Quotation_Product_Provider "
-				+ "where quotationID = ? AND providerName = ?";
+		String sql = "select providerName from Quotation_Product_Provider where "
+						+ "quotationID = ? AND providerName = ?";
 		ArrayList<String> providersToProvider = new ArrayList<String>();
 
 		try {
@@ -194,7 +202,8 @@ public class ReportDAO {
 		//if the id is equal or less than zero, it means that the id is invalid. 
 		assert(id >=0) : "unexpected error: the informed id is invalid";
 		
-		String sql = "select priceProduct from Quotation_Product_Provider " + "where quotationID = ?";
+		String sql = "select priceProduct from Quotation_Product_Provider where "
+						+ "quotationID = ?";
 		ArrayList<Double> priceProducts = new ArrayList<Double>();
 
 		try {
@@ -272,4 +281,5 @@ public class ReportDAO {
 
 		return priceProducts;
 	}
+	
 }
