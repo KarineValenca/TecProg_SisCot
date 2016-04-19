@@ -90,6 +90,9 @@ public class InsertQuotation extends HttpServlet{
 				QuotationDAO quotationDAO = new QuotationDAO();
 				quotationDAO.includeQuotationProduc(quotation, product);
 			}
+			else {
+				//nothing to do
+			}
 		}
 	}
 

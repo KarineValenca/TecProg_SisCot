@@ -44,8 +44,8 @@ public class DeleteQuotation extends HttpServlet {
 	public boolean deleteQuotation(int quotationId) {
 		assert(quotationId >= 0) : "unexpected error: the quotationId is less than 0";
 		boolean wasDeleted = false;
-
 		QuotationDAO quotationDao = new QuotationDAO();
+
 		System.out.println("ID da cotação");
 		wasDeleted = quotationDao.deleteQuotation(quotationId);
 
