@@ -1,3 +1,9 @@
+/*
+ * Class name: Calculations.java
+ * Purpose of class: Class format values in decimal
+ * Copyright: This software follows GPL license.
+ */
+
 package resouces;
 
 public class Calculations {
