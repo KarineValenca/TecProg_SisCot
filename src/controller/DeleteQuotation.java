@@ -42,7 +42,7 @@ public class DeleteQuotation extends HttpServlet {
 	}
 
 	public boolean deleteQuotation(int quotationId) {
-		assert(quotation >= 0) : "unexpected error: the quotation is less than 0";
+		assert(quotationId >= 0) : "unexpected error: the quotationId is less than 0";
 		boolean wasDeleted = false;
 
 		QuotationDAO quotationDao = new QuotationDAO();
