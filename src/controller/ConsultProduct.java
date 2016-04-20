@@ -1,3 +1,9 @@
+/*
+ * Class name: ConsultProduct.java
+ * Purpose of class: This class is used to consult products.
+ * Copyright: This software follows GPL license.
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -16,7 +22,7 @@ import dao.ProductDAO;
 @WebServlet("/ConsultProduct")
 public class ConsultProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	public ConsultProduct() {
 		super();
 	}
@@ -25,15 +31,15 @@ public class ConsultProduct extends HttpServlet {
 		ServletException, IOException {
 		ArrayList<Product> productList = new ArrayList<Product>();
 		ProductDAO productdao = new ProductDAO();
-		
-		productList = productdao.listProducts();		
-		
+
+		productList = productdao.listProducts();
+
 		String url  = request.getHeader("Referer");
-		
+
 		System.out.println("url: " + url);
-		
+
 		request.setAttribute("products", productList);
-		
+
 		RequestDispatcher rd;
 		if(url.contains("Quotation")) {
 			rd = request.getRequestDispatcher("/IncludeQuotationView.jsp");
@@ -41,7 +47,7 @@ public class ConsultProduct extends HttpServlet {
 		else {
 			rd = request.getRequestDispatcher("/ConsultProductList.jsp");
 		}
-		
-        rd.forward(request,response);
+
+      		rd.forward(request,response);
 	}
 }

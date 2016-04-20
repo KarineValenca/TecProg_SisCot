@@ -1,3 +1,9 @@
+/*
+ * Class name: CloseQuotation.java
+ * Purpose of class: This class is used to close quotations, accepted.
+ * Copyright: This software follows GPL license.
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -17,27 +23,26 @@ import dao.QuotationDAO;
 @WebServlet("/CloseQuotation")
 public class CloseQuotation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CloseQuotation() {
-        super();
-    }
 
-	/**
+            /**
+             * @see HttpServlet#HttpServlet()
+             */
+            public CloseQuotation() {
+                super();
+            }
+
+            	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String quotationId = request.getParameter("quotationId");
 		int integerQuotationID = Integer.parseInt(quotationId);
-		
+
 		QuotationDAO quotationdao = new QuotationDAO();
 		quotationdao.updateQuotation(integerQuotationID);
-		
+
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
 	}
-
 }
