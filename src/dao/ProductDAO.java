@@ -1,3 +1,10 @@
+/*
+ * Class name: ProductDAO.java
+ * Purpose of class: This file corresponds to persistence class Product, with methods insertProduct,
+ * listProduct, deleteProduct and updateProduct.
+ * Copyright: This software follows GPL license.
+ */
+
 package dao;
 
 import java.sql.Connection;
@@ -40,11 +47,11 @@ public class ProductDAO {
 
             //Close the operators
             statement.close();
-        } catch(SQLException e) {
+        }
+        catch(SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
-
         return wasAdd;
     }
 
@@ -58,7 +65,8 @@ public class ProductDAO {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-        } catch(ClassNotFoundException e) {
+        }
+        catch(ClassNotFoundException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
@@ -79,11 +87,11 @@ public class ProductDAO {
 
             //Close the operators
             statement.close();
-        } catch(SQLException e) {
+        }
+        catch(SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
-
         return products;
     }
 
@@ -103,11 +111,11 @@ public class ProductDAO {
 
             //Close the operators
             statement.close();
-        } catch(SQLException e) {
+        }
+        catch(SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
-
         return wasDeleted;
     }
 
@@ -130,10 +138,10 @@ public class ProductDAO {
 
             //Close the operators
             statement.close();
-        } catch(SQLException e) {
+        }
+        catch(SQLException e) {
             e.printStackTrace();
         }
-
         return wasUpdated;
     }
 }
