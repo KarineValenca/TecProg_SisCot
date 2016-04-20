@@ -1,3 +1,9 @@
+/*
+ * Class name: InsertQuotation.java
+ * Purpose of class: This class is used to enter new quotes, and their products.
+ * Copyright: This software follows GPL license.
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -37,7 +43,7 @@ public class InsertQuotation extends HttpServlet{
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws
-		ServletException, IOException {
+		                        ServletException, IOException {
 
 		String messageAddConfirmation = "Iniciada";
 		HttpSession session = request.getSession();
@@ -67,9 +73,18 @@ public class InsertQuotation extends HttpServlet{
 		//Dispacher the result from the view of confirmation
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/QuotationResponse.jsp");
-        rd.forward(request,response);
+       		rd.forward(request,response);
 	}
 
+	public int insertQuotation(Quotation quotation) {
+		assert(quotation != null) : "unexpected error: the quotation is null";
+		int id;
+
+		QuotationDAO quotationdao = new QuotationDAO();
+		id = quotationdao.includeQuotation(quotation);
+
+		return id;
+	}
 
 	private void selectProducts(HttpServletRequest request, Quotation quotation) {
 		assert(request != null) : "unexpected error: the request is null";
@@ -94,16 +109,6 @@ public class InsertQuotation extends HttpServlet{
 				//nothing to do
 			}
 		}
-	}
-
-	public int insertQuotation(Quotation quotation) {
-		assert(quotation != null) : "unexpected error: the quotation is null";
-		int id;
-
-		QuotationDAO quotationdao = new QuotationDAO();
-		id = quotationdao.includeQuotation(quotation);
-
-		return id;
 	}
 
 	private Quotation createNewCotation(String managerName, Date quotationDate){
