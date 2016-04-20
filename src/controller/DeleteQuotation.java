@@ -1,3 +1,9 @@
+/*
+ * Class name: DeleteQuotation.java
+ * Purpose of class: This class is used to delete quotes, and has the method  deleteQuotation.
+ * Copyright: This software follows GPL license.
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -38,7 +44,7 @@ public class DeleteQuotation extends HttpServlet {
 		//Dispacher the result from the view of confirmation
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/QuotationResponse.jsp");
-	    rd.forward(request,response);
+	   	rd.forward(request,response);
 	}
 
 	public boolean deleteQuotation(int quotationId) {
@@ -51,5 +57,4 @@ public class DeleteQuotation extends HttpServlet {
 
 		return wasDeleted;
 	}
-
 }
