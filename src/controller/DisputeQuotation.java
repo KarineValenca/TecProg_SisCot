@@ -1,3 +1,9 @@
+/*
+ * Class name: DisputeQuotation.java
+ * Purpose of class: This class is responsible for create a dispute quotation 
+ * and, using the RequestDispatcher objetc, acess the index views pages.
+ * Copyright: This software follows GPL license.
+ */
 package controller;
 
 import java.io.IOException;
@@ -14,24 +20,16 @@ import javax.servlet.http.HttpServletResponse;
 import dao.QuotationDAO;
 import resouces.Login;
 
-/**
- * Servlet implementation class DisputeQuotation
- */
-@WebServlet("/DisputeQuotation")
 public class DisputeQuotation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+   
+	// this method is a constructor method of the class. 
     public DisputeQuotation() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
+    /*this method is responsible for get the provider name, the quotation id 
+    and create products and price products list.*/
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		assert (request != null) : "The request from client is null";
