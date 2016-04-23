@@ -1,3 +1,9 @@
+/*
+ * Class name: ReportController.java
+ * Purpose of class: This class creates a report according to the user type and
+ * status quotation.
+ * Copyright: This software follows GPL license.
+ */
 package controller;
 
 import java.io.IOException;
@@ -19,25 +25,15 @@ import model.ReportManager;
 import model.ReportProvider;
 import resouces.Calculations;
 
-/**
- * Servlet implementation class Report
- */
-@WebServlet("/Report")
 public class ReportContoller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
+	// this method is a constructor method of the class
 	public ReportContoller() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	// this method call the sendQuotation method.
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		assert (request != null) : "The request from client is null";
@@ -46,6 +42,9 @@ public class ReportContoller extends HttpServlet {
 		sendQuotation(request, response);
 	}
 	
+	/*this method creates a products list in quotation; creates a report 
+	according to the user type and status quotation; creates a prices list; 
+	request the view pages according to status quotation*/
 	void sendQuotation(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		
@@ -114,8 +113,7 @@ public class ReportContoller extends HttpServlet {
 		
 		
 		
-		// Dispacher the result from the view of confirmation
-		
+		// Dispacher the result from the view of confirmation		
 		String urlToSend = null;
 		
 		
@@ -132,6 +130,7 @@ public class ReportContoller extends HttpServlet {
 		rd.forward(request, response);
 	}
 
+	// this method aims to verify the state quotation. Returns a boolean
 	private boolean verifyStateQuotation(HttpServletRequest request) {
 		assert(request != null) : "The request from client is null";
 		
@@ -142,6 +141,8 @@ public class ReportContoller extends HttpServlet {
 		return quotationIsOnBool;
 	}
 
+	/*this method gets the quotation id in a string format and turns it in a 
+	integer type*/	
 	private int getQuotationID(HttpServletRequest request) {
 		assert(request != null) : "The request from client is null";
 		
@@ -152,6 +153,7 @@ public class ReportContoller extends HttpServlet {
 		return integerQuotationID;
 	}
 
+	// this method crates a new quotation into the database
 	private Quotation getQuotation(int integerQuotationID) {
 		assert(integerQuotationID != 0) : "the quotationID variable receive 0";
 		QuotationDAO quotationdao = new QuotationDAO();
