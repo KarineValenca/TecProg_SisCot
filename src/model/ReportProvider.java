@@ -1,3 +1,9 @@
+/*
+ * Class name: ReportProvider.java
+ * Purpose of class: This class is a extension of Report class. Responsible for
+ * stablish what will show in a report provider.
+ * Copyright: This software follows GPL license.
+ */
 package model;
 
 import java.util.ArrayList;
@@ -10,6 +16,7 @@ public class ReportProvider extends Report {
 
 	private String providerName;
 
+	// this method is a constructor method
 	public ReportProvider(ArrayList<Product> products, Quotation quotation, double totalPrice, 
 			String providerName) {
 		
@@ -17,7 +24,8 @@ public class ReportProvider extends Report {
 		this.providerName = providerName;
 	}
 
-	@Override
+	/* this method stablish the lists that will show in a report provider:
+	products, providers and prices lists.*/
 	public ArrayList<ArrayList> showProducts() {
 		ReportDAO reportdao = new ReportDAO();
 				
@@ -40,6 +48,7 @@ public class ReportProvider extends Report {
 
 	}
 	
+	// this method gets the providerName for use in report
 	private String getProviderName() {
 		return providerName;
 	}
