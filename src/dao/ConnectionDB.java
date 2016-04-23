@@ -1,23 +1,21 @@
+/*
+ * Class name: ConnectionDB.java
+ * Purpose of class: This class is responsible for create a single connection 
+ * to the database.
+ * Copyright: This software follows GPL license.
+ */
 package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * 
- * @author tiago
- * Create a single connection to the database
- */
-
 public final class ConnectionDB {
 
 	protected Connection connectionWithDataBase;
 	protected static ConnectionDB dataBase;	
 
-	/**
-	 * Create a new connection
-	 */
+	// this class is responsible for create a single connection to the database
 	private ConnectionDB() {
 		String url = "jdbc:mysql://localhost:3306/";
 		String dbName = "biblioteca";
@@ -33,10 +31,8 @@ public final class ConnectionDB {
 		}
 	}
 
-	/**
-	 * It enables the creation of a single connection if it does not already exist
-	 * @return a single connection
-	 */
+	/*this method enables the creation of a single connection if it does not 
+	already exist.*/
 	protected static synchronized  ConnectionDB getConnection() {
 		if ( dataBase == null ) {
 			dataBase = new ConnectionDB();
