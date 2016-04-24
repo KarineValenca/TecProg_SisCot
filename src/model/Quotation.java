@@ -1,3 +1,9 @@
+/*
+ * Class name: Quotation.java
+ * Purpose of class: This class is used to store all attributes from quotation.
+ * Copyright: This software follows GPL license.
+ */
+
 package model;
 
 import java.sql.Date;
@@ -10,7 +16,8 @@ public class Quotation {
 	private boolean quotationIsOn;
 	private int id;
 	
-	public Quotation(ArrayList<Product> products, Date quotationDate, String managerName, int id) {
+	public Quotation(ArrayList<Product> products, Date quotationDate, 
+			         String managerName, int id) {
 		super();
 		this.products = products;
 		this.quotationDate = quotationDate;
