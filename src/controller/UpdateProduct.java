@@ -1,3 +1,9 @@
+/*
+ * Class name: UpdateProduct.java
+ * Purpose of class: This class is used to update a product at database.
+ * Copyright: This software follows GPL license.
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -15,18 +21,20 @@ import dao.ProductDAO;
 @WebServlet("/UpdateProduct")
 public class UpdateProduct extends HttpServlet {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public UpdateProduct() {
 		super();		
 	}
 	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String messageUpdateConfirmation = "Iniciada";
-		boolean wasUpdated = sendToProductDAO(request);
+	protected void service(HttpServletRequest request, 
+						   HttpServletResponse response) 
+						   throws ServletException, IOException {
+		String messageUpdateConfirmation;
+		mmessageUpdateConfirmation = "Iniciada";
+		boolean wasUpdated;
+		wasUpdated = sendToProductDAO(request);
+		
 		if(wasUpdated) {
 			messageUpdateConfirmation = "Produto atualizado com sucesso!";
 		}
@@ -35,24 +43,22 @@ public class UpdateProduct extends HttpServlet {
 		}
 		
 		request.setAttribute("mensage", messageUpdateConfirmation);
-		
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/ProductResponse.jsp");
         rd.forward(request,response);
 	}
 	
 	public boolean sendToProductDAO(HttpServletRequest request) {
-		boolean wasUpdated = false;
-		String actualProductName = (String) request.getParameter("actualName");
-		assert(actualProductName != null) : "the actual product name is recieving null from view";	
+		boolean wasUpdated;
+		wasUpdated = false;
+		String actualProductName;
+		actualProductName = (String) request.getParameter("actualName");
+		assert(actualProductName != null) : "the actual product name is "
+											 + "recieving null from view";	
 		Product product = new Product();
-		
 		product.setProductName(request.getParameter("name"));
-		
 		ProductDAO productDAO = new ProductDAO();
-		
 		wasUpdated = productDAO.updateProduct(actualProductName, product);
-		
 		return wasUpdated;
 	}
 }
