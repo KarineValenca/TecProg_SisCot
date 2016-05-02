@@ -15,11 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dao.ProductDAO;
 
-@WebServlet("/DeleteProduct")
 /**
  * Class name: DeleteProdut.java
  * Purpose of class: This class is used to exclude a provider from database.
  **/
+@WebServlet("/DeleteProduct")
 public class DeleteProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
