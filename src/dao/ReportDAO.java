@@ -1,7 +1,6 @@
 /**
- * File name: Report.java 
- * Purpose of file: This file contains the ReportDAO class and its
- * methods.
+ * File name: ReportDAO.java 
+ * Purpose of file: This file contains the ReportDAO class and its methods.
  * Copyright: This software follows GPL license.
  **/
 

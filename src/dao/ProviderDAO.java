@@ -1,9 +1,8 @@
-/*
- * Class name: ProviderDAO.java
- * Purpose of class: This class is used to insert, delete, update or list a 
- * provider. 
+/**
+ * File name: ProviderDAO.java 
+ * Purpose of file: This file contains the ProviderDAO class and its methods.
  * Copyright: This software follows GPL license.
- */
+ **/
 
 package dao;
 
@@ -12,9 +11,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import model.Provider;
 
+/**
+ * Class name: ProviderDAO
+ * Purpose of class: This class is used to insert, delete, update or list a 
+ * provider. 
+ **/
 public class ProviderDAO {
 	private Connection connection;
 	
@@ -22,6 +25,13 @@ public class ProviderDAO {
 		this.connection = ConnectionDB.getConnection().connectionWithDataBase;
 	}
 	
+	/**
+	 * Method name: insertProvider
+	 * Purpose of method: This method is used to insert a provider at the database.
+	 * @param provider: instance of the object Provider that will be created.   
+	 * @return: it returns a boolean, that returns true if the provider was added
+	 * and false if the provider was not added.
+	 **/
 	public boolean insertProvider(Provider provider) {
 		assert (provider != null) : "unexpected error: the provider object is "
 									+ "null";
@@ -58,6 +68,14 @@ public class ProviderDAO {
 		return wasAdded;
 	}
 	
+	/**
+	 * Method name: listProviders
+	 * Purpose of method: This method is used to list all providers at the 
+	 * database.
+	 * @param: there is no param.
+	 * @return: it returns a arraylist of provider type with all providers at
+	 * system.
+	 **/
 	public ArrayList<Provider> listProviders() {
 		String sql = "select * from Providers";
 		ArrayList<Provider> providers = new ArrayList<Provider>();
@@ -93,6 +111,15 @@ public class ProviderDAO {
 		return providers;
 	}
 	
+	/**
+	 * Method name: deleteProvider
+	 * Purpose of method: This method is used to delete a provider at the 
+	 * database.
+	 * @param providerCnpj: this attribute is the provider CNPJ. CNPJ is a 
+	 * company register number in Brazil, and can be used as an identifier.
+	 * @return: it returns a boolean, that returns true if the provider was 
+	 * deleted and false if the provider was not deleted.
+	 **/
 	public boolean deleteProvider(String providerCnpj) {
 		assert(providerCnpj != null) : "unexpected error: the provider cnpj is "
 										+ "null";
@@ -115,6 +142,17 @@ public class ProviderDAO {
 		return wasDeleted;
 	}
 	
+	/**
+	 * Method name: updateProvider
+	 * Purpose of method: This method is used to update a provider at the 
+	 * database.
+	 * @param cnpjToUpdate: this attribute is the CNPJ number of provider that
+	 * will be updated. CNPJ is a company register number in Brazil, and can be
+	 * used as an identifier.
+	 * @param provider: instance of the object Provider that will be updated.
+	 * @return: it returns a boolean, that returns true if the provider was 
+	 * updated and false if the provider was not updated.
+	 **/
 	public boolean updateProvider(String cnpjToUpdate, Provider provider) {
 		assert(cnpjToUpdate != null) : "unexpected error: the cnpj is null";
 		assert(provider != null) : "unexpected error: the provider is null";
