@@ -1,9 +1,9 @@
-/*
- * Class name: ReportDAO.java
- * Purpose of class: This class is used to generate reports. These reports are 
- * useful to the user check information about prices, providers and products. 
+/**
+ * File name: Report.java 
+ * Purpose of file: This file contains the ReportDAO class and its
+ * methods.
  * Copyright: This software follows GPL license.
- */
+ **/
 
 package dao;
 
@@ -13,6 +13,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Class name: ReportDAO
+ * Purpose of class: This class is used to generate reports. These reports are 
+ * useful to the user check information about prices, providers and products. 
+ **/
 public class ReportDAO {
 
 	private Connection connection;
@@ -20,7 +25,16 @@ public class ReportDAO {
 	public ReportDAO() {
 		this.connection = ConnectionDB.getConnection().connectionWithDataBase;
 	}
-
+	
+	/**
+	 * Method name: listProductsManager
+	 * Purpose of method: This method is used to list all products name related
+	 * to a quotation.
+	 * @param id: this attribute is integer type and it is used to get the 
+	 * the productName from a Quotation based on this id.    
+	 * @return: it returns an arraylist of string type with all products with
+	 * this quotation id.
+	 **/
 	public ArrayList<String> listProductsManager(int id) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
 		assert(id >=0) : "unexpected error: the informed id is invalid";
@@ -63,6 +77,15 @@ public class ReportDAO {
 		return productsManager;
 	}
 
+	/**
+	 * Method name: listProvidersManager
+	 * Purpose of method: This method is used to list all providers name 
+	 * related to a quotation.
+	 * @param id: this attribute is integer type and it is used to get the 
+	 * the product provider from a Quotation based on this id.    
+	 * @return: it returns an arraylist of string type with all providers with
+	 * this quotation id.
+	 **/
 	public ArrayList<String> listProvidersManager(int id) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
 		assert(id >=0) : "unexpected error: the informed id is invalid";
@@ -108,6 +131,17 @@ public class ReportDAO {
 		return providersManager;
 	}
 
+	/**
+	 * Method name: listProductsProvider
+	 * Purpose of method: This method is used to list all products name related
+	 * to a quotation and a provider.
+	 * @param id: this attribute is integer type and it is used to get the 
+	 * product name from a Quotation based on this id. 
+	 * @param providerName: this attribute is string type and it is used to get
+	 * the product name from a provider based on this string.    
+	 * @return: it returns an arraylist of string type with all products with
+	 * this quotation id and this provider name.
+	 **/
 	public ArrayList<String> listProductsProvider(int id, String providerName) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
 		assert(id >=0) : "unexpected error: the informed id is invalid";
@@ -153,6 +187,17 @@ public class ReportDAO {
 		return productsProvider;
 	}
 
+	/**
+	 * Method name: listProvidersProvider
+	 * Purpose of method: This method is used to list all providers related to 
+	 * a quotation and a provider.
+	 * @param id: this attribute is integer type and it is used to get the 
+	 * product name from a Quotation based on this id. 
+	 * @param providerName: this attribute is string type and it is used to get
+	 * the product name from a provider based on this string.    
+	 * @return: it returns an arraylist of string type with all products with
+	 * this quotation id and this provider name.
+	 **/
 	public ArrayList<String> listProvidersProvider(int id, String providerName) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
 		assert(id >=0) : "unexpected error: the informed id is invalid";
@@ -198,6 +243,15 @@ public class ReportDAO {
 		return providersToProvider;
 	}
 
+	/**
+	 * Method name: listPriceProducts
+	 * Purpose of method: This method is used to list all products price related
+	 * to a quotation.
+	 * @param id: this attribute is integer type and it is used to get the 
+	 * product price from a Quotation based on this id. 
+	 * @return: it returns an arraylist of double type with all products prices
+	 * related to a quotation.
+	 **/
 	public ArrayList<Double> listPriceProducts(int id) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
 		assert(id >=0) : "unexpected error: the informed id is invalid";
@@ -239,6 +293,17 @@ public class ReportDAO {
 		return priceProducts;
 	}
 
+	/**
+	 * Method name: listPriceProductsProvider
+	 * Purpose of method: This method is used to list all products price related
+	 * to a quotation and a provider.
+	 * @param id: this attribute is integer type and it is used to get the 
+	 * product price from a Quotation based on this id. 
+	 * @param providerName: this attribute is string type and it is used to get
+	 * the product price from a provider based on this string.
+	 * @return: it returns an arraylist of double type with all products prices
+	 * related to a quotation and a provider.
+	 **/
 	public ArrayList<Double> listPriceProductsProvider(int id, String providerName) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
 		assert(id >=0) : "unexpected error: the informed id is invalid";
