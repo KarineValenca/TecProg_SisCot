@@ -46,7 +46,7 @@
 * Attribute Description: Is the type "boolean". This string receives the authorization status of view.
 
 * Attribute Name: provider
-* Attribute Description: This attribute is a Provider instance. Parameter of the service method.
+* Attribute Description: This attribute is a Provider instance. Parameter of the service method. This object provider to be inserted in the database.
 
 * Attribute Name: wasAdd
 * Attribute Description: Is the type "boolean". This boolean value is used to verify if the method was inserted.
@@ -68,5 +68,5 @@
 
 ------------------------------
 * Class Name: InsertProvider
-* Class Description: This class is responsible for the inclusion of the provider.
+* Class Description: This class is responsible to create a new provider.
 

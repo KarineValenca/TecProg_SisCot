@@ -27,6 +27,8 @@
 * Attribute Name: providerDao
 * Attribute Description: this attribute is an intance of ProviderDAO.
 ------------------------------
+* Method Name: updateProduct
+* Method Description: this method is responsible to update a product.
 
 * Method Name: service
 * Method Description: this method is used to get some values from view and pass the result of the method updateProduct to view
