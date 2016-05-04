@@ -26,6 +26,7 @@ public class DeleteProduct extends HttpServlet {
     public DeleteProduct() {
         super();
     }
+    
     /** 
     * Method name: service
     * Purpose of method: this method is used to get some values from view and 
@@ -61,7 +62,8 @@ public class DeleteProduct extends HttpServlet {
 		rd = request.getRequestDispatcher("/ProductResponse.jsp");
         rd.forward(request,response);
 	}
-    /** 
+   
+	/** 
     * Method name: deleteProduct
     * Purpose of method: this method is used to delete a product from database.  
     * @param productName: this string gets the product name from the view.
