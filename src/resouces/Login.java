@@ -1,3 +1,9 @@
+/**
+* File name: login.java 
+* Purpose of file: This class has the methods used to authenticate a user at the system.
+* Copyright: This software follows GPL license.
+**/
+
 package resouces;
 
 import java.io.IOException;
@@ -19,35 +25,38 @@ import model.Report;
 import model.ReportManager;
 import model.ReportProvider;
 
-/**
- * Servlet implementation class Login
- * 
- * @author tiago
- * @version 1.0
- */
+ /**
+ * Class name: Login
+ * Purpose of class: This class has implementation the methods used to authenticate 
+ * a user at the system.
+ **/
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	* Method name: service
+	* Purpose of method: This method get the session and finalize that. Verify
+	* if the login and password is authorized, if it is not authorized, 
+	* redirect to error page.
+	* @param request: used to represent the HTTP request that a browser sends
+    * to the application.
+	* @param response: used to represent the HTTP response that the application
+    * sends to a browser.  
+	* @return: there is no return.
+	**/
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Session utilized for stores the data of users
 		HttpSession session = request.getSession();
-
-		// Get the data of user and verify if is a stored user
 		String username = request.getParameter("login");
 		assert (username != null) : "unexpected error: the user name is recieving null from view";
 		String password = request.getParameter("password");
 		assert (password != null) : "unexpected error: the password is recieving null from view";
 		username = username.trim();
-
 		session = loginChecks(username, password, session);
-
 		String url = null;
-
-		// Dispatcher a url as user
 		if (session != null) {
 			url = "/index.jsp";
 			dispatcher(request, response, url);
@@ -56,31 +65,30 @@ public class Login extends HttpServlet {
 			dispatcher(request, response, url);
 		}
 	}
-
+	
 	/**
-	 * 
-	 * @param username
-	 * @param password
-	 * @param session
-	 * @return A session null if the user isn't registered. And returns a pair
-	 *         of attributs setted if the login is correct
-	 */
+	* Method name: loginChecks
+	* Purpose of method: This method checks if the user and password are correct
+	* to authenticate the system.
+	* @param username: user name is used to authenticate a user at system. 
+	* @param password: password of a user and it is used to authenticate a user 
+	* at system. 
+	* @param session: session of user.
+	* @return session: a session null if the user isn't registered. And returns 
+	* a pair of attributes setted if the login is correct.
+	**/
 	HttpSession loginChecks(String username, String password, HttpSession session) {
 
-		// Get all user from listProviders
 		ProviderDAO providerDAO = new ProviderDAO();
 		ArrayList<Provider> listProviders = new ArrayList<Provider>();
 		listProviders = providerDAO.listProviders();
 
-		// Search a correct user and password
 		for (Provider provider : listProviders) {
 			boolean isUser = provider.getProviderEmail().equals(username);
 			boolean correctPassword = provider.getProviderPassword().equals(password);
 
 			if (isUser && correctPassword) {
-
 				session = updateSessionProvider(session, provider);
-
 				return session;
 			} else {
 				session.setAttribute("user", null);
@@ -88,12 +96,10 @@ public class Login extends HttpServlet {
 			}
 		}
 
-		// Get all user from listManagers
 		ManagerDAO managerDAO = new ManagerDAO();
 		ArrayList<Manager> listManagers = new ArrayList<Manager>();
 		listManagers = managerDAO.listManagers();
 
-		// Search a correct user and password
 		for (Manager manager : listManagers) {
 			boolean isUser = manager.getManagerUsername().equals(username);
 			boolean correctPassword = manager.getManagerPassword().equals(password);
@@ -113,12 +119,13 @@ public class Login extends HttpServlet {
 	}
 
 	/**
-	 * Update the data of current provider
-	 * 
-	 * @param session
-	 * @param provider
-	 * @return
-	 */
+	* Method name: updateSessionProvider
+	* Purpose of method: This method is responsible for update of the 
+	* current session provider data.
+	* @param session: session of user.
+	* @param session: object provider.
+	* @return: There is no return.
+	**/
 	public HttpSession updateSessionProvider(HttpSession session, Provider provider) {
 		session.setAttribute("user", provider.getProviderName());
 		session.setAttribute("providerCnpj", provider.getProviderCnpj());
@@ -146,14 +153,15 @@ public class Login extends HttpServlet {
 	}
 
 	/**
-	 * Make a dispatcher for all methods with a url
-	 * 
-	 * @param request
-	 * @param response
-	 * @param url
-	 * @throws ServletException
-	 * @throws IOException
-	 */
+	* Method name: dispatcher
+	* Purpose of method: This method is responsible to make the targeting of urls.
+	* @param request: used to represent the HTTP request that a browser sends
+    * to the application.
+	* @param response: used to represent the HTTP response that the application
+    * sends to a browser.
+	* @param url: Directs the user to a page.
+	* @return: There is no return.
+	**/
 	public void dispatcher(HttpServletRequest request, HttpServletResponse response, String url)
 			throws ServletException, IOException {
 
@@ -162,7 +170,16 @@ public class Login extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	public static String getProviderNameFromSession(HttpServletRequest request, HttpServletResponse response)
+	/**
+	* Method name: dispatcher
+	* Purpose of method: This method is responsible to retrieve the user.
+	* @param request: used to represent the HTTP request that a browser sends
+    * to the application.
+	* @param response: used to represent the HTTP response that the application
+	* @return providerName: provider name.
+	**/
+	public static String getProviderNameFromSession(HttpServletRequest request, 
+			HttpServletResponse response)
 			throws ServletException, IOException {
 		// Get the request
 		HttpServletRequest req = (HttpServletRequest) request;
