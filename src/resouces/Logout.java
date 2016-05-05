@@ -1,3 +1,9 @@
+/**
+* File name: logout.java 
+* Purpose of file: This class has the methods used to logout a user at the system.
+* Copyright: This software follows GPL license.
+**/
+
 package resouces;
 
 import java.io.IOException;
@@ -11,24 +17,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Logout
- * @author tiago
- * @version 1.0
- */
+* Class name: Logout
+* Purpose of class: This class is responsible for defines the logout 
+* a user at the system.
+**/
+
 @WebServlet("/Logout")
 public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public Logout() {
         super();
     }
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//Get the session and finalize that
