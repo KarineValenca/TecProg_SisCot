@@ -60,7 +60,7 @@ public class ConsultQuotationManager extends ConsultQuotation {
 	/**
 	 * Method name: service
 	 * Purpose of method: This method is used to consult the list of quotations
-	 * in the database.
+	 * related to a manager in the database.
 	 * @param: there is no param.
 	 * @return: it return an arraylist of quotation type with all quotations 
 	 * related to a manager.

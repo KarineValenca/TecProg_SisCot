@@ -1,9 +1,9 @@
-/*
- * Class name: ConsultQuotationProvider.java
- * Purpose of class: This class is used by the provider to consult the list of 
- * quotations, it means a provider can see the price of a product that he offers.
+/**
+ * File name: ConsultQuotationProvider.java 
+ * Purpose of file: This file contains the ConsultQuotationProvider class and 
+ * its methods.
  * Copyright: This software follows GPL license.
- */
+ **/
 
 package controller;
 
@@ -19,14 +19,25 @@ import javax.servlet.http.HttpServletResponse;
 import model.Quotation;
 import dao.QuotationDAO;
 
+/**
+ * Class name: ConsultQuotationProvider
+ * Purpose of class: This class is used by the provider to consult the list of 
+ * quotations, it means a provider can see the price of a product that he offers.
+ **/
 @WebServlet("/ConsultQuotationProvider")
 public class ConsultQuotationProvider extends ConsultQuotation {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Method name: service
+	 * Purpose of method: This method is used to get the values of the view 
+	 * and call the method buildQuotationList
+	 * @param request: this attribute is used to represent the HTTP request 
+	 * that a browser sends to the application. 
+	 * @param response: this attribute is used to represent the HTTP response
+	 * that the application sends to a browser.
+	 * @return: there is no return.
+	**/
 	@Override
 	protected void service(HttpServletRequest request, 
 							HttpServletResponse response) 
@@ -43,6 +54,14 @@ public class ConsultQuotationProvider extends ConsultQuotation {
         rd.forward(request,response);
 	}
 
+	/**
+	 * Method name: service
+	 * Purpose of method: This method is used to consult the list of quotations
+	 * related to a provider in the database.
+	 * @param: there is no param.
+	 * @return: it return an arraylist of quotation type with all quotations 
+	 * related to a provider.
+	**/
 	@Override
 	protected ArrayList<Quotation> buildQuotationList() {
 		ArrayList<Quotation> quotationList = new ArrayList<Quotation>();
