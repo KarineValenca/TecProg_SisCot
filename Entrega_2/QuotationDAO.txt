@@ -7,7 +7,7 @@
 * Attribute Description: This attribute is an sql string to pass the query to database.
 
 * Attribute Name: wasAdd
-* Attribute Description: This boolean attribute is used to verify if a manager as added to the database.
+* Attribute Description: This boolean attribute is used to verify if a quotation as added to the database.
 
 * Attribute Name: id
 * Attribute Description: Is the type "String". This string gets the id of quotation.
@@ -37,7 +37,7 @@
 * Attribute Description: Is the type "int". This attribute identifies the quotation to be chaged.
 
 * Attribute Name: idToUpdate
-* Attribute Description: Is the type "int". This attribute identifies the quotation to be chaged.
+* Attribute Description: Is the type "int". This attribute identifies the quotation to be changed.
 
 * Attribute Name: quotation
 * Attribute Description: This attribute is an instantiates of Quotation.
@@ -83,7 +83,7 @@
 * Method Description: This method is used to chage for closed quotation at the database, it returns a boolean that returns true if the manager was updated.
 
 * Method Name: includeQuotationProduct
-* Method Description: This method is used to include quotation at the database, it returns a boolean that returns true if the manager was updated.
+* Method Description: This method is used to include quotation at the database, it returns a boolean that returns true if the manager was included.
 
 * Method Name: getListProductsInAQuotation
 * Method Description: This method is used list all products in a quotations at the database.
