@@ -1,15 +1,15 @@
-/*
+/**
  * File name: Product.java
  * Purpose of class: This class is used to store all attributes from product.
  * Copyright: This software follows GPL license.
- */
+ **/
 
 package model;
 
-/*
+/**
  * Class name: Product
  * Purpose of class: This class implements methods of a model Provider.
- */
+ **/
 public class Product {
 	private String productName;
 	private double productPrice;

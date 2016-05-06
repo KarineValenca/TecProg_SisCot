@@ -1,15 +1,15 @@
-/*
+/**
  * Class name: Provider.java
  * Purpose of class: This class is used to store all attributes from provider.
  * Copyright: This software follows GPL license.
- */
+ **/
 
 package model;
 
-/*
+/**
  * Class name: Provider
  * Purpose of class: This class implements methods of a model Provider.
- */
+ **/
 public class Provider {
 	private String providerCnpj;
 	private String providerName;
