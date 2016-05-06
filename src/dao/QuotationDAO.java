@@ -1,8 +1,8 @@
 /** 
-* File name: QuotationDAO.java
-* Purpose of file: This file contains the QuotationDAO class and its methods.   
-* Copyright: This software follows GPL license.
-**/
+ * File name: QuotationDAO.java
+ * Purpose of file: This file contains the QuotationDAO class and its methods.   
+ * Copyright: This software follows GPL license.
+ */
 
 package dao;
 
@@ -16,10 +16,10 @@ import model.Product;
 import model.Quotation;
 
 /**
-* Class name: QuotationDAO
-* Purpose of class: This class is used to do all actions in the database
-* relate to manager: insert, delete, update or list a quotation.
-**/
+ * Class name: QuotationDAO
+ * Purpose of class: This class is used to do all actions in the database
+ * relate to manager: insert, delete, update or list a quotation.
+ */
 public class QuotationDAO {
 	private Connection connection;
 
@@ -28,11 +28,11 @@ public class QuotationDAO {
 	}
 	
     /** 
-    * Method name: includeQuotation
-    * Purpose of method: This method is used to include in the data base a new quotation.  
-    * @param quotation: there is a object quotation.
-	* @return wasAdd: return if the quotation was add.
-    **/
+     * Method name: includeQuotation
+     * Purpose of method: This method is used to include in the data base a new quotation.  
+     * @param quotation: there is a object quotation.
+	 * @return wasAdd: return if the quotation was add.
+     */
 	public int includeQuotation(Quotation quotation) {
 		assert (quotation != null) : "unexpected error: the quotation object is null";
 		String sql = "insert into Quotation (managerName, quotationDate, quotationIsOn)" + " values (?,?,?)";
@@ -42,28 +42,18 @@ public class QuotationDAO {
 
 		try {
 			System.out.println("values:" + quotation.getManagerName());
-			// Prepare param to execut the Query
 			PreparedStatement statement = this.connection.prepareStatement(sql);
-
 			statement.setString(1, quotation.getManagerName());
-			// statement.setDate(1, date, quotation.getquotationDate());
 			statement.setDate(2, quotation.getQuotationDate());
 			statement.setBoolean(3, quotation.getQuotationIsOn());
 			statement.execute();
 
-			// The product was added
-
 			sql = "select * from Quotation where managerName = ? AND quotationDate = ?";
 			statement = this.connection.prepareStatement(sql);
-
-			// Set the first atribute of the query
 			statement.setString(1, quotation.getManagerName());
 			statement.setDate(2, quotation.getQuotationDate());
-
-			// Returns a result of the query of search
 			ResultSet rs = statement.executeQuery();
 
-			// Stores all the products listed in the array
 			rs.last();
 			id = rs.getInt("id");
 			wasAdd = true;

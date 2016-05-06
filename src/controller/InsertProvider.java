@@ -1,8 +1,8 @@
 /** 
-* File name: InsertProvider.java
-* Purpose of file: This file contains the InsertProvider class and its methods.   
-* Copyright: This software follows GPL license.
-**/
+ * File name: InsertProvider.java
+ * Purpose of file: This file contains the InsertProvider class and its methods.   
+ * Copyright: This software follows GPL license.
+ */
 
 package controller;
 
@@ -19,32 +19,29 @@ import dao.ProviderDAO;
 /**
  *Class name: InsertProvider.java
  *Purpose of class: This class is responsible to include a provider.
- **/
+ */
 @WebServlet("/InsertProvider")
 public class InsertProvider extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /** 
-    * Method name: InsertProvider
-    * Purpose of method: This method is a constructor method of the class. 
-    * Responsible to create a new provider.  
-    * @param: there is no param.
-    * @return: there is no return.
-    **/
+     * Method name: InsertProvider
+     * Purpose of method: This method is a constructor method of the class. 
+     * Responsible to create a new provider.  
+     */
     public InsertProvider() {
         super();
     }
     
     /** 
-    * Method name: service
-    * Purpose of method: This method is used to get some values from view and 
-    * pass the result of the method insertProvider to view.  
-    * @param request: used to represent the HTTP request that a browser sends
-    * to the application.
-    * @param response: used to represent the HTTP response that the application
-    * sends to a browser.
-    * @return: there is no return.
-    **/
+     * Method name: service
+     * Purpose of method: This method is used to get some values from view and 
+     * pass the result of the method insertProvider to view.  
+     * @param request: used to represent the HTTP request that a browser sends
+     * to the application.
+     * @param response: used to represent the HTTP response that the application
+     * sends to a browser.
+     */
     protected void service(HttpServletRequest request, 
     					   HttpServletResponse response) throws 
     			   ServletException, IOException {
@@ -122,7 +119,7 @@ public class InsertProvider extends HttpServlet {
      * @param provider: this object provider to be inserted in the database.
      * @return wasAdd: this boolean value is used to verify if the provider
      * was inserted.
-     **/	
+     */	
     public boolean insertProvider(Provider provider) {    	
     	boolean wasAdd = false;
     	

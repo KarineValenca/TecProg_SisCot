@@ -1,8 +1,8 @@
 /**
-* File name: login.java 
-* Purpose of file: This class has the methods used to authenticate a user at the system.
-* Copyright: This software follows GPL license.
-**/
+ * File name: login.java 
+ * Purpose of file: This class has the methods used to authenticate a user at the system.
+ * Copyright: This software follows GPL license.
+ */
 
 package resouces;
 
@@ -26,25 +26,24 @@ import model.ReportManager;
 import model.ReportProvider;
 
  /**
- * Class name: Login
- * Purpose of class: This class has implementation the methods used to authenticate 
- * a user at the system.
- **/
+  * Class name: Login
+  * Purpose of class: This class has implementation the methods used to authenticate 
+  * a user at the system.
+  */
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	* Method name: service
-	* Purpose of method: This method get the session and finalize that. Verify
-	* if the login and password is authorized, if it is not authorized, 
-	* redirect to error page.
-	* @param request: used to represent the HTTP request that a browser sends
-    * to the application.
-	* @param response: used to represent the HTTP response that the application
-    * sends to a browser.  
-	* @return: there is no return.
-	**/
+	 * Method name: service
+	 * Purpose of method: This method get the session and finalize that. Verify
+	 * if the login and password is authorized, if it is not authorized, 
+	 * redirect to error page.
+	 * @param request: used to represent the HTTP request that a browser sends
+     * to the application.
+	 * @param response: used to represent the HTTP response that the application
+     * sends to a browser.  
+	 */
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -67,16 +66,16 @@ public class Login extends HttpServlet {
 	}
 	
 	/**
-	* Method name: loginChecks
-	* Purpose of method: This method checks if the user and password are correct
-	* to authenticate the system.
-	* @param username: user name is used to authenticate a user at system. 
-	* @param password: password of a user and it is used to authenticate a user 
-	* at system. 
-	* @param session: session of user.
-	* @return session: a session null if the user isn't registered. And returns 
-	* a pair of attributes setted if the login is correct.
-	**/
+	 * Method name: loginChecks
+	 * Purpose of method: This method checks if the user and password are correct
+	 * to authenticate the system.
+	 * @param username: user name is used to authenticate a user at system. 
+	 * @param password: password of a user and it is used to authenticate a user 
+	 * at system. 
+	 * @param session: session of user.
+	 * @return session: a session null if the user isn't registered. And returns 
+	 * a pair of attributes setted if the login is correct.
+	 */
 	HttpSession loginChecks(String username, String password, HttpSession session) {
 
 		ProviderDAO providerDAO = new ProviderDAO();
@@ -119,13 +118,12 @@ public class Login extends HttpServlet {
 	}
 
 	/**
-	* Method name: updateSessionProvider
-	* Purpose of method: This method is responsible for update of the 
-	* current session provider data.
-	* @param session: session of user.
-	* @param session: object provider.
-	* @return: There is no return.
-	**/
+	 * Method name: updateSessionProvider
+	 * Purpose of method: This method is responsible for update of the 
+	 * current session provider data.
+	 * @param session: session of user.
+	 * @param session: object provider.
+	 */
 	public HttpSession updateSessionProvider(HttpSession session, Provider provider) {
 		session.setAttribute("user", provider.getProviderName());
 		session.setAttribute("providerCnpj", provider.getProviderCnpj());
@@ -153,15 +151,14 @@ public class Login extends HttpServlet {
 	}
 
 	/**
-	* Method name: dispatcher
-	* Purpose of method: This method is responsible to make the targeting of urls.
-	* @param request: used to represent the HTTP request that a browser sends
-    * to the application.
-	* @param response: used to represent the HTTP response that the application
-    * sends to a browser.
-	* @param url: Directs the user to a page.
-	* @return: There is no return.
-	**/
+	 * Method name: dispatcher
+	 * Purpose of method: This method is responsible to make the targeting of urls.
+	 * @param request: used to represent the HTTP request that a browser sends
+     * to the application.
+	 * @param response: used to represent the HTTP response that the application
+     * sends to a browser.
+	 * @param url: Directs the user to a page.
+	 */
 	public void dispatcher(HttpServletRequest request, HttpServletResponse response, String url)
 			throws ServletException, IOException {
 
@@ -171,13 +168,13 @@ public class Login extends HttpServlet {
 	}
 
 	/**
-	* Method name: dispatcher
-	* Purpose of method: This method is responsible to retrieve the user.
-	* @param request: used to represent the HTTP request that a browser sends
-    * to the application.
-	* @param response: used to represent the HTTP response that the application
-	* @return providerName: provider name.
-	**/
+	 * Method name: dispatcher
+	 * Purpose of method: This method is responsible to retrieve the user.
+	 * @param request: used to represent the HTTP request that a browser sends
+     * to the application.
+	 * @param response: used to represent the HTTP response that the application
+	 * @return providerName: provider name.
+	 */
 	public static String getProviderNameFromSession(HttpServletRequest request, 
 			HttpServletResponse response)
 			throws ServletException, IOException {

@@ -1,8 +1,8 @@
 /** 
-* File name: DeleteProduct.java
-* Purpose of file: This file contains the DeleteProduct class and its methods.   
-* Copyright: This software follows GPL license.
-**/ 
+ * File name: DeleteProduct.java
+ * Purpose of file: This file contains the DeleteProduct class and its methods.   
+ * Copyright: This software follows GPL license.
+ */ 
 
 package controller;
 
@@ -18,31 +18,29 @@ import dao.ProductDAO;
 /**
  * Class name: DeleteProdut.java
  * Purpose of class: This class is used to exclude a product from database.
- **/
+ */
 @WebServlet("/DeleteProduct")
 public class DeleteProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
     /** 
-    * Method name: DeleteProduct
-    * Purpose of method: This method is a constructor method of the class. Responsible to delete a product.  
-    * @param: there is no param.
-    * @return: there is no return.
-    **/
+     * Method name: DeleteProduct
+     * Purpose of method: This method is a constructor method of the class. 
+     * Responsible to delete a product.  
+     */
     public DeleteProduct() {
         super();
     }
     
     /** 
-    * Method name: service
-    * Purpose of method: This method is used to get some values from view and 
-    * pass the result of the method deleteProduct to view.  
-    * @param request: Uused to represent the HTTP request that a browser sends
-    * to the application.
-    * @param response: used to represent the HTTP response that the application
-    * sends to a browser.
-    * @return: there is no return.
-    **/
+     * Method name: service
+     * Purpose of method: This method is used to get some values from view and 
+     * pass the result of the method deleteProduct to view.  
+     * @param request: used to represent the HTTP request that a browser sends
+     * to the application.
+     * @param response: used to represent the HTTP response that the application
+     * sends to a browser.
+     */
 	protected void service(HttpServletRequest request, 
 						   HttpServletResponse response) throws
 				   ServletException, IOException {
@@ -70,12 +68,12 @@ public class DeleteProduct extends HttpServlet {
 	}
    
 	/** 
-    * Method name: deleteProduct
-    * Purpose of method: This method is used to delete a product from database.  
-    * @param productName: this string gets the product name from the view.
-    * @return wasDeleted: This boolean value is used to verify if the product 
-    * was deleted.
-    **/	
+     * Method name: deleteProduct
+     * Purpose of method: This method is used to delete a product from database.  
+     * @param productName: this string gets the product name from the view.
+     * @return wasDeleted: This boolean value is used to verify if the product 
+     * was deleted.
+     */	
 	public boolean deleteProduct(String productName) {
 		assert(productName != null) : "The product name is recieving null";
 		boolean wasDeleted = false;

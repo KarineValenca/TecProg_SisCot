@@ -1,8 +1,8 @@
 /**
-* File name: logout.java 
-* Purpose of file: This class has the methods used to logout a user at the system.
-* Copyright: This software follows GPL license.
-**/
+ * File name: logout.java 
+ * Purpose of file: This class has the methods used to logout a user at the system.
+ * Copyright: This software follows GPL license.
+ */
 
 package resouces;
 
@@ -17,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
-* Class name: Logout
-* Purpose of class: This class is responsible for defines the logout 
-* a user at the system.
-**/
+ * Class name: Logout
+ * Purpose of class: This class is responsible for defines the logout 
+ * a user at the system.
+ */
 
 @WebServlet("/Logout")
 public class Logout extends HttpServlet {
