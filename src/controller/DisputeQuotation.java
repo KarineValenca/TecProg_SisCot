@@ -1,7 +1,6 @@
 /*
- * Class name: DisputeQuotation.java
- * Purpose of class: This class is responsible for create a dispute quotation 
- * and, using the RequestDispatcher objetc, acess the index views pages.
+ * File name: DisputeQuotation.java
+ * Purpose of file: This file is composed by DisputeQuotation class and methods.
  * Copyright: This software follows GPL license.
  */
 package controller;
@@ -20,16 +19,29 @@ import javax.servlet.http.HttpServletResponse;
 import dao.QuotationDAO;
 import resouces.Login;
 
+/*
+ * Class name: DisputeQuotation
+ * Purpose of class: This class is responsible for create a dispute quotation 
+ * and, using the RequestDispatcher objetc, acess the index views pages.
+ */
 public class DisputeQuotation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
-	// this method is a constructor method of the class. 
+	/**
+	 * Method name: DisputeQuotation
+	 * Purpose of method: This method is a constructor method of the class. 
+	 */
     public DisputeQuotation() {
         super();
     }
 
-    /*this method is responsible for get the provider name, the quotation id 
-    and create products and price products list.*/
+    /**
+     * Method name: service
+     * Purpose of method: This method is responsible for get the provider name,
+     * the quotation id and create products and price products list.
+     * @param request Represent the HTTP request that a browser sends to the application.
+     * @param response Represent the HTTP response that the application sends to a browser.
+     */
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		assert (request != null) : "The request from client is null";
