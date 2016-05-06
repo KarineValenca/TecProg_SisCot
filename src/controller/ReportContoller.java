@@ -1,9 +1,10 @@
-/*
- * Class name: ReportController.java
- * Purpose of class: This class creates a report according to the user type and
- * status quotation.
+/**
+ * File name: ReportController.java
+ * Purpose of file: This is method is composed by ReportController class and 
+ * methods.
  * Copyright: This software follows GPL license.
  */
+
 package controller;
 
 import java.io.IOException;
@@ -25,15 +26,28 @@ import model.ReportManager;
 import model.ReportProvider;
 import resouces.Calculations;
 
+/**
+ * Class name: ReportController
+ * Purpose of class: This class creates a report according to the user type and
+ * status quotation.
+ */
 public class ReportContoller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	// this method is a constructor method of the class
+	/**
+	 * Method name: ReportContoller
+	 * Purpose of method: This method is a constructor method of the class
+	 */
 	public ReportContoller() {
 		super();
 	}
 
-	// this method call the sendQuotation method.
+	/**
+	 * Method name: service
+	 * Purpose of method: This method call the sendQuotation method.
+	 * @param request Represent the HTTP request that a browser sends to the application.
+	 * @param response Represent the HTTP response that the application sends to a browser.
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		assert (request != null) : "The request from client is null";
@@ -42,9 +56,15 @@ public class ReportContoller extends HttpServlet {
 		sendQuotation(request, response);
 	}
 	
-	/*this method creates a products list in quotation; creates a report 
-	according to the user type and status quotation; creates a prices list; 
-	request the view pages according to status quotation*/
+	/**
+	 * Method name: sendQuotation
+	 * Purpose of method: this method creates a products list in quotation; 
+	 * creates a report according to the user type and status quotation; 
+	 * creates a prices list; request the view pages according to status 
+	 * quotation.
+	 * @param request Represent the HTTP request that a browser sends to the application.
+	 * @param response Represent the HTTP response that the application sends to a browser.
+	 */
 	void sendQuotation(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		
@@ -130,7 +150,12 @@ public class ReportContoller extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	// this method aims to verify the state quotation. Returns a boolean
+	/**
+	 * Method name: verifyStateQuotation 
+	 * Purpose of method: This method aims to verify the state quotation. 
+	 * @param request Represent the HTTP request that a browser sends to the application.
+	 * @return quotationIsOnBool Boolean representing the state quotation.
+	 */
 	private boolean verifyStateQuotation(HttpServletRequest request) {
 		assert(request != null) : "The request from client is null";
 		
@@ -141,8 +166,13 @@ public class ReportContoller extends HttpServlet {
 		return quotationIsOnBool;
 	}
 
-	/*this method gets the quotation id in a string format and turns it in a 
-	integer type*/	
+	/**
+	 * Method name: getQuotationID
+	 * Purpose of method: This method gets the quotation id in a string format
+	 * and turns it in a integer type.
+	 * @param request Represent the HTTP request that a browser sends to the application.
+	 * @return integerQuotationID This attribute is a quotation id in a integer format. 
+	 */
 	private int getQuotationID(HttpServletRequest request) {
 		assert(request != null) : "The request from client is null";
 		
@@ -153,7 +183,12 @@ public class ReportContoller extends HttpServlet {
 		return integerQuotationID;
 	}
 
-	// this method crates a new quotation into the database
+	/**
+	 * Method name: getQuotation
+	 * Purpose of method: This method crates a new quotation into the database.
+	 * @param integerQuotationID
+	 * @return quotation Used to call the selectQuotationByID.
+	 */
 	private Quotation getQuotation(int integerQuotationID) {
 		assert(integerQuotationID != 0) : "the quotationID variable receive 0";
 		QuotationDAO quotationdao = new QuotationDAO();
