@@ -1,6 +1,6 @@
-/*
- * Class name: SecurityProvider.java
- * Purpose of class: This class is a implementation of Filter interface class.
+/**
+ * File name: SecurityProvider.java
+ * Purpose of file: This file is composed by SecurityProvider class and methods.
  * Copyright: This software follows GPL license.
  */
 package resouces;
@@ -18,20 +18,38 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * Class name: SecurityProvider
+ * Purpose of class: This class is a implementation of Filter interface class.
+ */
 public class SecurityProvider implements Filter {
 
-	// this method is a constructor method of the class.
+	/**
+	 * Method name: SecurityProvider
+	 * Purpose of method: This method is a constructor method of the class.
+	 */
 	public SecurityProvider() {
 
 	}
-
-	// this method is a filter destroy. (Epmty method)
+	
+	/**
+	 * Method name: destroy
+	 * Purpose of method: This method is a filter destroy. (Epmty method)
+	 */
 	public void destroy() {
 
 	}
 
-	/*this method is responsible to Verify if the current user have a session 
-	setted.*/
+	/**
+	 * Method name: doFilter
+	 * Purpose of method: This method is responsible to Verify if the current 
+	 * user have a session setted.
+	 * @param Represent the HTTP request that a browser sends to the 
+	 * application.
+	 * @param Represent the HTTP response that the application sends to a 
+	 * browser.
+	 * @param chain FilterChain object instance. 
+	 */
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		assert (request != null) : "The request from client is null";
@@ -59,13 +77,22 @@ public class SecurityProvider implements Filter {
 			rd.forward(request, response);
 		}
 	}
-
-	// this method set a session.
+	
+	/**
+	 * Method name: setSession
+	 * Purpose of method: This method set a session.
+	 * @param session Call the req.getSession method.
+	 * @return null Returns a null value session.
+	 */
 	private HttpSession setSession(HttpSession session) {
 		return null;
 	}
-
-	// this method is a filter init. (Epmty method)
+	
+	/**
+	 * Method name: init
+	 * Purpose of method: This method is a filter init. (Epmty method)
+	 * @param fConfig FilterConfig object instance.
+	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		
 	}
