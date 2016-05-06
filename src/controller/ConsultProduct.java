@@ -31,7 +31,7 @@ public class ConsultProduct extends HttpServlet {
 		super();
 	}
 
-	  /**
+	/**
 	 * Method name: service
 	 * Purpose of method: By this method a consult at database is done and the
 	 * providers list is obtained.
