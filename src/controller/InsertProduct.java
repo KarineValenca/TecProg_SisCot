@@ -1,6 +1,6 @@
-/*
- *Class name: InsertProduct.java
- *Purpose of class: This class is responsible to include a product.
+/**
+ *File name: InsertProduct.java
+ *Purpose of file: This file is composed by InserProduct class and methods.
  *Copyright: This software follows GPL license. 
  */
 
@@ -18,17 +18,30 @@ import javax.servlet.http.HttpServletResponse;
 import dao.ProductDAO;
 import model.Product;
 
+/**
+ *Class name: InsertProduct.java
+ *Purpose of class: This class is responsible to include a product.
+ */
 public class InsertProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /*this method is a constructor method of the class. Responsible to create 
-	a new product.*/
+    /**
+     * Method name: InsertProduct 
+     * Purpose of method: This method is a constructor method of the class.
+     * Responsible to create a new product.
+     */
 	public InsertProduct() {
         super();
     }
 
-	/*This method is responsible for, using the RequestDispatcher objetc, acess
- 	the ProductsResponse views pages, according to the requested action.*/
+	/**
+	 * Method name: service
+	 * Purpose of method: This method is responsible for, using the 
+	 * RequestDispatcher objetc, acess the ProductsResponse views pages, 
+	 * according to the requested action.
+	 * @param request Request that a browser sends to the application.
+	 * @param response Response that the application sends to a browser.
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws
 		ServletException, IOException {
 		assert (request != null) : "The request from client is null";
@@ -49,8 +62,13 @@ public class InsertProduct extends HttpServlet {
         rd.forward(request,response);
 	}
 	
-	/*this method is responsible to add the new product into the database and 
-	verify if the product was add successfully.*/
+	/**
+	 * Method name: insertProduct
+	 * Purpose of method: This method is responsible to add the new product 
+	 * into the database and verify if the product was add successfully.
+	 * @param nameProduct Represents the name of product.
+	 * @return wasAdd Used to represent the inser product status.
+	 */
 	public int insertProduct(String nameProduct){
 		assert (nameProduct != null) : "The request from client is null";
 				
@@ -94,7 +112,13 @@ public class InsertProduct extends HttpServlet {
 		return wasAdd;
 	}
 	
-	// this method is responsible to show a message for the product addition.
+	/**
+	 * Method name: messageHandling
+	 * Purpose of method: This method is responsible to show a message for the 
+	 * product addition.
+	 * @param wasAdd 
+	 * @return Used to represent the inser product status.
+	 */
 	private String messageHandling(int wasAdd) {
 		String messageAddConfirmation = "Iniciada";
 		switch (wasAdd) {
