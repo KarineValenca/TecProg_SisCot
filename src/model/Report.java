@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /*
  * Class name: Publication
- * Purpose of class: this class implements methods of a model Report
+ * Purpose of class: This class implements methods of a model Report
  */
 public class Report {
 	private ArrayList<Product> products;
