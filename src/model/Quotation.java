@@ -1,6 +1,6 @@
-/*
- * Class name: Quotation.java
- * Purpose of class: This class is used to store all attributes from quotation.
+/** 
+ * File name: Quotation.java
+ * Purpose of file: This file contains the Quotation class and its methods.   
  * Copyright: This software follows GPL license.
  */
 
@@ -9,6 +9,11 @@ package model;
 import java.sql.Date;
 import java.util.ArrayList;
 
+/**
+ * Class name: Quotation
+ * Purpose of class: TThis class is responsible for defines the attributes of a 
+ * quotation.
+ */
 public class Quotation {
 	private ArrayList<Product> products;
 	private Date quotationDate;
