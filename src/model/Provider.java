@@ -6,6 +6,10 @@
 
 package model;
 
+/*
+ * Class name: Provider
+ * Purpose of class: This class implements methods of a model Provider.
+ */
 public class Provider {
 	private String providerCnpj;
 	private String providerName;
