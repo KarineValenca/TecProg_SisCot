@@ -1,5 +1,5 @@
 /*
- * Class name: Publication.java
+ * File name: Publication.java
  * Purpose of class: This class is used to store all attributes from report.
  * Copyright: This software follows GPL license.
  */
@@ -8,6 +8,10 @@ package model;
 
 import java.util.ArrayList;
 
+/*
+ * Class name: Publication
+ * Purpose of class: this class implements methods of a model Report
+ */
 public class Report {
 	private ArrayList<Product> products;
 	private Quotation quotation;
@@ -43,7 +47,6 @@ public class Report {
 		this.totalPrice = totalPrice;
 	}
 	public ArrayList<ArrayList> showProducts(){
-
 		return null;
 	}
 }
