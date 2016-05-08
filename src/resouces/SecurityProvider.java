@@ -61,7 +61,9 @@ public class SecurityProvider implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		
 		HttpSession session = req.getSession();
-		String url = req.getRequestURL().toString();
+		StringBuffer requestURL = req.getRequestURL();
+		String requestURLString = requestURL.toString();
+		String url = requestURLString;
 
 		String attributeUser = (String) session.getAttribute("user"); 
 		boolean isSession = (attributeUser != null);
