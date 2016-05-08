@@ -113,7 +113,9 @@ public class ReportContoller extends HttpServlet {
 		
 		ArrayList<String> priceAsString = new ArrayList<>();
 		
-		int sizeOfProductsForProvider = productsForProvider.get(2).size();
+		ArrayList<ArrayList> productsForProviderIndex = productsForProvider.get(2);
+		Integer productsForProviderIndexSize = productsForProviderIndex.size();
+		int sizeOfProductsForProvider = productsForProviderIndexSize;
 		
 		for(int i = 0; i < sizeOfProductsForProvider; ++i){
 			
@@ -127,11 +129,13 @@ public class ReportContoller extends HttpServlet {
 			
 		}
 		
-		request.setAttribute("listProducts", productsForProvider.get(0));
-		request.setAttribute("listProviders", productsForProvider.get(1));
+		ArrayList<Double> indexZeroOfProductsForProvider = productsForProvider.get(0);
+		request.setAttribute("listProducts", indexZeroOfProductsForProvider);
+		
+		ArrayList<Double> indexOneOfProductsForProvider = productsForProvider.get(1);
+		request.setAttribute("listProviders", indexOneOfProductsForProvider);
+		
 		request.setAttribute("listPrices", priceAsString);
-		
-		
 		
 		// Dispacher the result from the view of confirmation		
 		String urlToSend = null;
