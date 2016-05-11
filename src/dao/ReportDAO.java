@@ -36,20 +36,22 @@ public class ReportDAO {
 	 **/
 	public ArrayList<String> listProductsManager(int id) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
-		assert(id >=0) : "unexpected error: the informed id is invalid";
+		assert(id > 0) : "unexpected error: the informed id is invalid";
 		
-		String sql = "select productName from Quotation_Product_Provider where "
-						+ "quotationID = ?";
 		ArrayList<String> productsManager = new ArrayList<String>();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
+		}
+		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 
 		try {
+			String sql = "select productName from Quotation_Product_Provider where "
+					+ "quotationID = ?";
+			
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 
 			statement.setInt(1, id);
@@ -59,7 +61,6 @@ public class ReportDAO {
 
 			// Stores all the products listed in the array
 			while (rs.next()) {
-
 				String product;
 				product = rs.getString("productName");
 
@@ -68,7 +69,8 @@ public class ReportDAO {
 
 			// Close the operators
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch(SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -87,7 +89,7 @@ public class ReportDAO {
 	 **/
 	public ArrayList<String> listProvidersManager(int id) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
-		assert(id >=0) : "unexpected error: the informed id is invalid";
+		assert(id > 0) : "unexpected error: the informed id is invalid";
 				
 		String sql = "select providerName from Quotation_Product_Provider where "
 						+ "quotationID = ?";
@@ -95,7 +97,8 @@ public class ReportDAO {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
+		} 
+		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -110,19 +113,22 @@ public class ReportDAO {
 
 			// Stores all the products listed in the array
 			while (rs.next()) {
-
 				String product;
 				product = rs.getString("providerName");
 
-				if (product == null)
+				if(product == null) {
 					product = "Produto não possui fornecedor!";
-
+				} 
+				else {
+					// NOTHING TO DO
+				}
 				providersManager.add(product);
 			}
 
 			// Close the operators
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch(SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -143,22 +149,24 @@ public class ReportDAO {
 	 **/
 	public ArrayList<String> listProductsProvider(int id, String providerName) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
-		assert(id >=0) : "unexpected error: the informed id is invalid";
+		assert(id > 0) : "unexpected error: the informed id is invalid";
 		assert(providerName != null) : "unexpected error: the providerName is "
 										+ "null";
 		
-		String sql = "select productName from Quotation_Product_Provider where "
-						+ "quotationID = ? AND  providerName = ? ";
 		ArrayList<String> productsProvider = new ArrayList<String>();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
+		} 
+		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 
 		try {
+			String sql = "select productName from Quotation_Product_Provider where "
+					+ "quotationID = ? AND  providerName = ? ";
+			
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 
 			statement.setInt(1, id);
@@ -169,7 +177,6 @@ public class ReportDAO {
 
 			// Stores all the products listed in the array
 			while (rs.next()) {
-
 				String product;
 				product = rs.getString("productName");
 
@@ -178,7 +185,8 @@ public class ReportDAO {
 
 			// Close the operators
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch(SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -199,22 +207,24 @@ public class ReportDAO {
 	 **/
 	public ArrayList<String> listProvidersProvider(int id, String providerName) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
-		assert(id >=0) : "unexpected error: the informed id is invalid";
+		assert(id > 0) : "unexpected error: the informed id is invalid";
 		assert(providerName != null) : "unexpected error: the providerName is "
 										+ "null";
 		
-		String sql = "select providerName from Quotation_Product_Provider where "
-						+ "quotationID = ? AND providerName = ?";
 		ArrayList<String> providersToProvider = new ArrayList<String>();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
+		}
+		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 
 		try {
+			String sql = "select providerName from Quotation_Product_Provider where "
+					+ "quotationID = ? AND providerName = ?";
+			
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 
 			statement.setInt(1, id);
@@ -225,7 +235,6 @@ public class ReportDAO {
 
 			// Stores all the products listed in the array
 			while (rs.next()) {
-
 				String product;
 				product = rs.getString("providerName");
 
@@ -234,7 +243,8 @@ public class ReportDAO {
 
 			// Close the operators
 			statement.close();
-		} catch (SQLException e) {
+		}
+		catch(SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -253,20 +263,22 @@ public class ReportDAO {
 	 **/
 	public ArrayList<Double> listPriceProducts(int id) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
-		assert(id >=0) : "unexpected error: the informed id is invalid";
+		assert(id > 0) : "unexpected error: the informed id is invalid";
 		
-		String sql = "select priceProduct from Quotation_Product_Provider where "
-						+ "quotationID = ?";
 		ArrayList<Double> priceProducts = new ArrayList<Double>();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
+		}
+		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 
 		try {
+			String sql = "select priceProduct from Quotation_Product_Provider where "
+					+ "quotationID = ?";
+			
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 
 			statement.setInt(1, id);
@@ -276,7 +288,6 @@ public class ReportDAO {
 
 			// Stores all the products listed in the array
 			while (rs.next()) {
-
 				Double price;
 				price = rs.getDouble("priceProduct");
 				priceProducts.add(price);
@@ -284,7 +295,8 @@ public class ReportDAO {
 
 			// Close the operators
 			statement.close();
-		} catch (SQLException e) {
+		}
+		catch(SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -305,21 +317,23 @@ public class ReportDAO {
 	 **/
 	public ArrayList<Double> listPriceProductsProvider(int id, String providerName) {
 		//if the id is equal or less than zero, it means that the id is invalid. 
-		assert(id >=0) : "unexpected error: the informed id is invalid";
+		assert(id > 0) : "unexpected error: the informed id is invalid";
 		assert(providerName != null) : "unexpected error: the providerName is null";
 		
-		String sql = "select priceProduct from Quotation_Product_Provider " 
-				+ "where quotationID = ?  AND providerName = ?";
 		ArrayList<Double> priceProducts = new ArrayList<Double>();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
+		} 
+		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 
 		try {
+			String sql = "select priceProduct from Quotation_Product_Provider " 
+					+ "where quotationID = ?  AND providerName = ?";
+			
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 
 			statement.setInt(1, id);
@@ -330,7 +344,6 @@ public class ReportDAO {
 
 			// Stores all the products listed in the array
 			while (rs.next()) {
-
 				Double price;
 				price = rs.getDouble("priceProduct");
 				priceProducts.add(price);
@@ -338,7 +351,8 @@ public class ReportDAO {
 
 			// Close the operators
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch(SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
