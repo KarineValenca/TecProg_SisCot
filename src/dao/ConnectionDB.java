@@ -56,4 +56,8 @@ public final class ConnectionDB {
 
         return dataBase;
 	}
+	public static Connection getConnectionWithDB(){
+		Connection dataBase = getConnection().connectionWithDataBase;
+		return dataBase;
+	}
 }
