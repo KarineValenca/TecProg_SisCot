@@ -11,23 +11,25 @@ import junit.framework.TestCase;
 import model.Product;
 
 public class InsertProductTest extends TestCase {
-	Connection connection = new ConnectionDB().getConnection();
+	
+	Connection connection = ConnectionDB.getConnectionWithDB();
 	Product product = new Product();
 	ProductDAO productDao = new ProductDAO();
 	InsertProduct insertProduct = new InsertProduct();
-	
+
 	@Test
-	public void testInsertProduct() {
-		product.setProductName("Vassoura");
-		product.setProductPrice(2.57);
-		
-		assertTrue(productDao.insertProduct(product));
+	public void testCorrectNameProduct(){
+		String correctNameProduct = "leite";
+		int returnOfInsertProduct = insertProduct.insertProduct(correctNameProduct);
+		assertEquals("Return method is 1 for sucessful insert",1,returnOfInsertProduct);
 	}
 	
 	@Test
-	public void testInsertProductWithConstructor() {
-		Product newProduct = new Product("Farinha", 3.00, null);
-		
-		assertTrue(productDao.insertProduct(newProduct));
+	public void testNameProductTrim() {
+		String nameInBlank = "         ";
+		int returnOfInsertProduct = insertProduct.insertProduct(nameInBlank);
+		assertEquals("Return method is 2 for empty strings",2,returnOfInsertProduct);
 	}
+
+	
 }
