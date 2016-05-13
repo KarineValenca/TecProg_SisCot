@@ -47,6 +47,8 @@ public class Login extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		assert (request != null) : "The request from client is null";
+		assert (response != null) : "The response to client is null";		
 
 		HttpSession session = request.getSession();
 		String username = request.getParameter("login");
@@ -77,6 +79,9 @@ public class Login extends HttpServlet {
 	 * a pair of attributes setted if the login is correct.
 	 */
 	HttpSession loginChecks(String username, String password, HttpSession session) {
+		assert (username != null) : "unexpected error: the user name is null";
+		assert (password != null) : "unexpected error: the password is null";
+		assert (session != null) : "unexpected error: the session is null";
 
 		ProviderDAO providerDAO = new ProviderDAO();
 		ArrayList<Provider> listProviders = new ArrayList<Provider>();
@@ -125,6 +130,8 @@ public class Login extends HttpServlet {
 	 * @param session: object provider.
 	 */
 	public HttpSession updateSessionProvider(HttpSession session, Provider provider) {
+		assert (session != null) : "unexpected error: the session is null";
+		assert (provider != null) : "unexpected error: the password is null";
 		session.setAttribute("user", provider.getProviderName());
 		session.setAttribute("providerCnpj", provider.getProviderCnpj());
 		session.setAttribute("providerEmail", provider.getProviderEmail());
