@@ -12,9 +12,7 @@ package model;
  * manager.
  */
 public class Manager {
-	private String managerUsername;
-	private String managerPassword;
-	
+		
 	/**
 	 * Method name: Manager
 	 * Purpose of method: This method is an empty constructor method
@@ -22,6 +20,9 @@ public class Manager {
 	public Manager() {
 		
 	}
+	
+	private String managerUsername;
+	private String managerPassword;
 	
 	/**
 	 * Method name: Manager
