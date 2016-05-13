@@ -46,6 +46,8 @@ public class UpdateProduct extends HttpServlet {
 	protected void service(HttpServletRequest request, 
 						   HttpServletResponse response) 
 						   throws ServletException, IOException {
+		assert (request != null) : "The request from client is null";
+		assert (response != null) : "The response to client is null";
 		String messageUpdateConfirmation;
 		mmessageUpdateConfirmation = "Iniciada";
 		boolean wasUpdated;
@@ -76,6 +78,7 @@ public class UpdateProduct extends HttpServlet {
      * was updated.
      */
 	public boolean sendToProductDAO(HttpServletRequest request) {
+		assert (request != null) : "The request from client is null";
 		boolean wasUpdated;
 		wasUpdated = false;
 		String actualProductName;
