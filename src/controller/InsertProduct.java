@@ -92,15 +92,19 @@ public class InsertProduct extends HttpServlet {
 			//Flag to verify if the Product was add in the DataBase
 			
 			//Acess the DAO class and adding the new product
-			ProductDAO productdao = new ProductDAO();
 			boolean daoWasAdd = false;
-			daoWasAdd = productdao.insertProduct(product);	
+			try{
+				ProductDAO productdao = new ProductDAO();
+				daoWasAdd = productdao.insertProduct(product);	
+			} catch(RuntimeException productInsertError){
+				daoWasAdd = false;
+			}
 			
 			if(daoWasAdd) {
 				wasAdd = 1;
 			}
 			else {
-				//nothing to do
+				wasAdd = 0;
 			}
 		}
 		else {
