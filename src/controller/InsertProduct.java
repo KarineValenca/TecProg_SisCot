@@ -71,8 +71,8 @@ public class InsertProduct extends HttpServlet {
 	 */
 	public int insertProduct(String nameProduct){
 		assert (nameProduct != null) : "The request from client is null";
-				
-		boolean daoWasAdd = false;
+			
+		nameProduct = nameProduct.trim();
 		
 		/* 
 		 * Flag to identify the result of the operation.
@@ -80,9 +80,7 @@ public class InsertProduct extends HttpServlet {
 		 * 1 -> Successful saved on Database.
 		 * 2 -> Empty product name.
 		 */
-		int wasAdd = 0; 
-		
-		nameProduct = nameProduct.trim();
+		int wasAdd = 0;
 		
 		if(!nameProduct.equals("")) {
 			
@@ -93,10 +91,10 @@ public class InsertProduct extends HttpServlet {
 			
 			//Flag to verify if the Product was add in the DataBase
 			
-			
 			//Acess the DAO class and adding the new product
 			ProductDAO productdao = new ProductDAO();
-			daoWasAdd = productdao.insertProduct(product);
+			boolean daoWasAdd = false;
+			daoWasAdd = productdao.insertProduct(product);	
 			
 			if(daoWasAdd) {
 				wasAdd = 1;
