@@ -17,8 +17,7 @@ import java.sql.SQLException;
 public final class ConnectionDB {
 
 	protected Connection connectionWithDataBase;
-	protected static ConnectionDB dataBase;	
-
+	
 	/**
 	 * Method name: ConnectionDB
 	 * Purpose of method: This constructor method creates a new connection with
@@ -32,12 +31,13 @@ public final class ConnectionDB {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-
 			this.connectionWithDataBase = DriverManager.getConnection(url + dbName, userName, password);
 		} catch (SQLException | ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	protected static ConnectionDB dataBase;	
 	
 	/**
 	 * Method name: getConnection
