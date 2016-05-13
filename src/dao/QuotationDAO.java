@@ -36,12 +36,14 @@ public class QuotationDAO {
 	public int includeQuotation(Quotation quotation) {
 		assert (quotation != null) : "unexpected error: the quotation object is null";
 		String sql = "insert into Quotation (managerName, quotationDate, quotationIsOn)" + " values (?,?,?)";
-		// Date date = new Date(quotation.getquotationDate().getTimeInMillis());
 		boolean wasAdd = false;
 		int id = 0;
 
 		try {
-			System.out.println("values:" + quotation.getManagerName());
+			String managerName;
+			managerName =  quotation.getManagerName();
+			System.out.println("values:" + managerName);
+			//System.out.println("values:" + quotation.getManagerName());
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 			statement.setString(1, quotation.getManagerName());
 			statement.setDate(2, quotation.getQuotationDate());
@@ -52,10 +54,10 @@ public class QuotationDAO {
 			statement = this.connection.prepareStatement(sql);
 			statement.setString(1, quotation.getManagerName());
 			statement.setDate(2, quotation.getQuotationDate());
-			ResultSet rs = statement.executeQuery();
+			ResultSet result = statement.executeQuery();
 
-			rs.last();
-			id = rs.getInt("id");
+			result.last();
+			id = result.getInt("id");
 			wasAdd = true;
 
 			// Close the operators
@@ -89,19 +91,19 @@ public class QuotationDAO {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 
 			// Returns a result of the query of search
-			ResultSet rs = statement.executeQuery();
+			ResultSet result = statement.executeQuery();
 
 			// Stores all the products listed in the array
 			while (rs.next()) {
 				Quotation quotation = new Quotation();
 
 				ArrayList<Product> listProducts = new ArrayList<>();
-				listProducts = getListProductsInAQuotation(rs.getInt("id"));
+				listProducts = getListProductsInAQuotation(result.getInt("id"));
 
-				quotation.setManagerName(rs.getString("managerName"));
-				quotation.setQuotationDate(rs.getDate("quotationDate"));
-				quotation.setQuotationIsOn(rs.getBoolean("quotationIsOn"));
-				quotation.setId(rs.getInt("id"));
+				quotation.setManagerName(result.getString("managerName"));
+				quotation.setQuotationDate(result.getDate("quotationDate"));
+				quotation.setQuotationIsOn(result.getBoolean("quotationIsOn"));
+				quotation.setId(result.getInt("id"));
 				quotation.setProducts(listProducts);
 
 				quotationList.add(quotation);
@@ -138,15 +140,15 @@ public class QuotationDAO {
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 			
-			ResultSet rs = statement.executeQuery();	
-			while(rs.next()) {
+			ResultSet result = statement.executeQuery();	
+			while(result.next()) {
 				Quotation quotation = new Quotation();
 				ArrayList<Product> listProducts = new ArrayList<>();
-				listProducts = getListProductsInAQuotation(rs.getInt("id"));
-				quotation.setManagerName(rs.getString("managerName"));
-				quotation.setQuotationDate(rs.getDate("quotationDate"));
-				quotation.setQuotationIsOn(rs.getBoolean("quotationIsOn"));
-				quotation.setId(rs.getInt("id"));
+				listProducts = getListProductsInAQuotation(result.getInt("id"));
+				quotation.setManagerName(result.getString("managerName"));
+				quotation.setQuotationDate(result.getDate("quotationDate"));
+				quotation.setQuotationIsOn(result.getBoolean("quotationIsOn"));
+				quotation.setId(result.getInt("id"));
 				quotation.setProducts(listProducts);
 				quotationList.add(quotation);
 			}
@@ -223,21 +225,16 @@ public class QuotationDAO {
 
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
-
 			// Set the first atribute of the query
 			statement.setBoolean(1, false);
 			statement.setInt(2, idToUpdate);
-
 			statement.executeUpdate();
-
 			wasUpdated = true;
-
 			// Close the operators
 			statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return wasUpdated;
 	}
 	
@@ -294,11 +291,11 @@ public class QuotationDAO {
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 			statement.setInt(1, quotationID);
-			ResultSet rs = statement.executeQuery();
+			ResultSet result = statement.executeQuery();
 			
-			while (rs.next()) {
+			while (result.next()) {
 				Product product = new Product();
-				product.setProductName(rs.getString("productName"));
+				product.setProductName(result.getString("productName"));
 				productList.add(product);
 			}
 			statement.close();
@@ -334,14 +331,14 @@ public class QuotationDAO {
 			statement.setInt(1, quotationID);
 
 			// Returns a result of the query of search
-			ResultSet rs = statement.executeQuery();
+			ResultSet result = statement.executeQuery();
 
 			// Stores all the products listed in the array
-			rs.last();
+			result.last();
 
 			quotation.setId(quotationID);
-			quotation.setManagerName(rs.getString("managerName"));
-			quotation.setQuotationDate(rs.getDate("quotationDate"));
+			quotation.setManagerName(result.getString("managerName"));
+			quotation.setQuotationDate(result.getDate("quotationDate"));
 
 			// Close the operators
 			statement.close();
@@ -382,18 +379,17 @@ public class QuotationDAO {
 			for (int i = 0; i < priceOfProducts.size(); ++i) {
 				statementQuery.setInt(1, integerQuotationId);
 				statementQuery.setString(2, products.get(i));				
-				ResultSet rs = statementQuery.executeQuery();		
+				ResultSet result = statementQuery.executeQuery();		
 				Double value;
 				
-				rs.last();
-				value = rs.getDouble("priceProduct");
+				result.last();
+				value = result.getDouble("priceProduct");
 				
 				if((Math.abs(value - 0) < 0.001) || (value > priceOfProducts.get(i))){
 					statementUpdate.setString(1, provideName);
 					statementUpdate.setDouble(2, priceOfProducts.get(i).doubleValue());
 					statementUpdate.setInt(3, integerQuotationId);
 					statementUpdate.setString(4, products.get(i));
-
 					statementUpdate.executeUpdate();
 				}
 			}
