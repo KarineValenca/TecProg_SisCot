@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.QuotationDAO;
 import resouces.Login;
 
-/*
+/**
  * Class name: DisputeQuotation
  * Purpose of class: This class is responsible for create a dispute quotation 
  * and, using the RequestDispatcher objetc, acess the index views pages.
@@ -46,25 +46,16 @@ public class DisputeQuotation extends HttpServlet {
 			throws ServletException, IOException {
 		assert (request != null) : "The request from client is null";
 		assert (response != null) : "The response to client is null";
-		
-		Enumeration<String> teste = request.getParameterNames();
-		ArrayList<String> products = new ArrayList<String>();
-		ArrayList<Double> priceOfProducts = new ArrayList<Double>();
-		
-		String providerName= Login.getProviderNameFromSession(request, response);
-		System.out.println("Nome do provider vindo de Login " + providerName);
-		
-		String quotationId = request.getParameter("insert");
-		int integerQuotationId = Integer.parseInt(quotationId);
 				
-		
 		String priceOfProduct = null;
 		String currentProduct = null;
 		Double currentProductValue;
 		
-		
 		System.out.println("Quotaion ID " + request.getParameter("insert"));
-		 
+		
+		Enumeration<String> teste = request.getParameterNames();
+		ArrayList<String> products = new ArrayList<String>();
+		ArrayList<Double> priceOfProducts = new ArrayList<Double>();
 		
 		while(teste.hasMoreElements()){
 			currentProduct = teste.nextElement();
@@ -80,6 +71,12 @@ public class DisputeQuotation extends HttpServlet {
 				//nothing to do
 			}
 		}
+		
+		String quotationId = request.getParameter("insert");
+		int integerQuotationId = Integer.parseInt(quotationId);
+				
+		String providerName= Login.getProviderNameFromSession(request, response);
+		System.out.println("Nome do provider vindo de Login " + providerName);
 		
 		QuotationDAO quotationdao = new QuotationDAO();
 		quotationdao.updateQuotationPrices(products, priceOfProducts, integerQuotationId, providerName);
