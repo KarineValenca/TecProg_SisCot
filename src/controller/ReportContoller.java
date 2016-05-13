@@ -68,12 +68,9 @@ public class ReportContoller extends HttpServlet {
 	void sendQuotation(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		
-		int quotationID = getQuotationID(request);
-		
-		boolean quotationIsOn = verifyStateQuotation(request);
-
 		// Create a quotation with ID
 		Quotation quotation = new Quotation();
+		int quotationID = getQuotationID(request);
 		quotation = getQuotation(quotationID);
 
 		ArrayList<Product> products = new ArrayList<>();
@@ -86,9 +83,11 @@ public class ReportContoller extends HttpServlet {
 		
 		HttpSession session = req.getSession();
 
+		String attributeUser = (String) session.getAttribute("user");
+		
 		Report report = new Report();
 		
-		String attributeUser = (String) session.getAttribute("user");
+		boolean quotationIsOn = verifyStateQuotation(request);
 		
 		if (attributeUser != null) {
 			String userType = (String) session.getAttribute("userType");
@@ -111,11 +110,11 @@ public class ReportContoller extends HttpServlet {
 		ArrayList<ArrayList> productsForProvider = new ArrayList<>();
 		productsForProvider = report.showProducts();
 		
-		ArrayList<String> priceAsString = new ArrayList<>();
-		
 		ArrayList<ArrayList> productsForProviderIndex = productsForProvider.get(2);
 		Integer productsForProviderIndexSize = productsForProviderIndex.size();
 		int sizeOfProductsForProvider = productsForProviderIndexSize;
+		
+		ArrayList<String> priceAsString = new ArrayList<>();
 		
 		for(int i = 0; i < sizeOfProductsForProvider; ++i){
 			
