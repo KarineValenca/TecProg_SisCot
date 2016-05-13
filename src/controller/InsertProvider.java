@@ -45,39 +45,21 @@ public class InsertProvider extends HttpServlet {
     protected void service(HttpServletRequest request, 
     					   HttpServletResponse response) throws 
     			   ServletException, IOException {
+		assert (request != null) : "The request from client is null";
+		assert (response != null) : "The response to client is null";
     	String messageAddConfirmation = "Iniciada";
     	
 		//Get atributes of the IncludeProviderView
     	String providerCnpj = request.getParameter("cnpj");
-    	assert(providerCnpj != null) : "The provider CNPJ is recieving null "
-    									+ "from view";
     	String providerName = request.getParameter("name");
-    	assert(providerName != null) : "The provider name is recieving null "
-    									+ "from view";
     	String providerEmail = request.getParameter("email");
-    	assert(providerEmail != null) : "The provider provider email is "
-    									+ "recieving null from view";
     	String providerPassword = request.getParameter("password");
-    	assert(providerPassword != null) : "The provider provider Password is"
-    									   + " recieving null from view";
     	int providerDdd =  Integer.parseInt(request.getParameter("ddd"));
-    	assert(providerDdd > 0) : "The provider provider ddd is recieving null"
-    							  + " from view";
     	int providerPhone = Integer.parseInt(request.getParameter("phone"));
-    	assert(providerPhone > 0) : "The provider provider phone is recieving "
-    								+ "null from view";
     	String providerAdress = request.getParameter("adress");
-    	assert(providerAdress != null) : "The provider provider adress is "
-    									 + "recieving null from view";
     	String providerCity = request.getParameter("city");
-    	assert(providerCity != null) : "The provider provider City is recieving"
-    									+ " null from view";
     	String providerState = request.getParameter("state");
-    	assert(providerState != null) : "The provider provider State is "
-    									+ "recieving null from view";
     	int providerZip = Integer.parseInt(request.getParameter("zip"));
-    	assert(providerZip > 0) : "The provider provider Zip is recieving null"
-    									+ " from view";
     	boolean authorized = false;
     	
 		Provider provider = new Provider();
