@@ -72,12 +72,7 @@ public class UpdateProvider extends HttpServlet {
 	 * if the provider wasn't updated.
 	**/
 	public boolean sendToProviderDAO(HttpServletRequest request) {
-		boolean wasUpdated = false;
-		HttpSession session = request.getSession();
-		
-		String actualProviderCnpj = request.getParameter("actualCnpj");
-		assert(actualProviderCnpj != null) : "the actual provider cnpj is recieving null from view";
-				
+		boolean wasUpdated = false;			
 		Provider provider = new Provider();
 		
 		provider.setProviderCnpj(request.getParameter("cnpj"));
@@ -92,9 +87,15 @@ public class UpdateProvider extends HttpServlet {
 		provider.setProviderZip(Integer.parseInt(request.getParameter("zip")));
 		provider.setAuthorized(request.getParameter("authorized") != null);
 		
+		HttpSession session = request.getSession();
 		Login login = new Login();
+		
 		session = login.updateSessionProvider(session, provider);
+		
 		ProviderDAO providerDAO = new ProviderDAO();
+		String actualProviderCnpj = request.getParameter("actualCnpj");
+		assert(actualProviderCnpj != null) : "the actual provider cnpj is "
+				+ "recieving null from view";
 		
 		wasUpdated = providerDAO.updateProvider(actualProviderCnpj, provider);
 		
