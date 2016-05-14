@@ -35,14 +35,12 @@ public class ProviderDAO {
 	public boolean insertProvider(Provider provider) {
 		assert (provider != null) : "unexpected error: the provider object is "
 									+ "null";
-		
-		String sql = "insert into Providers (cnpj, nome, email, senha, ddd, "
-				+ "telefone, endereco, cidade, estado, cep, authorized) "
-				+ "values (?,?,?,?,?,?,?,?,?,?,?)";
-		
 		boolean wasAdded = false;
 		
 		try {
+			String sql = "insert into Providers (cnpj, nome, email, senha, ddd, "
+					+ "telefone, endereco, cidade, estado, cep, authorized) "
+					+ "values (?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 			
 			statement.setString(1, provider.getProviderCnpj());
@@ -57,11 +55,12 @@ public class ProviderDAO {
 			statement.setInt(10, provider.getProviderZip());
 			statement.setBoolean(11, provider.isAuthorized());
 			statement.execute();
-			
+		
 			wasAdded = true;
 			
 			statement.close();
-		} catch(SQLException e) {
+		} 
+		catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
 		
@@ -77,10 +76,10 @@ public class ProviderDAO {
 	 * system.
 	 **/
 	public ArrayList<Provider> listProviders() {
-		String sql = "select * from Providers";
 		ArrayList<Provider> providers = new ArrayList<Provider>();
 		
 		try {
+			String sql = "select * from Providers";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			ResultSet rs = statement.executeQuery();
 			
@@ -99,12 +98,11 @@ public class ProviderDAO {
 				provider.setProviderZip(rs.getInt("cep"));
 				provider.setAuthorized(rs.getBoolean("authorized"));
 				
-				
 				providers.add(provider);
 			}
-			
 			statement.close();
-		} catch(SQLException e) {
+		} 
+		catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
 		
@@ -123,10 +121,10 @@ public class ProviderDAO {
 	public boolean deleteProvider(String providerCnpj) {
 		assert(providerCnpj != null) : "unexpected error: the provider cnpj is "
 										+ "null";
-		String sql = "delete from Providers where cnpj = ?";
 		boolean wasDeleted = false;
 
 		try {
+			String sql = "delete from Providers where cnpj = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			
 			statement.setString(1, providerCnpj);
@@ -135,7 +133,8 @@ public class ProviderDAO {
 			wasDeleted = true;
 			
 			statement.close();
-		} catch(SQLException e) {
+		} 
+		catch(SQLException e) {
 			e.printStackTrace();
 		}
 		
@@ -156,14 +155,14 @@ public class ProviderDAO {
 	public boolean updateProvider(String cnpjToUpdate, Provider provider) {
 		assert(cnpjToUpdate != null) : "unexpected error: the cnpj is null";
 		assert(provider != null) : "unexpected error: the provider is null";
-		
-		String sql = "update Providers set cnpj=?, nome=?, email=?, senha=?, "
-				+ "ddd=?, telefone=?, endereco=?, cidade=?, estado=?, cep=?, "
-				+ "authorized=? where cnpj=?";
-		
+				
 		boolean wasUpdated = false;
 			
 		try {
+			String sql = "update Providers set cnpj=?, nome=?, email=?, senha=?, "
+					+ "ddd=?, telefone=?, endereco=?, cidade=?, estado=?, cep=?, "
+					+ "authorized=? where cnpj=?";
+
 			PreparedStatement statement = connection.prepareStatement(sql);
 			
 			statement.setString(1, provider.getProviderCnpj());
@@ -183,7 +182,8 @@ public class ProviderDAO {
 			wasUpdated = true;
 			
 			statement.close();
-		} catch(SQLException e) {
+		}
+		catch(SQLException e) {
 			e.printStackTrace();
 		}
 			
