@@ -1,4 +1,4 @@
-/*
+/**
  * File name: ConsultProduct.java
  * Purpose of File: This file contains the ConsultProduct class and its methods.
  * Copyright: This software follows GPL license.
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Product;
 import dao.ProductDAO;
 
-/*
+/**
  * Class name: ConsultProduct
  * Purpose of class: This class is used to consult products.
  */
@@ -40,19 +40,17 @@ public class ConsultProduct extends HttpServlet {
 	 * @param response: this attribute is used to represent the HTTP response
 	 * that the application sends to a browser.
 	 * @return: there is no return.
-	 **/
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws
 		ServletException, IOException {
 		ArrayList<Product> productList = new ArrayList<Product>();
 		ProductDAO productdao = new ProductDAO();
-
-		productList = productdao.listProducts();
-
 		String url  = request.getHeader("Referer");
-
-		System.out.println("url: " + url);
-
+		
+		productList = productdao.listProducts();
 		request.setAttribute("products", productList);
+		
+		System.out.println("url: " + url);
 
 		RequestDispatcher rd;
 		if(url.contains("Quotation")) {
@@ -61,7 +59,6 @@ public class ConsultProduct extends HttpServlet {
 		else {
 			rd = request.getRequestDispatcher("/ConsultProductList.jsp");
 		}
-
-      		rd.forward(request,response);
+  		rd.forward(request,response);
 	}
 }

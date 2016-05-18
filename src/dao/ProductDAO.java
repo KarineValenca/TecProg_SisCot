@@ -2,7 +2,7 @@
  * Class name: ProductDAO.java
  * Purpose of class: This file contains the ProviderDAO class and its methods.
  * Copyright: This software follows GPL license.
- **/
+ */
 
 package dao;
 
@@ -20,11 +20,12 @@ import model.Product;
  * Class name: ProductDAO
  * Purpose of class:  This class corresponds to persistence class Product, with methods insertProduct,
  * listProduct, deleteProduct and updateProduct.
- **/
+ */
 public class ProductDAO {
         private Connection connection;
 
         public ProductDAO() {
+        	
                 this.connection = ConnectionDB.getConnection().connectionWithDataBase;
         }
 
