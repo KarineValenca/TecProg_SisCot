@@ -2,7 +2,7 @@
  * File name: DeleteQuotation.java
  * Purpose of File: This file contains the DeleteQuotation class and its methods.
  * Copyright: This software follows GPL license.
- **/
+ */
 
 package controller;
 
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.QuotationDAO;
 
-/*
+/**
  * Class name: DeleteQuotation.java
  * Purpose of class: This class is used to delete quotes, and has the method  deleteQuotation.
  */
@@ -38,12 +38,11 @@ public class DeleteQuotation extends HttpServlet {
 	 * @param response: this attribute is used to represent the HTTP response
 	 * that the application sends to a browser.
 	 * @return: there is no return.
-	**/
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws
 		ServletException, IOException {
 		int quotationId = Integer.parseInt(request.getParameter("quotationId"));
 		String messageDeletedConfirmation = "Iniciada";
-
 		boolean wasDeleted = deleteQuotation(quotationId);
 
 		if(wasDeleted) {
@@ -67,7 +66,7 @@ public class DeleteQuotation extends HttpServlet {
 	 * @param quotationId: This attribute uniquely identifies the price
 	 * @return: it returns true if the quotation was deleted, and returns false
 	 * if the quotation wasn't deleted.
-	**/
+	 */
 	public boolean deleteQuotation(int quotationId) {
 		assert(quotationId >= 0) : "unexpected error: the quotationId is less than 0";
 		boolean wasDeleted = false;
