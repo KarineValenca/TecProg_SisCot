@@ -74,6 +74,23 @@ public class InsertProductTest extends TestCase {
 				"Produto adicionado com sucesso!", returnOfMessageHandling);
 	}
 	
+	@Test
+	public void testMessageHandlingNameInBlank() {
+		Integer valueForMessage = 2;
+		String returnOfMessageHandling = insertProduct.messageHandling(valueForMessage);
+		assertEquals("Return method is that the product name is blank", 
+				"Nome do Produto em branco! Por favor, preencha com um nome", 
+				returnOfMessageHandling);
+	}
+	
+	@Test
+	public void testMessageHandlingInvalidValue() {
+		Integer valueForMessage = 3;
+		String returnOfMessageHandling = insertProduct.messageHandling(valueForMessage);
+		assertEquals("Return method is that value is invalid",
+				"Valor invalido no método messageHandling!",
+				returnOfMessageHandling);
+	}
 	
 }
 
