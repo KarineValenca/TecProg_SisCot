@@ -16,8 +16,21 @@ public class ReportDAOTest {
 	@Test
 	public void testListProductsManagers() {
 		ReportDAO reportDAO = new ReportDAO();
+		ArrayList<String> productsManager = new ArrayList<String>();
 		
-		assertEquals(Arrays.asList("Arroz"), reportDAO.listProductsManager(1));
+		productsManager = reportDAO.listProductsManager(1);
+		
+		assertEquals(Arrays.asList("Arroz"), productsManager);
+	}
+	
+	@Test
+	public void testProvidersManager() {
+		ReportDAO reportDAO = new ReportDAO();
+		ArrayList<String> providersManager = new ArrayList<String>();
+		
+		providersManager = reportDAO.listProvidersManager(1);
+		
+		assertEquals(Arrays.asList("Produto não possui fornecedor!"), providersManager);
 	}
 
 }
