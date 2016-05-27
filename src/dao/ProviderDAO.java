@@ -121,6 +121,7 @@ public class ProviderDAO {
 	public boolean deleteProvider(String providerCnpj) {
 		assert(providerCnpj != null) : "unexpected error: the provider cnpj is "
 										+ "null";
+	
 		boolean wasDeleted = false;
 
 		try {
