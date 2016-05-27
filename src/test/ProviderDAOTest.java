@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.junit.Test;
 
@@ -37,5 +38,14 @@ public class ProviderDAOTest extends TestCase {
 		assertTrue(wasInserted);
 		
 	}
-
+	
+	@Test
+	public void testSuccessDeleteProvider(){
+		ProviderDAO providerDAO = new ProviderDAO();
+		boolean wasDeleted = false;
+		wasDeleted = providerDAO.deleteProvider("123456");
+		
+		assertTrue(wasDeleted);
+		
+	}
 }
