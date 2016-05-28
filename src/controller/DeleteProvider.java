@@ -41,15 +41,12 @@ public class DeleteProvider extends HttpServlet {
 	**/
 	protected void service(HttpServletRequest request, 
 							HttpServletResponse response) 
-							throws ServletException, IOException {
+							throws ServletException, IOException {	
 		String providerName =  request.getParameter("providerName");
-		
 		assert(providerName != null) : "The providerName is recieving null from view";
-		
-		String messageDeletedConfirmation = "Iniciada";
-		
 		boolean wasDeleted = deleteProvider(providerName);
 		
+		String messageDeletedConfirmation = "Iniciada";
 		if(wasDeleted) {
 			messageDeletedConfirmation = "Fornecedor Excluído com Sucesso!";
 		}

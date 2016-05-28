@@ -121,7 +121,7 @@ public class InsertProduct extends HttpServlet {
 	 * @param wasAdd 
 	 * @return Used to represent the inser product status.
 	 */
-	private String messageHandling(int wasAdd) {
+	public String messageHandling(int wasAdd) {
 		String messageAddConfirmation = "Iniciada";
 		switch (wasAdd) {
 		case 0:

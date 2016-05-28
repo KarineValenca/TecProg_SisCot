@@ -15,7 +15,7 @@ public class InsertProductTest extends TestCase {
 	Connection connection = ConnectionDB.getConnectionWithDB();
 	Product product = new Product();
 	ProductDAO productDao = new ProductDAO();
-	InsertProduct insertProduct = new InsertProduct();
+	InsertProduct insertProduct = new InsertProduct();	
 
 	@Test
 	public void testNameProductNull() {
@@ -57,5 +57,41 @@ public class InsertProductTest extends TestCase {
 		assertEquals("Return method is 2 for empty strings", 2,
 				returnOfInsertProduct);
 	}
-
+	
+	@Test
+	public void testMessageHandlingNotAdded() {
+		Integer valueForMessage = 0;
+		String returnOfMessageHandling = insertProduct.messageHandling(valueForMessage);
+		assertEquals("Return method is that product was not added", 
+				"Produto Não Foi Adicionado!", returnOfMessageHandling);
+	}
+	
+	@Test
+	public void testMessageHandlingAdded() {
+		Integer valueForMessage = 1;
+		String returnOfMessageHandling = insertProduct.messageHandling(valueForMessage);
+		assertEquals("Return method is that product was added", 
+				"Produto adicionado com sucesso!", returnOfMessageHandling);
+	}
+	
+	@Test
+	public void testMessageHandlingNameInBlank() {
+		Integer valueForMessage = 2;
+		String returnOfMessageHandling = insertProduct.messageHandling(valueForMessage);
+		assertEquals("Return method is that the product name is blank", 
+				"Nome do Produto em branco! Por favor, preencha com um nome", 
+				returnOfMessageHandling);
+	}
+	
+	@Test
+	public void testMessageHandlingInvalidValue() {
+		Integer valueForMessage = 3;
+		String returnOfMessageHandling = insertProduct.messageHandling(valueForMessage);
+		assertEquals("Return method is that value is invalid",
+				"Valor invalido no método messageHandling!",
+				returnOfMessageHandling);
+	}
+	
 }
+
+	
