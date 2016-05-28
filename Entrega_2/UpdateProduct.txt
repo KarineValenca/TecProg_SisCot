@@ -1,13 +1,31 @@
 ** *Archive Name: UpdateProduct.java
+ * Purpose of file: This file contains the UpdateProduct class and its methods.   
+ * Copyright:This software follows GPL license.
+
 ----------------------------------
+
+* Class Name: UpdateProduct
+* Class Description: This class is responsible for the change of the product at database.
+
+* Atributes of Class
+	
 * Atribute Name: serialVersionUID
 * Atribute Description: this attribute is a serialization version identifier the class.
+
+----------------------------------
+
+* Method Name: service
+* Method Description: this method is used to get some values from view and pass the result of the method updateProduct to view
+
+* Arguments of Method
 
 * Attribute Name: request
 * Attribute Description: this attribute is used to represent the HTTP request that a browser sends to the application.
 
 * Attribute Name: response
 * Attribute Description: this attribute is used to represent the HTTP response that the application sends to a browser.
+
+* Atributes of Method
 
 * Attribute Name: messageUpdateConfirmation
 * Attribute Description: Is the type "String". This string is used to pass messages to view, according the method status.
@@ -18,24 +36,21 @@
 * Attribute Name: rd
 * Attribute Description: this attribute allows for including content in a request/response or forwarding a request/response to a resource
 
-* Attribute Name: actualProductName
-* Attribute Description: Is the type "String". This attribute gets from view the actual name of the product.
-
-* Attribute Name: product
-* Attribute Description: this attribute is an intance of Product.
-
-* Attribute Name: providerDao
-* Attribute Description: this attribute is an intance of ProviderDAO.
-------------------------------
-* Method Name: updateProduct
-* Method Description: this method is responsible to update a product.
-
-* Method Name: service
-* Method Description: this method is used to get some values from view and pass the result of the method updateProduct to view
+----------------------------------
 
 * Method Name: sendToProductDAO
 * Method Description: this method is used to update a provider at database.
-------------------------------
-* Class Name: UpdateProduct
-* Class Description: This class is responsible for the change of the product at database.
+
+* Arguments of Method
+
+* Attribute Name: request
+* Attribute Description: this attribute is used to represent the HTTP request that a browser sends to the application.
+
+* Atributes of Method
+
+* Attribute Name: waswasUpdated
+* Attribute Description: Is the type "boolean". This boolean value is used to verify if the method was changed.
+
+* Attribute Name: actualProductName
+* Attribute Description: Is the type "String". This attribute gets from view the actual name of the product.
 
