@@ -1,13 +1,31 @@
 ** *Archive Name: DeleteProduct.java
-----------------------------------
+ * Purpose of file: This file contains the DeleteProduct class and its methods.   
+ * Copyright: This software follows GPL license.
+ 
+------------------------------
+
+* Class Name: DeleteProduct
+* Class Description: This class is responsible for the exclusion of the product.
+
+* Atributes of Class
+
 * Atribute Name: serialVersionUID
 * Atribute Description: this attribute is a serialization version identifier the class.
 
-* Attribute Name: request
-* Attribute Description: this attribute is used to represent the HTTP request that a browser sends to the application
+------------------------------
 
-* Attribute Name: response
-* Attribute Description: this attribute is used to represent the HTTP response that the application sends to a browser
+* Method Name: service
+* Method Description: this method is used to get some values from view and pass the result of the method deleteProduct to view.
+
+* Arguments of Method
+
+* Arguments Name: request
+* Arguments Description: this argument represent the HTTP request that a browser sends to the application
+
+* Arguments Name: response
+* Arguments Description: this argument represent the HTTP response that the application sends to a browser
+
+* Atributes of Method
 
 * Attribute Name: productName
 * Attribute Description: Is the type "String". This string gets the product name from the view.
@@ -21,16 +39,20 @@
 * Attribute Name: rd
 * Attribute Description: this attribute allows for including content in a request/response or forwarding a request/response to a resource
 
-* Attribute Name: productDao
-* Attribute Description: this attribute is an intance of ProductDAO.
 ------------------------------
-* Method Name: service
-* Method Description: this method is used to get some values from view and pass the result of the method deleteProduct to view.
 
 * Method Name: deleteProduct
 * Method Description: this method is used to delete a product from database
 
-------------------------------
-* Class Name: DeleteProduct
-* Class Description: This class is responsible for the exclusion of the product.
+* Arguments of Method
 
+* Argument Name: productName
+* Argument Description: Is the type "String". This string gets the product name from the view.
+
+* Atributes of Method
+
+* Attribute Name: wasDeleted
+* Attribute Description: Is the type "boolean". This boolean value is used to verify if the product was deleted.
+
+* Attribute Name: productDao
+* Attribute Description: this attribute is an instance of ProductDAO.
