@@ -1,13 +1,31 @@
 ** *Archive Name: InsertProvider.java
+ * Purpose of file: This file contains the InsertProvider class and its methods.   
+ * Copyright: This software follows GPL license.
+
 ----------------------------------
+
+* Class Name: InsertProvider
+* Class Description: This class is responsible to create a new provider.
+
+* Atributes of Class
+
 * Atribute Name: serialVersionUID
 * Atribute Description: this attribute is a serialization version identifier the class.
 
-* Attribute Name: request
-* Attribute Description: this attribute is used to represent the HTTP request that a browser sends to the application.
+----------------------------------
 
-* Attribute Name: response
-* Attribute Description: this attribute is used to represent the HTTP response that the application sends to a browser.
+* Method Name: service
+* Method Description: This method is responsible for, using the RequestDispatcher objetc, acess the ProviderResponse views pages, according to the requested action.  
+
+* Arguments of Method
+
+* Argument Name: request
+* Argument Description: this attribute is used to represent the HTTP request that a browser sends to the application.
+
+* Argument Name: response
+* Argument Description: this attribute is used to represent the HTTP response that the application sends to a browser.
+
+* Atributes of Method
 
 * Attribute Name: messageAddConfirmation
 * Attribute Description: Is the type "String". This string is used to pass messages to view, according the method status.
@@ -54,19 +72,20 @@
 * Attribute Name: rd
 * Attribute Description: this attribute allows for including content in a request/response or forwarding a request/response to a resource
 
-* Attribute Name: providerDao
-* Attribute Description: this attribute is an intance of ProviderDAO.
 ------------------------------
-* Method Name: InsertProvider
-* Method Description: This method is a constructor method of the class. Responsible to create a new provider.
-
-* Method Name: service
-* Method Description: This method is responsible for, using the RequestDispatcher objetc, acess the ProviderResponse views pages, according to the requested action.  
 
 * Method Name: insertProvider
 * Method Description: This method is add the new provider into the database and verify if the provider was add successfully. 	
 
-------------------------------
-* Class Name: InsertProvider
-* Class Description: This class is responsible to create a new provider.
+* Arguments of Method
 
+* Argument Name: provider
+* Argument Description: This Argument is a Provider instance. Parameter of the service method. This object provider to be inserted in the database.
+
+* Atributes of Method
+
+* Attribute Name: providerDao
+* Attribute Description: this attribute is an intance of ProviderDAO.
+
+* Attribute Name: wasAdd
+* Attribute Description: Is the type "boolean". This boolean value is used to verify if the method was inserted.
