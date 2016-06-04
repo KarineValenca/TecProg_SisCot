@@ -1,6 +1,5 @@
 package test;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,14 +8,12 @@ import java.util.ArrayList;
 import org.junit.Test;
 import junit.framework.TestCase;
 
-import dao.ConnectionDB;
 import dao.ManagerDAO;
 
 import model.Manager;
 
 public class ManagerDAOTest extends TestCase {
-	
-	Connection connection = new ConnectionDB().getConnection();
+
 	Manager manager = new Manager();
 	ManagerDAO managerDao = new ManagerDAO();
 	ResultSet rs;
@@ -25,30 +22,13 @@ public class ManagerDAOTest extends TestCase {
 	int i;
 	
 	@Test
-	public void testInsertManager() {		
+	public void testInsertManager() {	
 		manager.setManagerUsername("gerente");
 		manager.setManagerPassword("senha123");
 		
 		assertEquals(true, managerDao.insertManager(manager));		
 	}
-	
-	@Test
-	public void testInsertManagerComparingValues() throws SQLException {		
-		manager.setManagerUsername("gerente");
-		manager.setManagerPassword("gerente1");
 
-		managerDao.insertManager(manager);
-		
-		String sql = "SELECT username FROM Managers WHERE username = 'gerente'";
-		
-		statement = this.connection.prepareStatement(sql);
-		rs = statement.executeQuery();
-		rs.next();
-		String result = rs.getString("username");
-		
-		assertEquals("gerente", result);
-	}
-	
 	@Test
 	public void testListManagers() throws SQLException {		
 		managers = managerDao.listManagers();
