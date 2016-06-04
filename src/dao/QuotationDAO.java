@@ -35,8 +35,8 @@ public class QuotationDAO {
      */
 	public int includeQuotation(Quotation quotation) {
 		assert (quotation != null) : "unexpected error: the quotation object is null";
-		String sql = "insert into Quotation (managerName, quotationDate, quotationIsOn)" + " values (?,?,?)";
-		boolean wasAdd = false;
+		String sql = "insert into Quotation (managerName, quotationDate, quotationIsOn)" 
+				+ " values (?,?,?)";
 		int id = 0;
 
 		try {
@@ -58,7 +58,6 @@ public class QuotationDAO {
 
 			result.last();
 			id = result.getInt("id");
-			wasAdd = true;
 
 			// Close the operators
 			statement.close();
@@ -94,16 +93,19 @@ public class QuotationDAO {
 			ResultSet result = statement.executeQuery();
 
 			// Stores all the products listed in the array
-			while (rs.next()) {
+			while (result.next()) {
 				Quotation quotation = new Quotation();
 
 				ArrayList<Product> listProducts = new ArrayList<>();
-				listProducts = getListProductsInAQuotation(result.getInt("id"));
-
-				quotation.setManagerName(result.getString("managerName"));
+				int id = result.getInt("id");
+				listProducts = getListProductsInAQuotation(id);
+				String managerName = result.getString("managerName");
+				quotation.setManagerName(managerName);
 				quotation.setQuotationDate(result.getDate("quotationDate"));
-				quotation.setQuotationIsOn(result.getBoolean("quotationIsOn"));
-				quotation.setId(result.getInt("id"));
+				boolean quotationIsOn = result.getBoolean("quotationIsOn");
+				quotation.setQuotationIsOn(quotationIsOn);
+				int idQuotation = result.getInt("id");
+				quotation.setId(idQuotation);
 				quotation.setProducts(listProducts);
 
 				quotationList.add(quotation);
@@ -144,11 +146,15 @@ public class QuotationDAO {
 			while(result.next()) {
 				Quotation quotation = new Quotation();
 				ArrayList<Product> listProducts = new ArrayList<>();
-				listProducts = getListProductsInAQuotation(result.getInt("id"));
-				quotation.setManagerName(result.getString("managerName"));
+				int id = result.getInt("id");
+				listProducts = getListProductsInAQuotation(id);
+				String managerName = result.getString("managerName");
+				quotation.setManagerName(managerName);
 				quotation.setQuotationDate(result.getDate("quotationDate"));
-				quotation.setQuotationIsOn(result.getBoolean("quotationIsOn"));
-				quotation.setId(result.getInt("id"));
+				boolean quotationIsOn = result.getBoolean("quotationIsOn");
+				quotation.setQuotationIsOn(quotationIsOn);
+				int idQuotation = result.getInt("id");
+				quotation.setId(idQuotation);
 				quotation.setProducts(listProducts);
 				quotationList.add(quotation);
 			}
@@ -250,7 +256,8 @@ public class QuotationDAO {
 	public boolean includeQuotationProduc(Quotation quotation, Product product) {
 		assert (quotation != null) : "unexpected error: the quotation object is null";
 		assert (product != null) : "unexpected error: the quotation object is null";
-		String sql = "insert into Quotation_Product_Provider(quotationID, productName)" + " values (?,?)";
+		String sql = "insert into Quotation_Product_Provider(quotationID, productName)" 
+					+ " values (?,?)";
 		boolean wasAdd = false;
 
 		try {
