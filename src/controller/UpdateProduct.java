@@ -48,8 +48,7 @@ public class UpdateProduct extends HttpServlet {
 						   throws ServletException, IOException {
 		assert (request != null) : "The request from client is null";
 		assert (response != null) : "The response to client is null";
-		String messageUpdateConfirmation;
-		mmessageUpdateConfirmation = "Iniciada";
+		String messageUpdateConfirmation = "Iniciada";
 		boolean wasUpdated;
 		wasUpdated = sendToProductDAO(request);
 		
@@ -60,7 +59,7 @@ public class UpdateProduct extends HttpServlet {
 			messageUpdateConfirmation = "Produto não foi atualizado!";
 		}
 		
-		//Set the mensage for send to Product Response
+		//Set the message for send to Product Response
 		request.setAttribute("mensage", messageUpdateConfirmation);
 		
 		//Dispacher the result from the view of confirmation
