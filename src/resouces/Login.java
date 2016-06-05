@@ -21,9 +21,6 @@ import dao.ManagerDAO;
 import dao.ProviderDAO;
 import model.Manager;
 import model.Provider;
-import model.Report;
-import model.ReportManager;
-import model.ReportProvider;
 
  /**
   * Class name: Login
