@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import model.Product;
 import model.Quotation;
@@ -38,22 +39,26 @@ public class QuotationDAO {
 		String sql = "insert into Quotation (managerName, quotationDate, quotationIsOn)" 
 				+ " values (?,?,?)";
 		int id = 0;
-
 		try {
-			String managerName;
-			managerName =  quotation.getManagerName();
-			System.out.println("values:" + managerName);
-			//System.out.println("values:" + quotation.getManagerName());
 			PreparedStatement statement = this.connection.prepareStatement(sql);
-			statement.setString(1, quotation.getManagerName());
-			statement.setDate(2, quotation.getQuotationDate());
-			statement.setBoolean(3, quotation.getQuotationIsOn());
+			
+			String managerName = quotation.getManagerName();
+			statement.setString(1, managerName);
+			
+			Date quotationDate = quotation.getQuotationDate();
+			statement.setDate(2, (java.sql.Date) quotationDate);
+			
+			boolean quotationIsOn = quotation.getQuotationIsOn();
+			statement.setBoolean(3, quotationIsOn);
+			
 			statement.execute();
 
-			sql = "select * from Quotation where managerName = ? AND quotationDate = ?";
-			statement = this.connection.prepareStatement(sql);
-			statement.setString(1, quotation.getManagerName());
-			statement.setDate(2, quotation.getQuotationDate());
+			String sqlSelect = "select * from Quotation where managerName = ? AND quotationDate = ?";
+			statement = this.connection.prepareStatement(sqlSelect);
+			
+			statement.setString(1, managerName);
+			statement.setDate(2, (java.sql.Date) quotationDate);
+		
 			ResultSet result = statement.executeQuery();
 
 			result.last();
@@ -61,7 +66,8 @@ public class QuotationDAO {
 
 			// Close the operators
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch(SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -76,17 +82,18 @@ public class QuotationDAO {
 	* @return quotationList: return list of quotation.
     **/
 	public ArrayList<Quotation> listQuotation() {
-		String sql = "select * from Quotation";
 		ArrayList<Quotation> quotationList = new ArrayList<Quotation>();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
+		} 
+		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 
 		try {
+			String sql = "select * from Quotation";
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 
 			// Returns a result of the query of search
@@ -129,17 +136,18 @@ public class QuotationDAO {
 	* @return quotationList: return list of quotation.
     **/
 	public ArrayList<Quotation> listQuotationProvider() {
-		String sql = "select * from Quotation where quotationIsOn = true";
 		ArrayList<Quotation> quotationList= new ArrayList<Quotation>();
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch(ClassNotFoundException e) {
+		} 
+		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 		
 		try {
+			String sql = "select * from Quotation where quotationIsOn = true";
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 			
 			ResultSet result = statement.executeQuery();	
@@ -150,9 +158,12 @@ public class QuotationDAO {
 				listProducts = getListProductsInAQuotation(id);
 				String managerName = result.getString("managerName");
 				quotation.setManagerName(managerName);
+				
 				quotation.setQuotationDate(result.getDate("quotationDate"));
+				
 				boolean quotationIsOn = result.getBoolean("quotationIsOn");
 				quotation.setQuotationIsOn(quotationIsOn);
+				
 				int idQuotation = result.getInt("id");
 				quotation.setId(idQuotation);
 				quotation.setProducts(listProducts);
@@ -177,19 +188,23 @@ public class QuotationDAO {
     **/
 	public boolean deleteQuotation(int id) {
 		assert(id >=1) : "unexpected error: the informed id is invalid";
-		String sql = "delete from Quotation where id = ?";
 		boolean wasDeleted = false;
 
 		try {
+			String sql = "delete from Quotation where id = ?";
 			PreparedStatement statement = this.connection.prepareStatement(sql);
+			
 			statement.setInt(1, id);
 			statement.execute();
+			
 			wasDeleted = true;
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
+		
 		return wasDeleted;
 	}
 
@@ -205,18 +220,26 @@ public class QuotationDAO {
 	public boolean updateQuotation(int idToUpdate, Quotation quotation) {
 		assert(idToUpdate >=1) : "unexpected error: the informed id is invalid";
 		assert (quotation != null) : "unexpected error: the quotation object is null";
-		String sql = "update Quotation set managerName=?, quotationDate=? where id=?";
+	
 		boolean wasUpdated = false;
 
 		try {
+			String sql = "update Quotation set managerName=?, quotationDate=? where id=?";
 			PreparedStatement statement = this.connection.prepareStatement(sql);
-			statement.setString(1, quotation.getManagerName());
-			statement.setDate(2, quotation.getQuotationDate());
+			
+			String managerName = quotation.getManagerName();
+			statement.setString(1, managerName);
+			
+			Date quotationDate = quotation.getQuotationDate();
+			statement.setDate(2, (java.sql.Date) quotationDate);
+			
 			statement.setInt(3, idToUpdate);
+			
 			statement.executeUpdate();
 			wasUpdated = true;
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return wasUpdated;
@@ -226,11 +249,13 @@ public class QuotationDAO {
 	//Change the quotation for closed quotation
 	public boolean updateQuotation(int idToUpdate) {
 		assert(idToUpdate >=1) : "unexpected error: the informed id is invalid";
-		String sql = "update Quotation set quotationIsOn=? where id=?";
+		
 		boolean wasUpdated = false;
 
 		try {
+			String sql = "update Quotation set quotationIsOn=? where id=?";
 			PreparedStatement statement = this.connection.prepareStatement(sql);
+			
 			// Set the first atribute of the query
 			statement.setBoolean(1, false);
 			statement.setInt(2, idToUpdate);
@@ -238,14 +263,15 @@ public class QuotationDAO {
 			wasUpdated = true;
 			// Close the operators
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch(SQLException e) {
 			e.printStackTrace();
 		}
 		return wasUpdated;
 	}
 	
     /** 
-    * Method name: includeQuotationProduc
+    * Method name: includeQuotationProduct
     * Purpose of method: This method is used to include quotation at the database,
     * it returns a boolean that returns true if the manager was included.
     * @param quotation: there is a object quotation.
@@ -256,20 +282,28 @@ public class QuotationDAO {
 	public boolean includeQuotationProduc(Quotation quotation, Product product) {
 		assert (quotation != null) : "unexpected error: the quotation object is null";
 		assert (product != null) : "unexpected error: the quotation object is null";
-		String sql = "insert into Quotation_Product_Provider(quotationID, productName)" 
-					+ " values (?,?)";
+		
 		boolean wasAdd = false;
 
 		try {
 			System.out.println("Cotação ID:" + quotation.getId());
 			System.out.println("Produto name:" + product.getProductName());
+			
+			String sql = "insert into Quotation_Product_Provider(quotationID, productName)" 
+					+ " values (?,?)";
 			PreparedStatement statement = this.connection.prepareStatement(sql);
-			statement.setInt(1, quotation.getId());
-			statement.setString(2, product.getProductName());
+			
+			int quotationId = quotation.getId();
+			statement.setInt(1, quotationId);
+			
+			String productName = product.getProductName();
+			statement.setString(2, productName);
+			
 			statement.execute();
 			wasAdd = true;
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch(SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -285,28 +319,35 @@ public class QuotationDAO {
     **/
 	public ArrayList<Product> getListProductsInAQuotation(int quotationID) {
 		assert(quotationID >=1) : "unexpected error: the informed id is invalid";
-		String sql = "select * from Quotation_Product_Provider where quotationID = ?";
+		
 		ArrayList<Product> productList = new ArrayList<Product>();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
+		} 
+		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 
 		try {
+			String sql = "select * from Quotation_Product_Provider where quotationID = ?";
 			PreparedStatement statement = this.connection.prepareStatement(sql);
+			
 			statement.setInt(1, quotationID);
 			ResultSet result = statement.executeQuery();
 			
 			while (result.next()) {
 				Product product = new Product();
-				product.setProductName(result.getString("productName"));
+				
+				String productName = result.getString("productName");
+				product.setProductName(productName);
+				
 				productList.add(product);
 			}
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch(SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -322,17 +363,19 @@ public class QuotationDAO {
     **/	
 	public Quotation selectQuotationByID(int quotationID) {
 		assert(quotationID >=1) : "unexpected error: the informed id is invalid";
-		String sql = "select * from Quotation where id = ?";
+		
 		Quotation quotation = new Quotation();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
+		} 
+		catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 
 		try {
+			String sql = "select * from Quotation where id = ?";
 			PreparedStatement statement = this.connection.prepareStatement(sql);
 
 			statement.setInt(1, quotationID);
@@ -344,12 +387,16 @@ public class QuotationDAO {
 			result.last();
 
 			quotation.setId(quotationID);
-			quotation.setManagerName(result.getString("managerName"));
+			
+			String managerName = result.getString("managerName");
+			quotation.setManagerName(managerName);
+		
 			quotation.setQuotationDate(result.getDate("quotationDate"));
 
 			// Close the operators
 			statement.close();
-		} catch (SQLException e) {
+		} 
+		catch(SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -371,14 +418,14 @@ public class QuotationDAO {
 									  int integerQuotationId, String provideName) {
 		assert(integerQuotationId >=1) : "unexpected error: the informed id is invalid";
 		assert (provideName != null) : "unexpected error: the provide Name is null";
-		String sqlUpdate = "update Quotation_Product_Provider set providerName=?, priceProduct=? "
-				+ "where quotationID=? AND productName=?";
 		
-		String sqlQuery = "select priceProduct from Quotation_Product_Provider "
-				+ " where quotationID=? AND productName=?";
-		
-
 		try {
+			String sqlUpdate = "update Quotation_Product_Provider set providerName=?,"
+					+ " priceProduct=? where quotationID=? AND productName=?";
+		
+			String sqlQuery = "select priceProduct from Quotation_Product_Provider "
+					+ " where quotationID=? AND productName=?";
+			
 			PreparedStatement statementUpdate = this.connection.prepareStatement(sqlUpdate);
 			
 			PreparedStatement statementQuery = this.connection.prepareStatement(sqlQuery);
