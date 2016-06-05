@@ -1,6 +1,5 @@
 package test;
 
-import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +10,6 @@ import org.junit.Test;
 
 import com.mysql.jdbc.PreparedStatement;
 
-import dao.ConnectionDB;
 import dao.QuotationDAO;
 import junit.framework.TestCase;
 import model.Manager;
@@ -19,12 +17,12 @@ import model.Product;
 import model.Quotation;
 
 public class QuotationDAOTest extends TestCase {
-	
-	Connection connection = new ConnectionDB().getConnection();
+
 	Quotation quotation = new Quotation();
 	QuotationDAO quotationDao = new QuotationDAO();
 	Manager manager = new Manager();;
 	Date quotationDate = new Date(0);
+	//boolean quotationIsOn = true;
 	Product product = new Product();
 	ArrayList<Product> products = new ArrayList<Product>();
 	ArrayList<Quotation> quotations = new ArrayList<Quotation>();
@@ -35,37 +33,14 @@ public class QuotationDAOTest extends TestCase {
 	
 	@Test
 	public void testInsertQuotation() throws SQLException {
-		product.setProductName("ProdutoPregao");
-		
-		products.add(product);
 		
 		quotation.setManagerName("Joao");
 		quotation.setQuotationDate(quotationDate);
+		quotation.setQuotationIsOn(true);
 		
-		assertTrue(quotationDao.includeQuotation(quotation));
+		assertNotNull(quotationDao.includeQuotation(quotation));
 	}
-	
-	@Test
-	public void testInsertQuotationChekingValues() throws SQLException {
-		product.setProductName("TestPregrao");
-		
-		products.add(product);
-		
-		quotation.setManagerName("Maria");
-		quotation.setQuotationDate(quotationDate);
-		
-		quotationDao.includeQuotation(quotation);
-		
-		String sql = "SELECT managerName FROM Quotation WHERE managerName = 'Maria'";
-		
-		statement = this.connection.prepareStatement(sql);
-		rs = statement.executeQuery(sql);
-		rs.next();
-		String result = rs.getString("managerName");
-		
-		assertEquals("Maria", result);
-	}
-	
+
 	@Test
 	public void testListQuotations() throws SQLException {
 		quotations = quotationDao.listQuotation();
@@ -84,13 +59,9 @@ public class QuotationDAOTest extends TestCase {
 	public void testDeleteQuotation() throws SQLException {
 		quotation.setManagerName("Levino");
 		quotation.setQuotationDate(quotationDate);
-		
 		product.setProductName("Macbook");
-		
 		products.add(product);
-		
 		quotation.setProducts(products);
-		
 		quotationDao.includeQuotation(quotation);
 		
 		assertTrue(quotationDao.deleteQuotation(5));
@@ -100,16 +71,11 @@ public class QuotationDAOTest extends TestCase {
 	public void testDeleteQuotationSearchingForTheQuotation() throws SQLException {
 		quotation.setManagerName("Jonathan");
 		quotation.setQuotationDate(quotationDate);
-		
 		product.setProductName("Galaxy");
-		
 		products.add(product);
-		
 		quotation.setProducts(products);
-		
 		quotationDao.includeQuotation(quotation);
 		quotationDao.deleteQuotation(4);
-		
 		quotations = quotationDao.listQuotation();
 		boolean quotationExists = false;
 		
@@ -127,24 +93,17 @@ public class QuotationDAOTest extends TestCase {
 		
 		product.setProductName("Batom");	
 		products.add(product);
-		
 		quotation.setProducts(products);
-		
 		quotationDao.includeQuotation(quotation);
-		
 		products.clear();
-		
 		Quotation quotation2 = new Quotation();
 		quotation2.setManagerName("Anne");
 		quotation2.setQuotationDate(quotationDate);
 		product.setProductName("Batom");	
 		products.add(product);
 		quotation2.setProducts(products);
-		
 		quotationDao.updateQuotation(6, quotation2);
-		
 		quotations = quotationDao.listQuotation();
-
 		Quotation quotation3 = new Quotation();
 		
 		for(i = 0; i < quotations.size(); i++) {
