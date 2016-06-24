@@ -2,6 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:choose>
+	<c:when test="${param.locale eq 'pt_BR'}">
+		<fmt:setLocale value="pt_BR"/>
+	</c:when>
+	<c:otherwise>
+		<fmt:setLocale value="en_US"/>
+ 	</c:otherwise>
+</c:choose>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -18,6 +28,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body class="blue lighten-5">
+    <fmt:setBundle basename="resouces.messages" var="msg"/>
         <c:import url="header.jsp" />
         <br><br>
         <!-- Start Page Loading -->
@@ -25,6 +36,7 @@
             <div id="loader"></div>
             <div class="loader-section section-left"></div>
             <div class="loader-section section-right"></div>
+            <a href="?locale=pt_BR">Português</a>|<a href="?locale=en_US">English</a>
         </div>
         <!-- End Page Loading -->
         <br>
@@ -35,20 +47,20 @@
                         <div class="input-field col s12">
                             <i class="mdi-social-person-outline prefix"></i>
                             <input id="username" type="text" name="login">
-                            <label for="username" class="center-align">Usuário</label>
+                            <label for="username" class="center-align"><fmt:message key="login.user" bundle="${msg}"/></label>
                         </div>
                     </div>
                     <div class="row margin">
                         <div class="input-field col s12">
                             <i class="mdi-action-lock-outline prefix"></i>
                             <input id="password" type="password" name="password">
-                            <label for="password">Senha</label>
+                            <label for="password"><fmt:message key="login.password" bundle="${msg}"/></label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m12 l12  login-text">
                             <input type="checkbox" id="remember-me" />
-                            <label for="remember-me">Lembrar credenciais</label>
+                            <label for="remember-me"><fmt:message key="login.credentials" bundle="${msg}"/></label>
                         </div>
                     </div>
                     <div class="row">
