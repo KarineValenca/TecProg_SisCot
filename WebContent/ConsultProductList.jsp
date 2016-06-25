@@ -2,6 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:choose>
+	<c:when test="${param.locale eq 'pt_BR'}">
+		<fmt:setLocale value="pt_BR"/>
+	</c:when>
+	<c:otherwise>
+		<fmt:setLocale value="en_US"/>
+ 	</c:otherwise>
+</c:choose>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -18,6 +28,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body class="blue lighten-5">
+        <fmt:setBundle basename="resouces.messages" var="msg"/>
         <c:import url="header.jsp" />
         <br>
         <br>
@@ -25,9 +36,10 @@
             if (session != null) {
             	if (session.getAttribute("userType").equals("manager")) {
             %>
+        <a href="?locale=pt_BR">Português</a>|<a href="?locale=en_US">English</a>
         <div class="row center">
             <a class="waves-effect waves-light btn"
-                href="/SisCot/IncludeProductView.jsp">Cadastrar Produtos</a><br>
+                href="/SisCot/IncludeProductView.jsp"><fmt:message key="products.register" bundle="${msg}"/></a><br>
             <br>
         </div>
         <%
@@ -37,7 +49,7 @@
         <div class="row">
             <div class="col s6 offset-s3 ">
                 <div class="collection">
-                    <li class="collection-item center">Produtos</li>
+                    <li class="collection-item center"><fmt:message key="products.products" bundle="${msg}"/></li>
                     <c:forEach items="${products}" var="product">
                         <a class="collection-item"
                             href="/SisCot/ShowProduct.jsp?productName=${product.productName}">
