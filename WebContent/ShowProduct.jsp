@@ -29,7 +29,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body class="blue lighten-5">
-<fmt:setBundle basename="resouces.messages" var="msg"/>
+	<fmt:setBundle basename="resouces.messages" var="msg" />
 	<c:import url="header.jsp" />
 	<h3 class="row center">
 		Produto <b><%=request.getParameter("productName")%></b>
@@ -38,15 +38,18 @@
 	<br>
 
 	<div class="row">
-	<a href="?locale=pt_BR">Português</a>|<a href="?locale=en_US">English</a>
+		<a href="?locale=pt_BR">Português</a>|<a href="?locale=en_US">English</a>
 		<div class="col s5 offset-s2">
-			<fmt:message key="product.name" bundle="${msg}"/><span class="blue-text text-darken-2"><%=request.getParameter("productName")%></span><br>
+			<fmt:message key="product.name" bundle="${msg}" />
+			<span class="blue-text text-darken-2"><%=request.getParameter("productName")%></span><br>
 			<br> <a
 				href="/SisCot/DeleteProduct?productName=<%=request.getParameter("productName")%>">
-				<fmt:message key="product.product_delete" bundle="${msg}"/></a> <br> <a
+				<fmt:message key="product.product_delete" bundle="${msg}" />
+			</a> <br> <a
 				href="/SisCot/UpdateProductView.jsp?productName=<%=request.getParameter("productName")%>
 		">
-				<fmt:message key="product.product_edit" bundle="${msg}"/></a>
+				<fmt:message key="product.product_edit" bundle="${msg}" />
+			</a>
 		</div>
 	</div>
 
