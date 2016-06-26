@@ -6,11 +6,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:choose>
 	<c:when test="${param.locale eq 'pt_BR'}">
-		<fmt:setLocale value="pt_BR"/>
+		<fmt:setLocale value="pt_BR" />
 	</c:when>
 	<c:otherwise>
-		<fmt:setLocale value="en_US"/>
- 	</c:otherwise>
+		<fmt:setLocale value="en_US" />
+	</c:otherwise>
 </c:choose>
 <html>
 <head>
@@ -33,7 +33,7 @@
 <script src="js/init.js"></script>
 </head>
 <body class="blue lighten-5">
-<fmt:setBundle basename="resouces.messages" var="msg"/>
+	<fmt:setBundle basename="resouces.messages" var="msg" />
 
 	<c:import url="header.jsp" />
 	<br>
@@ -42,10 +42,12 @@
 	<br>
 
 	<div class="row">
-	<a href="?locale=pt_BR">Português</a>|<a href="?locale=en_US">English</a>
+		<a href="?locale=pt_BR">Português</a>|<a href="?locale=en_US">English</a>
 		<div class="col s6 offset-s3">
 			<div class="card-panel">
-				<h1 class="row center"><fmt:message key="product.title" bundle="${msg}"/></h1>
+				<h1 class="row center">
+					<fmt:message key="product.title" bundle="${msg}" />
+				</h1>
 			</div>
 		</div>
 	</div>
