@@ -121,7 +121,9 @@
 				</ul>
 			</div>
 			<div class="col l3 s12">
-				<h5 class="white-text"><fmt:message key="index.contact" bundle="${msg}"/></h5>
+				<h5 class="white-text">
+					<fmt:message key="index.contact" bundle="${msg}" />
+				</h5>
 				<ul>
 					<li><a class="white-text" href="#!">Iago Rodrigues</a></li>
 					<li><a class="white-text" href="#!">Jonathan Rufino</a></li>
