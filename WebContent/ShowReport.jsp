@@ -31,12 +31,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body class="blue lighten-5">
-<fmt:setBundle basename="resouces.messages" var="msg"/>
-<a href="?locale=pt_BR">Português</a>|<a href="?locale=en_US">English</a>
+	<fmt:setBundle basename="resouces.messages" var="msg" />
+	<a href="?locale=pt_BR">Português</a>|
+	<a href="?locale=en_US">English</a>
 	<c:import url="header.jsp" />
 
 	<h2 class="center">
-		<fmt:message key="report.title" bundle="${msg}"/>
+		<fmt:message key="report.title" bundle="${msg}" />
 		<%=session.getAttribute("userType")%></h2>
 
 
@@ -44,7 +45,9 @@
 		<div class="row">
 			<div class="col s3 offset-s1">
 				<ul class="collection with-header">
-					<li class="collection-header center"><h4><fmt:message key="report.report_products" bundle="${msg}"/></h4></li>
+					<li class="collection-header center"><h4>
+							<fmt:message key="report.report_products" bundle="${msg}" />
+						</h4></li>
 
 					<c:forEach items="${listProducts}" var="product">
 						<li class="collection-item">${product}</li>
@@ -54,7 +57,9 @@
 
 			<div class="col s4">
 				<ul class="collection with-header">
-					<li class="collection-header center"><h4><fmt:message key="report.report_providers" bundle="${msg}"/></h4></li>
+					<li class="collection-header center"><h4>
+							<fmt:message key="report.report_providers" bundle="${msg}" />
+						</h4></li>
 
 					<c:forEach items="${listProviders}" var="provider">
 						<li class="collection-item">${provider}</li>
@@ -64,7 +69,9 @@
 
 			<div class="col s3">
 				<ul class="collection with-header">
-					<li class="collection-header center"><h4><fmt:message key="report.report_prices" bundle="${msg}"/></h4></li>
+					<li class="collection-header center"><h4>
+							<fmt:message key="report.report_prices" bundle="${msg}" />
+						</h4></li>
 
 					<c:forEach items="${listPrices}" var="price">
 						<li class="collection-item center">R$ ${price}</li>
@@ -80,7 +87,9 @@
 		<br>
 		<br>
 		<br>
-		<h3 class="center"><fmt:message key="report.report_message" bundle="${msg}"/></h3>
+		<h3 class="center">
+			<fmt:message key="report.report_message" bundle="${msg}" />
+		</h3>
 	</c:if>
 
 
