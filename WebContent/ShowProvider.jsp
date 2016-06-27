@@ -29,31 +29,51 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body class="blue lighten-5">
-<fmt:setBundle basename="resouces.messages" var="msg"/>
-<a href="?locale=pt_BR">Português</a>|<a href="?locale=en_US">English</a>
+	<fmt:setBundle basename="resouces.messages" var="msg" />
+	<a href="?locale=pt_BR">Português</a>|
+	<a href="?locale=en_US">English</a>
 	<c:import url="header.jsp" />
 	<h3 class="row center">
-		<fmt:message key="provider.provider" bundle="${msg}"/><b><%=request.getParameter("providerName")%></b>
+		<fmt:message key="provider.provider" bundle="${msg}" />
+		<b><%=request.getParameter("providerName")%></b>
 	</h3>
 	<br>
 	<br>
 
 	<div class="row">
 		<div class="col s5 offset-s2">
-			<fmt:message key="provider.provider_name" bundle="${msg}"/><span class="blue-text text-darken-2"><%=request.getParameter("providerName")%></span><br>
-			<br><fmt:message key="provider.provider_cnpj" bundle="${msg}"/><span class="blue-text text-darken-2"><%=request.getParameter("providerCnpj")%></span><br>
-			<br><fmt:message key="provider.provider_email" bundle="${msg}"/><span class="blue-text text-darken-2"><%=request.getParameter("providerEmail")%></span><br>
-			<br><fmt:message key="provider.provider_DDD" bundle="${msg}"/><span class="blue-text text-darken-2"><%=request.getParameter("providerDdd")%></span><br>
-			<br><fmt:message key="provider.provider_phone" bundle="${msg}"/><span
-				class="blue-text text-darken-2"><%=request.getParameter("providerPhone")%></span><br>
-			<br><br><fmt:message key="provider.zip" bundle="${msg}"/><span class="blue-text text-darken-2"><%=request.getParameter("providerZip")%></span><br>
-			<br><fmt:message key="provider.state" bundle="${msg}"/><span class="blue-text text-darken-2"><%=request.getParameter("providerState")%></span><br>
-			<br><fmt:message key="provider.city" bundle="${msg}"/><span class="blue-text text-darken-2"><%=request.getParameter("providerCity")%></span><br>
-			<br><br><fmt:message key="provider.adress" bundle="${msg}"/><span
-				class="blue-text text-darken-2"><%=request.getParameter("providerAdress")%></span><br>
-			<br><fmt:message key="provider.authorization" bundle="${msg}"/><span
-				class="blue-text text-darken-2"><%=request.getParameter("providerAuthorized")%></span><br>
-			<br> 
+			<fmt:message key="provider.provider_name" bundle="${msg}" />
+			<span class="blue-text text-darken-2"><%=request.getParameter("providerName")%></span><br>
+			<br>
+			<fmt:message key="provider.provider_cnpj" bundle="${msg}" />
+			<span class="blue-text text-darken-2"><%=request.getParameter("providerCnpj")%></span><br>
+			<br>
+			<fmt:message key="provider.provider_email" bundle="${msg}" />
+			<span class="blue-text text-darken-2"><%=request.getParameter("providerEmail")%></span><br>
+			<br>
+			<fmt:message key="provider.provider_DDD" bundle="${msg}" />
+			<span class="blue-text text-darken-2"><%=request.getParameter("providerDdd")%></span><br>
+			<br>
+			<fmt:message key="provider.provider_phone" bundle="${msg}" />
+			<span class="blue-text text-darken-2"><%=request.getParameter("providerPhone")%></span><br>
+			<br>
+			<br>
+			<fmt:message key="provider.zip" bundle="${msg}" />
+			<span class="blue-text text-darken-2"><%=request.getParameter("providerZip")%></span><br>
+			<br>
+			<fmt:message key="provider.state" bundle="${msg}" />
+			<span class="blue-text text-darken-2"><%=request.getParameter("providerState")%></span><br>
+			<br>
+			<fmt:message key="provider.city" bundle="${msg}" />
+			<span class="blue-text text-darken-2"><%=request.getParameter("providerCity")%></span><br>
+			<br>
+			<br>
+			<fmt:message key="provider.adress" bundle="${msg}" />
+			<span class="blue-text text-darken-2"><%=request.getParameter("providerAdress")%></span><br>
+			<br>
+			<fmt:message key="provider.authorization" bundle="${msg}" />
+			<span class="blue-text text-darken-2"><%=request.getParameter("providerAuthorized")%></span><br>
+			<br>
 		</div>
 	</div>
 </body>
