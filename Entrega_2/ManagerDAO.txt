@@ -1,7 +1,34 @@
 ** *Archive Name: ManagerDAO.java
+ * Purpose of file: This file contains the ManagerDAO class and its methods.   
+ * Copyright: This software follows GPL license.
+ */
+
 ----------------------------------
+
+* Class Name: ManagerDAO
+* Class Description: This class is used to do all actions in the database relate to manager: insert, delete, update or list a manager.
+
+* Atributes of Class
+
 * Attribute Name: connection
 * Attribute Description: This attribute is an instantiates the connection class.
+
+----------------------------------
+
+* Method Name: managerDAO
+* Method Description: This method is used to connection in database.
+
+----------------------------------
+
+* Method Name: insertManager
+* Method Description: This method is used to insert a manager at the database, it returns a boolean that returns true if the manager was added.
+
+* Arguments of Method
+
+* Argument Name: manager
+* Argument Description: This attribute is instance of Manager to be inserted in the database.
+
+* Atributes of Method
 
 * Attribute Name: sql
 * Attribute Description: This attribute is an sql string to pass the query to database.
@@ -12,43 +39,64 @@
 * Attribute Name: statement
 * Attribute Description: This attribute if PreparedStatement type and it is used to used to precompiled and stored PreparedStatemente object. It is util when you want used efficiently execute a statement multiple lines.
 
-* Attribute Name: listManagers
-* Attribute Description: This attribute is an arraylist of Manager type ant it is used to list all managers.
-
-* Attribute Name: rs
-* Attribute Description: This attribute is a ResultSet type and it is used to getter methods for retrieving columns values from the current row.
-
-* Attribute Name: manager
-* Attribute Description: This attribute is instance of Manager to be inserted in the database.
-
-* Attribute Name: managerUsername
-* Attribute Description: Is the type "String". This string gets the user name of manager from the view to be deleted in the database.
-
-* Attribute Name: wasDeleted
-* Attribute Description: This boolean attribute is used to verify if a manager as deleted to the database.
-
-* Attribute Name: wasUpdated
-* Attribute Description: This boolean attribute is used to verify if a manager as updated to the database.
-
-* Attribute Name: usernameToUpdate
-* Attribute Description: Is the type "String". This string gets the user name of manager to update from the view.
-
-------------------------------
-* Method Name: managerDAO
-* Method Description: This method is used to connection in database.
-
-* Method Name: insertManager
-* Method Description: This method is used to insert a manager at the database, it returns a boolean that returns true if the manager was added.
+----------------------------------
 
 * Method Name: listManagers
 * Method Description: This method is responsible for bringing a list managers of database.
 
+* Atributes of Method
+
+* Attribute Name: sql
+* Attribute Description: This attribute is an sql string to pass the query to database for select Managers.
+
+* Attribute Name: managers
+* Attribute Description: This attribute is an arraylist of Manager type ant it is used to list all managers.
+
+* Attribute Name: statement
+* Attribute Description: This attribute if PreparedStatement type and it is used to used to precompiled and stored PreparedStatemente object. It is util when you want used efficiently execute a statement multiple lines.
+
+* Attribute Name: rs
+* Attribute Description: This attribute is a ResultSet type and it is used to getter methods for retrieving columns values from the current row.
+
+----------------------------------
+
 * Method Name: deleteManager
 * Method Description: This method is used to delete a manager at the database, it returns a boolean that returns true if the manager was deleted.
 
+* Arguments of Method
+ 
+* Argument Name: managerUsername
+* Arguments Description: Is the type "String". This string gets the user name of manager from the view to be deleted in the database.
+
+* Atributes of Method
+
+* Attribute Name: sql
+* Attribute Description: This attribute is an sql string to pass the query to database for delete one manager.
+
+* Attribute Name: wasDeleted
+* Attribute Description: This boolean attribute is used to verify if a manager as deleted to the database.
+
+* Attribute Name: statement
+* Attribute Description: This attribute if PreparedStatement type and it is used to used to precompiled and stored PreparedStatemente object. It is util when you want used efficiently execute a statement multiple lines.
+
+----------------------------------
+
 * Method Name: updateManager
 * Method Description: This method is used to update a manager at the database, it returns a boolean that returns true if the manager was updated.
-------------------------------
-* Class Name: ManagerDAO
-* Class Description: This class is used to do all actions in the database relate to manager: insert, delete, update or list a manager.
+
+* Arguments of Method
+
+* Argument Name: usernameToUpdate
+* Argument Description: Is the type "String". This string gets the user name of manager to update from the view.
+
+* Attribute Name: manager
+* Attribute Description: This attribute is an of Manager type for object manager.
+
+* Atributes of Method
+
+* Attribute Name: statement
+* Attribute Description: This attribute if PreparedStatement type and it is used to used to precompiled and stored PreparedStatemente object. It is util when you want used efficiently execute a statement multiple lines.
+
+* Attribute Name: wasUpdated
+* Attribute Description: This boolean attribute is used to verify if a manager as updated to the database.
 
