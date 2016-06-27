@@ -19,11 +19,11 @@
 
 * Arguments of Method
 
-* Attribute Name: request
-* Attribute Description: this attribute is used to represent the HTTP request that a browser sends to the application.
+* Arguments Name: request
+* Arguments Description: this attribute is used to represent the HTTP request that a browser sends to the application.
 
-* Attribute Name: response
-* Attribute Description: this attribute is used to represent the HTTP response that the application sends to a browser.
+* Arguments Name: response
+* Arguments Description: this attribute is used to represent the HTTP response that the application sends to a browser.
 
 * Atributes of Method
 
@@ -43,8 +43,8 @@
 
 * Arguments of Method
 
-* Attribute Name: request
-* Attribute Description: this attribute is used to represent the HTTP request that a browser sends to the application.
+* Arguments Name: request
+* Arguments Description: this attribute is used to represent the HTTP request that a browser sends to the application.
 
 * Atributes of Method
 

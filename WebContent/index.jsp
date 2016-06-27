@@ -2,6 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:choose>
+	<c:when test="${param.locale eq 'pt_BR'}">
+		<fmt:setLocale value="pt_BR" />
+	</c:when>
+	<c:otherwise>
+		<fmt:setLocale value="en_US" />
+	</c:otherwise>
+</c:choose>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -19,14 +29,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body class="blue lighten-5	">
+<fmt:setBundle basename="resouces.messages" var="msg"/>
+<a href="?locale=pt_BR">Português</a>|<a href="?locale=en_US">English</a>
 	<c:import url="header.jsp" />
 	<div class="section no-pad-bot" id="index-banner">
 		<div class="container">
 			<br> <br>
-			<h1 class="header center orange-text">Sistema de Cotações</h1>
+			<h1 class="header center orange-text"><fmt:message key="index.title" bundle="${msg}"/></h1>
 			<div class="row center">
-				<h5 class="header col s12 light">Sistema Ágil de Cotações para
-					Compra de Produtos de Fornecedores</h5>
+				<h5 class="header col s12 light"><fmt:message key="index.system_description" bundle="${msg}"/></h5>
 			</div>
 			<div class="row center">
 
@@ -35,7 +46,7 @@
 				%>
 
 				<a href="/SisCot/login.jsp" id="download-button"
-					class="btn-large waves-effect waves-light orange">Fazer Login</a>
+					class="btn-large waves-effect waves-light orange"><fmt:message key="login.login" bundle="${msg}"/></a>
 				<%
 					}
 				%>
@@ -56,13 +67,9 @@
 						<h2 class="center light-blue-text">
 							<i class="material-icons">flash_on</i>
 						</h2>
-						<h5 class="center">Agilidade de Negociações</h5>
+						<h5 class="center"><fmt:message key="index.agile_negociation" bundle="${msg}"/></h5>
 
-						<p class="light">Nós desenvolvemos um sistema capaz de
-							possibilitar que qualquer fornecedor dê seus preços a cada
-							cotação. De qualquer lugar do mundo o fornecedor pode visualizar
-							a cotação que está sendo executada, visualizar os produtos
-							solicitados e dar todos os seus preços.</p>
+						<p class="light"><fmt:message key="index.agile_negociation_description" bundle="${msg}"/></p>
 					</div>
 				</div>
 
@@ -71,12 +78,9 @@
 						<h2 class="center light-blue-text">
 							<i class="material-icons">group</i>
 						</h2>
-						<h5 class="center">Aumente a sua competitividade</h5>
+						<h5 class="center"><fmt:message key="index.competitiveness" bundle="${msg}"/></h5>
 
-						<p class="light">Utilizando sistema de cotações, sua
-							organização pode acompanhar os menores preços de cada produto e
-							assim ofertar um preço melhor a fim de ganhar a cotação naquele
-							produto.</p>
+						<p class="light"><fmt:message key="index.competitiveness_description" bundle="${msg}"/></p>
 					</div>
 				</div>
 
@@ -85,13 +89,9 @@
 						<h2 class="center light-blue-text">
 							<i class="material-icons">settings</i>
 						</h2>
-						<h5 class="center">Facilidade de Acesso</h5>
+						<h5 class="center"><fmt:message key="index.access_facility" bundle="${msg}"/></h5>
 
-						<p class="light">Nós Desenvolvemos um sistema de acesso fácil
-							e intuitivo, melhorando a sua sensação de navegabilidade e
-							facilitando a busca por informações. É extremamente simples
-							participar de uma cotação e dar o seu melhor preço. Faça parte
-							desse círculo de fornecedores Ágeis e competitivos.</p>
+						<p class="light"><fmt:message key="index.access_facility_description" bundle="${msg}"/></p>
 					</div>
 				</div>
 			</div>
@@ -107,25 +107,23 @@
 		<div class="row">
 			<div class="col l6 s12">
 				<h5 class="white-text">BMGWA Developers</h5>
-				<p class="grey-text text-lighten-4">Somos um time de
-					Desenvilvimento de Software, estudantes da Universidade de Brasília
-					Unidade Gama - UnB FGA. Desenvolvemos aplicações e sistemas de
-					acordo com a necessidade do cliente, sempre com o objetivo de
-					satisfazê-lo.</p>
+				<p class="grey-text text-lighten-4"><fmt:message key="index.developers_description" bundle="${msg}"/></p>
 
 
 			</div>
 			<div class="col l3 s12">
-				<h5 class="white-text">Configurações</h5>
+				<h5 class="white-text"><fmt:message key="index.settings" bundle="${msg}"/></h5>
 				<ul>
 					<li><a class="white-text"
-						href="https://github.com/BMGWA/SisCot">Código da Aplicação</a></li>
+						href="https://github.com/BMGWA/SisCot"><fmt:message key="index.application_code" bundle="${msg}"/></a></li>
 					<li><a class="white-text"
-						href="https://github.com/BMGWA/SisCot/wiki">Documentação</a></li>
+						href="https://github.com/BMGWA/SisCot/wiki"><fmt:message key="index.documentation" bundle="${msg}"/></a></li>
 				</ul>
 			</div>
 			<div class="col l3 s12">
-				<h5 class="white-text">Contato</h5>
+				<h5 class="white-text">
+					<fmt:message key="index.contact" bundle="${msg}" />
+				</h5>
 				<ul>
 					<li><a class="white-text" href="#!">Iago Rodrigues</a></li>
 					<li><a class="white-text" href="#!">Jonathan Rufino</a></li>
